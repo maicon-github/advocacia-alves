@@ -1,0 +1,145 @@
+<template>
+  <div class="white">
+    <v-footer color="blue-grey darken-3 white--text">
+      <v-container>
+        <v-row class="mb-12">
+          <v-col cols="5" align="center">
+            <h4 class="text-center mb-5">
+              Converse com um especialista sem compromisso
+            </h4>
+            <v-btn color="success" href="https://api.whatsapp.com/send?l=pt_BR&phone=5547988802222" target="_blank">
+              <v-icon left>
+                mdi-whatsapp
+              </v-icon> Whatsapp
+            </v-btn>
+          </v-col>
+          <v-col cols="2" align="center">
+            <h4 class="text-center mb-5">
+              Consulta online
+            </h4>
+            <v-btn color="red white--text">
+              Agendar agora
+            </v-btn>
+          </v-col>
+          <v-col cols="5">
+            <h4 class="text-center mb-5">
+              {{ socials.title }}
+            </h4>
+            <v-row justify="space-around" class="mx-12 px-12">
+              <v-btn
+                v-for="(item, i) in socials.items"
+                :key="i"
+                :href="item.link"
+                :title="item.label"
+                target="_blank"
+                icon
+              >
+                <v-icon large color="white">
+                  {{ item.icon }}
+                </v-icon>
+              </v-btn>
+            </v-row>
+          </v-col>
+          <v-col cols="12" class="text-center">
+            <span>
+              Atendimento de segunda a sexta das 09:00 as 12:00 e das 13:00 as 21:00
+            </span>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col v-for="(link, i) in links" :key="i" cols="3">
+            <p class="title bold pl-3">
+              {{ link.title }}
+            </p>
+            <p v-for="(item, j) in link.items" :key="j" class="mb-0">
+              <v-btn
+                :href="item.link"
+                text
+                small
+                color="white"
+                class="text-capitalize"
+              >
+                {{ item.label }}
+              </v-btn>
+            </p>
+          </v-col>
+          <v-col cols="12">
+            <font>
+              Advocacia Alves - CNPJ: XXX
+            </font>
+            <br>
+            <font>
+              Rua Paschoal Apóstolo Ptsica, 4860, Bairro Agronômica, Florianópolis/SC - CEP: 88025-255
+            </font>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-footer>
+    <v-container>
+      <v-row>
+        <v-col cols="6">
+          <p>Empresa Registrada Na OAB/SC sob o número.</p>
+        </v-col>
+        <v-col cols="6">
+          2020 Advocacia Alves - Todos os direitos reservados
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      socials: {
+        title: 'Acompanhê-nos nas redes sociais',
+        items: [
+          { icon: 'mdi-instagram', label: 'Instagram', link: 'https://www.instagram.com/Advocacia_Alves/' },
+          { icon: 'mdi-facebook', label: 'Facebook', link: 'https://business.facebook.com/advcalves' },
+          { icon: 'mdi-linkedin', label: 'Linkedin', link: 'https://www.linkedin.com/company/advocacia-alves/' },
+          { icon: 'mdi-youtube', label: 'Youtube', link: 'https://www.youtube.com/channel/UCpAjHLxtknsC0CICqXSwSqA' }
+        ]
+      },
+      links: [
+        {
+          title: 'Conteúdo',
+          items: [
+            { label: 'Newsletter', link: '/newsletter' },
+            { label: 'Podcasts', link: 'javascript:;' },
+            { label: 'Vídeos', link: 'https://www.youtube.com/channel/UCpAjHLxtknsC0CICqXSwSqA' },
+            { label: 'Artigos', link: '/blog' },
+            { label: 'Telegram', link: 'javascript:;' },
+            { label: 'E-books', link: 'javascript:;' }
+          ]
+        },
+        {
+          title: 'Institucional',
+          items: [
+            { label: 'Sobre', link: 'javascript:;' },
+            { label: 'Politica de privacidade', link: '/politica-de-privacidade' },
+            { label: 'Termos de uso', link: '/termos-de-uso' },
+            { label: 'Trabalhe conosco', link: 'javascript:;' },
+            { label: 'Imprensa', link: 'javascript:;' }
+          ]
+        },
+        {
+          title: 'Central de ajuda',
+          items: [
+            { label: 'Perguntas frequentes', link: 'javascript:;' },
+            { label: 'Atendimento online', link: '/consulta-online' },
+            { label: 'Atendimento presencial', link: 'javascript:;' },
+            { label: 'Solução de problemas', link: 'javascript:;' }
+          ]
+        },
+        {
+          title: 'Eventos',
+          items: [
+            { label: 'Palestras', link: 'javscript:;' },
+            { label: 'Cursos', link: 'javscript:;' }
+          ]
+        }
+      ]
+    }
+  }
+}
+</script>

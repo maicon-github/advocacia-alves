@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Header from '../components/shared/Header'
+import Header from '../components/blog/Header'
 import Footer from '../components/shared/Footer'
 export default {
   components: { Header, Footer }

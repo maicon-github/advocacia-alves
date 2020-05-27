@@ -1,7 +1,7 @@
 {
   "name": "advocacia",
   "version": "1.0.0",
-  "description": "My wicked Nuxt.js project",
+  "description": "Advocacia Alves",
   "author": "Daniel Alves",
   "private": true,
   "scripts": {
@@ -15,10 +15,16 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/prismic": "^1.2.0",
+    "moment": "^2.25.3",
+    "nodemailer": "^6.4.6",
     "nuxt": "^2.0.0",
     "prismic-dom": "^2.2.3",
     "prismic-javascript": "^2.7.1",
-    "prismic-vue": "^2.0.0"
+    "prismic-vue": "^2.0.0",
+    "slugify": "^1.4.0",
+    "validator": "^13.0.0",
+    "vee-validate": "^3.3.0",
+    "xss-filters": "^1.2.7"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.0.0",
