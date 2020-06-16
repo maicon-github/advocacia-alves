@@ -19,11 +19,11 @@
             <v-img :src="slice.primary.image.url" contain max-width="100%" />
           </v-col>
           <v-col v-if="slice.primary.type != 'Text'" cols="6" class="text-center flex">
-            <h1 class="display-1 font-weight-bold pb-6">
+            <h1 :class="`display-1 font-weight-bold pb-6 ${getBannerFontColor(slice)}`">
               {{ slice.primary.title }}
             </h1>
-            <prismic-rich-text :field="slice.primary.subtitle" />
-            <v-btn v-if="slice.primary.type == 'Banner'" color="primary">
+            <prismic-rich-text :field="slice.primary.subtitle" :class="`${getBannerFontColor(slice)}`"/>
+            <v-btn v-if="slice.primary.type == 'Banner'" color="#e57100" class="white--text">
               Agende uma consulta online agora
             </v-btn>
           </v-col>
@@ -56,6 +56,9 @@ export default {
         return `background-color:${slice.color};color:white;`
       }
       return ''
+    },
+    getBannerFontColor (slice) {
+      return slice.primary.type === 'Banner' ? 'white--text' : ''
     }
   }
 }

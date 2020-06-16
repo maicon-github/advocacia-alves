@@ -1,5 +1,5 @@
 <template>
-  <div class="blue-grey lighten-5 py-12">
+  <div class="py-12">
     <v-container>
       <v-row>
         <v-col v-for="(item, index) in informations" :key="index" :cols="12/informations.length">

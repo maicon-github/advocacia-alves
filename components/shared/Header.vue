@@ -7,7 +7,6 @@
             height="64"
             src="/logo.png"
             alt="Advocacia Alves"
-            class="pt-2"
           >
         </a>
         <v-spacer />
@@ -15,11 +14,19 @@
           v-for="(page, i) in pages"
           :key="i"
           :to="page.link"
-          :class="`my-auto ${page.color}`"
+          :class="`my-auto`"
           text
           small
         >
           {{ page.label }}
+        </v-btn>
+        <v-btn
+          to="/consulta-a-distancia"
+          class="my-auto white--text"
+          color="#e57100"
+          small
+        >
+          Consulta à Distância
         </v-btn>
       </v-row>
     </v-container>
@@ -35,8 +42,7 @@ export default {
         { label: 'Sobre', link: '/sobre', color: '' },
         { label: 'Blog', link: '/blog', color: '' },
         { label: 'Central de ajuda', link: '/central-de-ajuda', color: '' },
-        { label: 'Carreira', link: '#', color: '' },
-        { label: 'Consulta à Distância', link: '/consulta-a-distancia', color: 'red' }
+        { label: 'Carreira', link: '#', color: '' }
       ]
     }
   }

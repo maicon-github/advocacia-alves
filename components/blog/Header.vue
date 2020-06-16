@@ -21,6 +21,14 @@
           {{ page.label }}
         </v-btn>
         <v-spacer />
+        <v-btn
+          to="/consulta-a-distancia"
+          class="my-auto white--text"
+          color="#e57100"
+          small
+        >
+          Consulta à Distância
+        </v-btn>
       </v-row>
     </v-container>
   </v-app-bar>
@@ -33,8 +41,7 @@ export default {
       pages: [
         { label: 'Inicio', link: '/', color: '' },
         { label: 'Sobre', link: '/sobre', color: '' },
-        { label: 'Categorias', link: '#', color: '' },
-        { label: 'Consulta à Distância', link: '/consulta-a-distancia', color: 'red' }
+        { label: 'Categorias', link: '#', color: '' }
       ]
     }
   }

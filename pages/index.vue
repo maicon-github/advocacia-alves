@@ -1,13 +1,13 @@
 <template>
   <div>
     <MainBanner :title="header_title" :subtitle="header_subtitle" :banner="main_image.url" />
-    <Images :images="images" />
-    <Testimonies :title="testimony_title" :testimonies="testimonies" />
-    <Informations :informations="informations" />
-    <Images :images="media" :title="media_title" />
+    <Testimonies :title="testimony_title" :testimonies="testimonies" class="mt-12" />
+    <Informations :informations="informations" style="background-color: #f6f9fc" />
+    <!-- <Images :images="images" title="Premiações e reconhecimentos" class="my-12" /> -->
+    <Images :images="media" :title="media_title" class="my-12" />
     <Coverage :title="coverage_title" :coverage="coverage" :banner="coverage_map.url" />
-    <RichText :content="payment" class="mt-12" />
-    <Blog :content="blog" :posts="posts" />
+    <!-- <RichText :content="payment" class="mt-12" /> -->
+    <Blog :content="blog" :posts="posts" :title="blog_title" class="mt-12 pt-12" />
     <Images :images="payments" :title="payments_title" />
   </div>
 </template>
@@ -15,7 +15,7 @@
 <script>
 import Blog from '../components/home/Blog'
 import Images from '../components/home/Images'
-import RichText from '../components/home/RichText'
+// import RichText from '../components/home/RichText'
 import Coverage from '../components/home/Coverage'
 import MainBanner from '../components/home/MainBanner'
 import Testimonies from '../components/home/Testimonies'
@@ -28,7 +28,6 @@ export default {
     Testimonies,
     Informations,
     Coverage,
-    RichText,
     Blog
   },
   async asyncData ({ $prismic, error }) {

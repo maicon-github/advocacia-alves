@@ -1,7 +1,7 @@
 <template>
   <v-row class="d-flex flex-row">
-    <v-img src="404.jpg" :height="availableHeight" cover />
-    <div class="pa-12 brown  lighten-5">
+    <v-img src="404.png" :height="availableHeight" cover />
+    <div class="pa-12">
       <h1 class="display-2 my-6">
         Ixe...
       </h1>

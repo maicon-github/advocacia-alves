@@ -17,7 +17,7 @@
             <h4 class="text-center mb-5">
               Consulta online
             </h4>
-            <v-btn color="red white--text">
+            <v-btn color="#e57100" class="white--text">
               Agendar agora
             </v-btn>
           </v-col>
