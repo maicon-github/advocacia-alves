@@ -18,7 +18,7 @@
           <v-col v-if="slice.primary.type == 'Left'" cols="6">
             <v-img :src="slice.primary.image.url" contain max-width="100%" />
           </v-col>
-          <v-col v-if="slice.primary.type != 'Text'" cols="6" class="text-center flex">
+          <v-col v-if="slice.primary.type != 'Text'" cols="6" class="text-center">
             <h1 :class="`display-1 font-weight-bold pb-6 ${getBannerFontColor(slice)}`">
               {{ slice.primary.title }}
             </h1>
