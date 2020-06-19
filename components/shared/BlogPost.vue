@@ -4,6 +4,7 @@
       :height="imageSize"
       class="white--text align-end"
       :src="post.data.image.url"
+      eager
     />
     <v-card-subtitle class="pb-0">
       {{ post.data.type }}

@@ -5,7 +5,7 @@
         <v-card outlined>
           <v-list-item three-line>
             <v-list-item-avatar size="150" color="grey">
-              <v-img :src="data.image.url" contain />
+              <v-img :src="data.image.url" contain eager />
             </v-list-item-avatar>
             <v-list-item-content>
               <v-list-item-title class="headline mb-1">

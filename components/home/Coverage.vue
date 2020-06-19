@@ -1,5 +1,5 @@
 <template>
-  <v-img :src="banner" class="white--text d-flex align-center" />
+  <v-img :src="banner" class="white--text d-flex align-center" eager />
 </template>
 <script>
 export default {

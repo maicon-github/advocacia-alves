@@ -10,7 +10,7 @@
           <PostInfo :author="author" :updated-at="post.updatedAt" :created-at="post.createdAt" />
           <div v-for="(slice,i) in post.body" :key="i">
             <prismic-rich-text v-if="slice.slice_type == 'texto'" :field="slice.primary.content" />
-            <v-img v-if="slice.slice_type == 'image'" :src="slice.primary.img.url" contain max-width="100%" />
+            <v-img v-if="slice.slice_type == 'image'" :src="slice.primary.img.url" contain max-width="100%" eager />
           </div>
         </div>
       </v-col>

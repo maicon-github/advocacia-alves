@@ -2,7 +2,7 @@
   <v-app>
     <v-row>
       <v-col cols="6" class="pa-0">
-        <v-img cover src="/newsletter-signature.png" :height="availableHeight" />
+        <v-img cover src="/newsletter-signature.png" :height="availableHeight" eager />
       </v-col>
       <v-col cols="6" class="pa-12 grey lighten-3">
         <p class="title text-center">

@@ -9,26 +9,33 @@
       <v-container>
         <v-row class="d-flex align-center">
           <v-col v-if="slice.primary.type == 'Text'" cols="8" offset="2" class="text-center">
-            <v-img v-if="slice.primary.image != null" :src="slice.primary.image.url" contain width="100" class="ma-auto" />
+            <v-img
+              v-if="slice.primary.image != null"
+              :src="slice.primary.image.url"
+              width="100"
+              class="ma-auto"
+              contain
+              eager
+            />
             <h1 class="display-1 font-weight-bold py-6">
               {{ slice.primary.title }}
             </h1>
             <prismic-rich-text :field="slice.primary.subtitle" />
           </v-col>
           <v-col v-if="slice.primary.type == 'Left'" cols="6">
-            <v-img :src="slice.primary.image.url" contain max-width="100%" />
+            <v-img :src="slice.primary.image.url" contain max-width="100%" eager />
           </v-col>
           <v-col v-if="slice.primary.type != 'Text'" cols="6" class="text-center">
             <h1 :class="`display-1 font-weight-bold pb-6 ${getBannerFontColor(slice)}`">
               {{ slice.primary.title }}
             </h1>
-            <prismic-rich-text :field="slice.primary.subtitle" :class="`${getBannerFontColor(slice)}`"/>
+            <prismic-rich-text :field="slice.primary.subtitle" :class="`${getBannerFontColor(slice)}`" />
             <v-btn v-if="slice.primary.type == 'Banner'" color="#e57100" class="white--text">
               Agende uma consulta online agora
             </v-btn>
           </v-col>
           <v-col v-if="slice.primary.type == 'Right'" cols="6">
-            <v-img :src="slice.primary.image.url" contain max-width="100%" />
+            <v-img :src="slice.primary.image.url" contain max-width="100%" eager />
           </v-col>
         </v-row>
       </v-container>

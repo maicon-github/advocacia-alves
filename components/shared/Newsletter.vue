@@ -8,6 +8,7 @@
           class="text-xs-center pa-12"
           height="200px"
           align="center"
+          eager
         >
           <p class="title mb-0">
             Quer receber mais conteúdos brilhantes como esses gratuitamente?

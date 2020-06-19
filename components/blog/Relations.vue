@@ -8,7 +8,7 @@
       </v-col>
       <v-col v-for="(related,i) in relations" :key="i" cols="4">
         <v-card hover height="180" :href="`/blog/${related.uid}`">
-          <v-img height="100%" :src="related.data.image.url">
+          <v-img height="100%" :src="related.data.image.url" eager>
             <v-overlay :absolute="true" :value="true" opacity="0.30" class="d-flex align-start">
               <v-card-subtitle class="white--text pb-0">
                 {{ related.data.type }}

@@ -1,6 +1,6 @@
 <template>
   <v-row class="d-flex flex-row">
-    <v-img src="404.png" :height="availableHeight" cover />
+    <v-img src="404.png" :height="availableHeight" cover eager />
     <div class="pa-12">
       <h1 class="display-2 my-6">
         Ixe...
