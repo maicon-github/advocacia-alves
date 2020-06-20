@@ -51,7 +51,8 @@ export default {
     '@nuxtjs/prismic'
   ],
   prismic: {
-    endpoint: 'https://advocacia.cdn.prismic.io/api/v2'
+    endpoint: 'https://advocacia.cdn.prismic.io/api/v2',
+    linkResolver: '@/plugins/link-resolver'
   },
   /*
   ** Axios module configuration
