@@ -1,5 +1,5 @@
 <template>
-  <v-img src="500.jpg" cover class="pt-12" :height="availableHeight" eager>
+  <v-img src="/500.jpg" cover class="pt-12" :height="availableHeight" eager>
     <h1 class="display-4 text-center">
       Erro 500
     </h1>
