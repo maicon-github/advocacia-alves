@@ -83,7 +83,6 @@ export default {
     }
   },
   generate: {
-    subFolders: false,
     async routes () {
       const client = Prismic.client('https://advocacia.cdn.prismic.io/api/v2')
 
