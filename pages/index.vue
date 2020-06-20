@@ -32,6 +32,19 @@ export default {
   },
   async asyncData ({ $prismic, error }) {
     try {
+      // const fetchRoutes = async (page = 1, routes = []) => {
+      //   const response = (await $prismic.api.query(
+      //     $prismic.predicates.at('document.type', 'blogpost'),
+      //     { pageSize: 100, lang: '*', page: 1 }
+      //   ))
+      //   const allRoutes = routes.concat(response.results.map(e => `/blog/${e.uid}`))
+      //   if (response.results_size + routes.length < response.total_results_size) {
+      //     return fetchRoutes(page + 1, allRoutes)
+      //   }
+      //   return allRoutes
+      // }
+
+      // console.log((await fetchRoutes()))
       const homepage = (await $prismic.api.getSingle('homepage'))
       const posts = (await $prismic.api.query(
         $prismic.predicates.at('document.type', 'blogpost'),

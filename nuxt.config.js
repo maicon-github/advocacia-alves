@@ -1,3 +1,5 @@
+import Prismic from 'prismic-javascript'
+
 export default {
   mode: 'universal',
   /*
@@ -78,6 +80,25 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+    }
+  },
+  generate: {
+    async routes (options) {
+      const client = Prismic.client(options.endpoint, options.apiOptions)
+
+      const fetchRoutes = async (page = 1, routes = []) => {
+        const response = (await client.query(
+          client.predicates.at('document.type', 'blogpost'),
+          { pageSize: 100, lang: '*', page: 1 }
+        ))
+        const allRoutes = routes.concat(response.results.map(e => `/blog/${e.uid}`))
+        if (response.results_size + routes.length < response.total_results_size) {
+          return fetchRoutes(page + 1, allRoutes)
+        }
+        return allRoutes
+      }
+
+      return await fetchRoutes()
     }
   }
 }
