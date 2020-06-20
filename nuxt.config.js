@@ -83,12 +83,13 @@ export default {
     }
   },
   generate: {
-    async routes (options) {
-      const client = Prismic.client(options.endpoint, options.apiOptions)
+    subFolders: false,
+    async routes () {
+      const client = Prismic.client('https://advocacia.cdn.prismic.io/api/v2')
 
       const fetchRoutes = async (page = 1, routes = []) => {
         const response = (await client.query(
-          client.predicates.at('document.type', 'blogpost'),
+          Prismic.Predicates.at('document.type', 'blogpost'),
           { pageSize: 100, lang: '*', page: 1 }
         ))
         const allRoutes = routes.concat(response.results.map(e => `/blog/${e.uid}`))
