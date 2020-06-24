@@ -26,6 +26,7 @@
     "uuid": "^8.2.0",
     "validator": "^13.0.0",
     "vee-validate": "^3.3.0",
+    "vercel": "^19.1.1",
     "xss-filters": "^1.2.7"
   },
   "devDependencies": {
