@@ -30,6 +30,4 @@ export default (req, res) => {
       res.status(500)
       res.json({ message, error, headers, request, status })
     })
-
-  res.json({ releases })
 }
