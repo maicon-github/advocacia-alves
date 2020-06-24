@@ -84,7 +84,7 @@ export default {
   },
   generate: {
     async routes () {
-      const client = Prismic.client('https://advocacia.cdn.prismic.io/api/v2')
+      const client = Prismic.client(this.prismic.endpoint)
 
       const fetchRoutes = async (page = 1, routes = []) => {
         const response = (await client.query(

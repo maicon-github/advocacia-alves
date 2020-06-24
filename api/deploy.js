@@ -1,7 +1,7 @@
 export default (req, res) => {
+  const secret = req.body.secret
+
   res.json({
-    body: req.body,
-    query: req.query,
-    cookies: req.cookies
+    secret: process.env.SECRET === secret
   })
 }
