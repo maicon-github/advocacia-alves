@@ -53,7 +53,7 @@ export default {
     '@nuxtjs/prismic'
   ],
   prismic: {
-    endpoint: 'https://advocacia.cdn.prismic.io/api/v2',
+    endpoint: process.env.PRISMIC_ENDPOINT,
     linkResolver: '@/plugins/link-resolver'
   },
   /*
@@ -84,7 +84,7 @@ export default {
   },
   generate: {
     async routes () {
-      const client = Prismic.client(this.prismic.endpoint)
+      const client = Prismic.client(process.env.PRISMIC_ENDPOINT)
 
       const fetchRoutes = async (page = 1, routes = []) => {
         const response = (await client.query(
