@@ -3,10 +3,8 @@
     <MainBanner :title="header_title" :subtitle="header_subtitle" :banner="main_image.url" />
     <Testimonies :title="testimony_title" :testimonies="testimonies" class="mt-12" />
     <Informations :informations="informations" style="background-color: #f6f9fc" />
-    <!-- <Images :images="images" title="Premiações e reconhecimentos" class="my-12" /> -->
     <Images :images="media" :title="media_title" class="my-12" />
     <Coverage :title="coverage_title" :coverage="coverage" :banner="coverage_map.url" />
-    <!-- <RichText :content="payment" class="mt-12" /> -->
     <Blog :content="blog" :posts="posts" :title="blog_title" class="mt-12 pt-12" />
     <Images :images="payments" :title="payments_title" />
   </div>
@@ -15,7 +13,6 @@
 <script>
 import Blog from '../components/home/Blog'
 import Images from '../components/home/Images'
-// import RichText from '../components/home/RichText'
 import Coverage from '../components/home/Coverage'
 import MainBanner from '../components/home/MainBanner'
 import Testimonies from '../components/home/Testimonies'
@@ -37,6 +34,7 @@ export default {
       //     $prismic.predicates.at('document.type', 'blogpost'),
       //     { pageSize: 100, lang: '*', page: 1 }
       //   ))
+      //   console.log(response)
       //   const allRoutes = routes.concat(response.results.map(e => `/blog/${e.uid}`))
       //   if (response.results_size + routes.length < response.total_results_size) {
       //     return fetchRoutes(page + 1, allRoutes)
