@@ -1,7 +1,9 @@
 export default (req, res) => {
-  const secret = req.body.secret || ''
+  const { secret, type, releases } = req.body
 
   res.json({
-    secret: process.env.SECRET === secret
+    secret: process.env.SECRET === secret,
+    type,
+    releases
   })
 }
