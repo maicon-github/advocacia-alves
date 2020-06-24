@@ -1,7 +1,9 @@
-import Bitbucket from 'bitbucket'
+import { Bitbucket } from 'bitbucket'
+import { v4 as uuidv4 } from 'uuid'
+import { exec } from 'child_process'
 
 export default (req, res) => {
-  const { secret, type, releases } = req.body
+  const { secret, type } = req.body
 
   if (process.env.PRISMIC_SECRET !== secret) {
     return res.status(401)
@@ -12,22 +14,49 @@ export default (req, res) => {
     return res.json({ message: `Invalid type ${type}` })
   }
 
-  const bitbucket = new Bitbucket({
-    auth: { username: process.env.GIT_USERNAME, password: process.env.GIT_PASSWORD }
+  exec('vercel', (error, stdout, stderr) => {
+    if (error) {
+      res.json({ message: `error: ${error.message}` })
+      return
+    }
+    if (stderr) {
+      res.json({ message: `error: ${error.message}` })
+      return
+    }
+    res.json({ message: `stdout: ${stdout}` })
   })
+//   const bitbucket = new Bitbucket({
+//     auth: { username: process.env.GIT_USERNAME, password: process.env.GIT_PASSWORD }
+//   })
 
-  // bitbucket.commits
-  //   .createApproval({ node: '', repo_slug: '', workspace: '' })
-  //   .then(({ data, headers, status, url }) => {})
-  //   .catch(({ message, error, headers, request, status }) => {})
+//   bitbucket.commits
+//     .list({
+//       repo_slug: process.env.GIT_REPOSITORY,
+//       workspace: process.env.GIT_WORKSPACE
+//     })
+//     .then(({ data, headers, status, url }) => {
+//       if (data.values.length === 0) {
+//         res.json({ message: 'No commit to deploy' })
+//         return
+//       }
 
-  bitbucket.commits
-    .createApproval({ repo_slug: process.env.GIT_REPOSITORY, workspace: process.env.GIT_WORKSPACE })
-    .then(({ data, headers, status, url }) => {
-      res.json({ data, headers, status, url })
-    })
-    .catch(({ message, error, headers, request, status }) => {
-      res.status(500)
-      res.json({ message, error, headers, request, status })
-    })
+//       bitbucket.commitstatuses
+//         .createBuildStatus({
+//           node: data.values[0].hash,
+//           repo_slug: process.env.GIT_REPOSITORY,
+//           workspace: process.env.GIT_WORKSPACE,
+//           _body: { state: 'SUCCESSFUL', url: 'http://google.com', key: uuidv4() }
+//         })
+//         .then(({ data, headers, status, url }) => {
+//           res.json({ message: 'Deployed' })
+//         })
+//         .catch(({ message, error, headers, request, status }) => {
+//           res.status(500)
+//           res.json({ message, error })
+//         })
+//     })
+//     .catch(({ message, error, headers, request, status }) => {
+//       res.status(500)
+//       res.json({ message, error })
+//     })
 }
