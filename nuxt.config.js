@@ -6,6 +6,7 @@ export default {
   ** Headers of the page
   */
   head: {
+    htmlAttrs: { lang: 'pt-BR' },
     titleTemplate: '%s',
     title: 'Advocacia Alves',
     meta: [

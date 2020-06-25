@@ -9,7 +9,7 @@
     </v-row>
     <v-row class="d-flex flex-row">
       <v-col v-for="(item, index) in images" :key="index" :cols="12/images.length">
-        <img :src="item.image.url" width="100%">
+        <img :src="item.image.url" width="100%" :alt="item.image.alt">
       </v-col>
     </v-row>
   </v-container>
