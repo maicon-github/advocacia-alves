@@ -7,7 +7,7 @@
             <h4 class="text-center mb-5">
               Converse com um especialista sem compromisso
             </h4>
-            <v-btn color="success" href="https://api.whatsapp.com/send?l=pt_BR&phone=5547988802222" target="_blank">
+            <v-btn color="success" href="https://api.whatsapp.com/send?l=pt_BR&phone=5547988802222" target="_blank" rel="noreferrer">
               <v-icon left>
                 mdi-whatsapp
               </v-icon> Whatsapp
@@ -32,6 +32,7 @@
                 :href="item.link"
                 :title="item.label"
                 target="_blank"
+                rel="noreferrer"
                 icon
               >
                 <v-icon large color="white">
