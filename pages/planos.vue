@@ -15,13 +15,15 @@
             <v-card-title class="title">
               {{ plan.caption }}
             </v-card-title>
-            <v-card-subtitle>
+            <v-card-subtitle class="black--text">
               {{ plan.description }}
             </v-card-subtitle>
-            <v-card-text class="font-weight-bold text-center display-1">
-              {{ plan.value }}
+            <v-card-text class="black--text">
+              <p class="font-weight-bold text-center display-1">
+                {{ plan.value }}
+              </p>
+              <prismic-rich-text :field="plan.information" />
             </v-card-text>
-            <prismic-rich-text :field="plan.information" />
           </v-card>
         </v-col>
       </v-row>

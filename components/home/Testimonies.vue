@@ -1,5 +1,5 @@
 <template>
-  <v-container class="mb-5\z">
+  <v-container class="mb-5">
     <v-row>
       <v-col cols="12">
         <div class="flex display-1 font-weight-bold mb-5 text-center">

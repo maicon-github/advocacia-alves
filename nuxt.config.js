@@ -17,9 +17,6 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  serverMiddleware: [
-    { path: '/api/contact', handler: '~/api/contact.js' }
-  ],
   /*
   ** Customize the progress-bar color
   */
@@ -53,7 +50,7 @@ export default {
     '@nuxtjs/prismic'
   ],
   prismic: {
-    endpoint: process.env.PRISMIC_ENDPOINT,
+    endpoint: 'https://advocacia.cdn.prismic.io/api/v2',
     linkResolver: '@/plugins/link-resolver'
   },
   /*
