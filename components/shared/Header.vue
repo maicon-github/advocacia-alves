@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar fixed>
+  <v-app-bar fixed app>
     <v-container>
       <v-row>
         <a href="/">

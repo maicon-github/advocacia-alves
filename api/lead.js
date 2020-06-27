@@ -13,7 +13,7 @@ export default (req, res) => {
   }).then((client) => {
     client.API.MODULES.post({
       module: 'Leads',
-      body: { data: [{ Email: email, Last_Name: name, Mobile: phone }] }
+      body: { data: [{ Email: email, Last_Name: name, Phone: phone.replace(/\D/g, '') }] }
     }).then(data => res.status(200).json(JSON.parse(data.body)))
       .catch(err => res.status(400).json(err))
   })

@@ -3,7 +3,7 @@
     <div
       v-for="(slice,i) in page.body"
       :key="i"
-      class="mt-12 d-flex align-center"
+      class="d-flex align-center"
       :style="getStyle(slice.primary)"
     >
       <v-container>

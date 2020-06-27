@@ -26,6 +26,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/plugins/mask.js'
   ],
   /*
   ** Plugins to load before mounting the App

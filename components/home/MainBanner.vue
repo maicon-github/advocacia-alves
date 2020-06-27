@@ -1,5 +1,5 @@
 <template>
-  <div class="blue darken-4 my-12 py-12 white--text" :style="style">
+  <div class="blue darken-4 py-12 white--text" :style="style">
     <v-container>
       <v-row>
         <v-col cols="4" offset="2">

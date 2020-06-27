@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div class="mt-12">
+    <div>
       <v-img :src="banner.url" width="100%" cover eager>
         <h1 class="display-2 font-weight-bold mb-6 text-center mt-12 white--text">
           {{ title }}
