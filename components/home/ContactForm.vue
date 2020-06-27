@@ -68,7 +68,7 @@ export default {
   methods: {
     showErrorMessage () {
       this.snackbar = {
-        show: false,
+        show: true,
         color: 'error',
         message: 'Houve um erro ao agendar tente novamente mais tarde'
       }
