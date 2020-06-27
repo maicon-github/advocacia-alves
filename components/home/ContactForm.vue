@@ -70,14 +70,14 @@ export default {
       this.snackbar = {
         show: true,
         color: 'error',
-        message: 'Houve um erro ao agendar tente novamente mais tarde'
+        message: 'Não foi possível registrar a sua solicitação, tente novamente mais tarde!'
       }
     },
     showSuccessMessage () {
       this.snackbar = {
         show: true,
         color: 'success',
-        message: 'Solicitação enviada, em breve entraremos em contato pelo número informado'
+        message: 'Solicitação enviada, em breve entraremos em contato pelo número informado!'
       }
     },
     resetFormValues () {
@@ -85,11 +85,11 @@ export default {
       this.$refs.leadForm.resetValidation()
     },
     submit () {
-      if (this.loading) { return }
+      if (this.form.submitting) { return }
 
       if (this.$refs.leadForm.validate()) {
         this.form.submitting = true
-        this.$axios.post(`${window.location.href}api/lead`, { name: this.form.name, phone: this.form.phone })
+        this.$axios.post(`${window.location.origin}/api/lead`, { name: this.form.name, phone: this.form.phone })
           .then((res) => {
             if (res.status === 200) {
               this.resetFormValues()
