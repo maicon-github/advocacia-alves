@@ -13,21 +13,13 @@
         <v-btn
           v-for="(page, i) in pages"
           :key="i"
-          :to="page.link"
+          :href="page.link"
+          :target="page.target"
           class="my-auto"
           text
           small
         >
           {{ page.label }}
-        </v-btn>
-        <v-btn
-          href="https://advocaciaalves.zohorecruit.com/jobs/carreira"
-          class="my-auto"
-          text
-          small
-          target="_blank"
-        >
-          Carreira
         </v-btn>
         <v-btn
           to="/consulta-a-distancia"
@@ -50,7 +42,8 @@ export default {
         { label: 'Inicio', link: '/', color: '' },
         { label: 'Sobre', link: '/sobre', color: '' },
         { label: 'Blog', link: '/blog', color: '' },
-        { label: 'Central de ajuda', link: '/central-de-ajuda', color: '' }
+        { label: 'Central de ajuda', link: '/central-de-ajuda', color: '' },
+        { label: 'Carreira', link: 'https://advocaciaalves.zohorecruit.com/jobs/carreira', color: '', target: '_blank' }
       ]
     }
   }

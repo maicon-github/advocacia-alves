@@ -1,5 +1,5 @@
 <template>
-  <v-container class="mt-12">
+  <v-container>
     <v-row>
       <v-col cols="8" offset="2" class="pb-12">
         <Breadcrumb :items="breadCrumbItems" class="mx-auto px-0" />
