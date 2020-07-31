@@ -22,7 +22,7 @@
         required
       />
       <recaptcha @error="onError" @success="onSuccess" @expired="onExpired" />
-      <v-btn color="#e57100" class="my-auto" dark :loading="form.submitting" @click="onSubmit">
+      <v-btn color="#e57100" class="my-auto" dark :loading="form.submitting" @click="submit">
         <span class="white--text text-uppercase">
           Solicitar ligação
         </span>
@@ -85,49 +85,45 @@ export default {
       this.form = { name: '', phone: '', valid: true, submitting: false }
       this.$refs.leadForm.resetValidation()
     },
-    submit () {
+    onError (error) {
+      this.showErrorMessage()
+      window.console.log('Error happened:', error)
+    },
+    async submit () {
       if (this.form.submitting) { return }
 
-      if (this.$refs.leadForm.validate()) {
-        this.form.submitting = true
-        this.$axios.post(`${window.location.origin}/api/lead`, { name: this.form.name, phone: this.form.phone })
-          .then((res) => {
-            if (res.status === 200) {
-              this.resetFormValues()
-              this.showSuccessMessage()
-            } else {
-              this.showErrorMessage()
-            }
-          })
-          .catch((err) => {
-            window.console.log(err)
-            this.showErrorMessage()
-          })
-          .finally(() => {
-            this.form.submitting = false
-          })
-      }
-    },
-    onError (error) {
-      console.log('Error happened:', error)
-    },
-    async onSubmit () {
       try {
-        const token = await this.$recaptcha.getResponse()
-        console.log('ReCaptcha token:', token)
-        await this.$recaptcha.reset()
+        if (this.$refs.leadForm.validate()) {
+          this.form.submitting = true
+          const token = await this.$recaptcha.getResponse()
+          window.console.log('ReCaptcha token:', token)
+          await this.$recaptcha.reset()
+        }
       } catch (error) {
-        // eslint-disable-next-line no-console
-        console.log('Login error:', error)
+        this.showErrorMessage()
+        window.console.log('Login error:', error)
       }
     },
     onSuccess (token) {
-      console.log('Succeeded:', token)
-      // here you submit the form
-      this.$refs.form.submit()
+      this.$axios.post(`${window.location.origin}/api/lead`, { name: this.form.name, phone: this.form.phone })
+        .then((res) => {
+          if (res.status === 200) {
+            this.resetFormValues()
+            this.showSuccessMessage()
+          } else {
+            this.showErrorMessage()
+          }
+        })
+        .catch((err) => {
+          window.console.log(err)
+          this.showErrorMessage()
+        })
+        .finally(() => {
+          this.form.submitting = false
+        })
     },
     onExpired () {
-      console.log('Expired')
+      window.console.log('Expired')
     }
   }
 }
