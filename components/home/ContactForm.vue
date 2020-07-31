@@ -21,7 +21,8 @@
         dense
         required
       />
-      <v-btn color="#e57100" class="my-auto" dark :loading="form.submitting" @click="submit">
+      <recaptcha @error="onError" @success="onSuccess" @expired="onExpired" />
+      <v-btn color="#e57100" class="my-auto" dark :loading="form.submitting" @click="onSubmit">
         <span class="white--text text-uppercase">
           Solicitar ligação
         </span>
@@ -106,6 +107,27 @@ export default {
             this.form.submitting = false
           })
       }
+    },
+    onError (error) {
+      console.log('Error happened:', error)
+    },
+    async onSubmit () {
+      try {
+        const token = await this.$recaptcha.getResponse()
+        console.log('ReCaptcha token:', token)
+        await this.$recaptcha.reset()
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.log('Login error:', error)
+      }
+    },
+    onSuccess (token) {
+      console.log('Succeeded:', token)
+      // here you submit the form
+      this.$refs.form.submit()
+    },
+    onExpired () {
+      console.log('Expired')
     }
   }
 }

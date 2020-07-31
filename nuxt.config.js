@@ -49,11 +49,18 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    '@nuxtjs/prismic'
+    '@nuxtjs/prismic',
+    '@nuxtjs/recaptcha'
   ],
   prismic: {
     endpoint: 'https://advocacia.cdn.prismic.io/api/v2',
     linkResolver: '@/plugins/link-resolver'
+  },
+  recaptcha: {
+    hideBadge: false,
+    siteKey: '6Lc7ybgZAAAAAJ6REYF30iOA8TL2Mi1PzySpzJN6',
+    version: 2,
+    size: 'invisible'
   },
   /*
   ** Axios module configuration
