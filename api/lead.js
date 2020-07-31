@@ -11,11 +11,10 @@ export default (req, res) => {
     user_identifier: process.env.ZOHO_USER_IDENTIFIER,
     mysql_module: 'local'
   }).then((client) => {
-    res.json(client)
-    // client.API.MODULES.post({
-    //   module: 'Leads',
-    //   body: { data: [{ Email: email, Last_Name: name, Phone: phone.replace(/\D/g, '') }] }
-    // }).then(data => res.status(200).json(JSON.parse(data.body)))
-    //   .catch(err => res.status(400).json(err))
+    client.API.MODULES.post({
+      module: 'Leads',
+      body: { data: [{ Email: email, Last_Name: name, Phone: phone.replace(/\D/g, '') }] }
+    }).then(data => res.status(200).json(JSON.parse(data.body)))
+      .catch(err => res.status(400).json(err))
   })
 }
