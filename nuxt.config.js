@@ -50,18 +50,9 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     '@nuxtjs/prismic',
-    '@nuxtjs/recaptcha'
+    '@nuxtjs/recaptcha',
+    '@nuxtjs/sitemap'
   ],
-  prismic: {
-    endpoint: 'https://advocacia.cdn.prismic.io/api/v2',
-    linkResolver: '@/plugins/link-resolver'
-  },
-  recaptcha: {
-    hideBadge: false,
-    siteKey: '6Lc7ybgZAAAAAJ6REYF30iOA8TL2Mi1PzySpzJN6',
-    version: 2,
-    size: 'invisible'
-  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
@@ -106,5 +97,22 @@ export default {
 
       return await fetchRoutes()
     }
+  },
+  prismic: {
+    endpoint: 'https://advocacia.cdn.prismic.io/api/v2',
+    linkResolver: '@/plugins/link-resolver'
+  },
+  recaptcha: {
+    hideBadge: false,
+    siteKey: '6Lc7ybgZAAAAAJ6REYF30iOA8TL2Mi1PzySpzJN6',
+    version: 2,
+    size: 'invisible'
+  },
+  sitemap: {
+    hostname: 'https://advocaciaalves.com.br',
+    path: '/sitemap.xml',
+    cacheTime: 1000 * 60 * 60 * 2,
+    trailingSlash: true,
+    gzip: true
   }
 }

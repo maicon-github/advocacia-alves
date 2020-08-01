@@ -16,6 +16,7 @@
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/prismic": "^1.2.0",
     "@nuxtjs/recaptcha": "^0.6.2",
+    "@nuxtjs/sitemap": "^2.4.0",
     "axios": "^0.19.2",
     "moment": "^2.25.3",
     "nuxt": "^2.0.0",
