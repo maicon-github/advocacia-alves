@@ -87,6 +87,7 @@ export default {
     },
     onError (error) {
       this.showErrorMessage()
+      this.form.submitting = false
       window.console.log('Error happened:', error)
     },
     async submit () {
@@ -101,6 +102,7 @@ export default {
         }
       } catch (error) {
         this.showErrorMessage()
+        this.form.submitting = false
         window.console.log('Login error:', error)
       }
     },
@@ -123,6 +125,7 @@ export default {
         })
     },
     onExpired () {
+      this.form.submitting = false
       window.console.log('Expired')
     }
   }
