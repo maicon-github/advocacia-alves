@@ -1,20 +1,37 @@
-// import zcrmsdk from '@trifoia/zcrmsdk'
+import axios from 'axios'
 
 export default (req, res) => {
-//   const { name, email, phone } = req.body
-  res.json(req.body)
-//   zcrmsdk.initialize({
-//     client_id: process.env.ZOHO_CLIENT_ID,
-//     redirect_url: process.env.ZOHO_REDIRECT_URL,
-//     client_secret: process.env.ZOHO_CLIENT_SECRET,
-//     refresh_token: process.env.ZOHO_REFRESH_TOKEN,
-//     user_identifier: process.env.ZOHO_USER_IDENTIFIER,
-//     mysql_module: 'local'
-//   }).then((client) => {
-//     client.API.MODULES.post({
-//       module: 'Leads',
-//       body: { data: [{ Email: email, Last_Name: name, Phone: phone.replace(/\D/g, '') }] }
-//     }).then(data => res.status(200).json(JSON.parse(data.body)))
-//       .catch(err => res.status(400).json(err))
-//   })
+  const { name, email, phone } = req.body
+
+
+  const config = {
+    client_id: process.env.ZOHO_CLIENT_ID,
+    client_secret: process.env.ZOHO_CLIENT_SECRET,
+    redirect_url: process.env.ZOHO_REDIRECT_URL,
+    refresh_token: process.env.ZOHO_REFRESH_TOKEN,
+    iamurl: 'accounts.zoho.com',
+    base_url: 'www.zohoapis.com',
+    user_identifier: process.env.ZOHO_USER_IDENTIFIER,
+    list_key: '5ab671057c456da57a52f99974ed5aff894375f7a7d2d66f',
+    auth_token: '9ff7d2d661dcc5560ea138a1851da70a'
+  }
+
+  axios.post(`https://accounts.zoho.com/oauth/v2/token?refresh_token=${config.refresh_token}&client_id=${config.client_id}&client_secret=${config.client_secret}&grant_type=refresh_token`)
+    .then((auth) => {
+      axios({
+        method: 'post',
+        headers: { authorization: `Zoho-oauthtoken ${auth.data.access_token}` },
+        url: `https://campaigns.zoho.com/api/json/listsubscribe?scope=CampaignsAPI&resfmt=JSON&authtoken=${config.auth_token}&listkey=${config.list_key}&contactinfo={"First Name":"${name}","Contact Email":"${email}","Phone":"${phone}"}`,
+        data: {}
+      })
+        .then((contact) => {
+          res.status(200).json(contact.data)
+        })
+        .catch((err) => {
+          res.status(400).send(err)
+        })
+    })
+    .catch((err) => {
+      res.status(400).send(err)
+    })
 }
