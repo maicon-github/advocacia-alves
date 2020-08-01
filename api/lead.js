@@ -1,9 +1,9 @@
 import axios from 'axios'
 
 export default (req, res) => {
-  const { name, email, phone } = req.body
+  // const { name, email, phone } = req.body
 
-  let config = {
+  const config = {
     client_id: process.env.ZOHO_CLIENT_ID,
     client_secret: process.env.ZOHO_CLIENT_SECRET,
     redirect_url: process.env.ZOHO_REDIRECT_URL,
@@ -15,7 +15,7 @@ export default (req, res) => {
 
   axios.post(`https://accounts.zoho.com/oauth/v2/token?refresh_token=${config.refresh_token}&client_id=${config.client_id}&client_secret=${config.client_secret}&grant_type=refresh_token`)
     .then((json) => {
-      res.send(json)
+      res.status(200).send(json)
     })
     .catch((error) => {
       res.send(error)
