@@ -132,7 +132,7 @@ export default {
       if (this.form.submitting) { return }
 
       try {
-        if (this.$refs.leadForm.validate()) {
+        if (this.$refs.campaignForm.validate()) {
           this.form.submitting = true
           const token = await this.$recaptcha.getResponse()
           window.console.log('ReCaptcha token:', token)
