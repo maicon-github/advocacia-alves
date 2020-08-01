@@ -15,10 +15,10 @@ export default (req, res) => {
 
   axios.post(`https://accounts.zoho.com/oauth/v2/token?refresh_token=${config.refresh_token}&client_id=${config.client_id}&client_secret=${config.client_secret}&grant_type=refresh_token`)
     .then((json) => {
-      res.json(json)
+      res.send(json)
     })
     .catch((error) => {
-      res.json(error)
+      res.send(error)
     })
 
   // let headers = {
