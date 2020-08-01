@@ -109,14 +109,14 @@ export default {
       this.snackbar = {
         show: true,
         color: 'error',
-        message: 'Não foi possível registrar a sua solicitação, tente novamente mais tarde!'
+        message: 'Não foi possível registrar a sua inscrição, tente novamente mais tarde!'
       }
     },
     showSuccessMessage () {
       this.snackbar = {
         show: true,
         color: 'success',
-        message: 'Solicitação enviada, em breve entraremos em contato pelo número informado!'
+        message: 'Inscrição recebida, enviamos um e-mail para você acesse e confirme sua inscrição para receber nosso conteúdo gratuitamente!'
       }
     },
     resetFormValues () {
