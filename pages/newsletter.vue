@@ -40,6 +40,7 @@
           <p class="caption">
             Inscreva-se para receber os conteúdos selecionados da Advocacia Alves. Suas informações serão utilizadas de acordo com a nossa política de privacidade. Você pode optar por sair a qualquer momento.
           </p>
+          <recaptcha @error="onError" @success="onSuccess" @expired="onExpired" />
           <v-btn class="primary" :loading="form.submitting" @click="submit">
             <span class="white--text text-uppercase">Inscreva-se</span>
           </v-btn>
@@ -122,29 +123,49 @@ export default {
       this.form = { name: '', phone: '', email: '', valid: true, submitting: false }
       this.$refs.campaignForm.resetValidation()
     },
-    submit () {
-      if (this.form.loading) { return }
+    onError (error) {
+      this.showErrorMessage()
+      this.form.submitting = false
+      window.console.log('Error happened:', error)
+    },
+    async submit () {
+      if (this.form.submitting) { return }
 
-      if (this.$refs.campaignForm.validate()) {
-        this.form.submitting = true
-        this.$axios.post(`${window.location.origin}/api/campaign`,
-          { name: this.form.name, phone: this.form.phone, email: this.form.email })
-          .then((res) => {
-            if (res.status === 200) {
-              this.resetFormValues()
-              this.showSuccessMessage()
-            } else {
-              this.showErrorMessage()
-            }
-          })
-          .catch((err) => {
-            window.console.log(err)
-            this.showErrorMessage()
-          })
-          .finally(() => {
-            this.form.submitting = false
-          })
+      try {
+        if (this.$refs.leadForm.validate()) {
+          this.form.submitting = true
+          const token = await this.$recaptcha.getResponse()
+          window.console.log('ReCaptcha token:', token)
+          await this.$recaptcha.reset()
+        }
+      } catch (error) {
+        this.showErrorMessage()
+        this.form.submitting = false
+        window.console.log('Login error:', error)
       }
+    },
+    onSuccess (token) {
+      this.$axios.post(`${window.location.origin}/api/campaign`,
+        { name: this.form.name, phone: this.form.phone, email: this.form.email })
+        .then((res) => {
+          if (res.status === 200) {
+            this.resetFormValues()
+            this.showSuccessMessage()
+          } else {
+            this.showErrorMessage()
+          }
+        })
+        .catch((err) => {
+          window.console.log(err)
+          this.showErrorMessage()
+        })
+        .finally(() => {
+          this.form.submitting = false
+        })
+    },
+    onExpired () {
+      this.form.submitting = false
+      window.console.log('Expired')
     }
   }
 }
