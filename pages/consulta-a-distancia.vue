@@ -57,7 +57,7 @@ export default {
   methods: {
     getStyle (slice) {
       if (slice.type === 'Banner') {
-        return `background-color:${slice.color};background-image:url(${slice.image.url});background-size:contain;background-position:center;height:550px;`
+        return `background-color:${slice.color};background-image:url(${slice.image.url});background-size:cover;background-position:center;height:550px;`
       }
       if (slice.type === 'Text' && slice.color) {
         return `background-color:${slice.color};color:white;`
