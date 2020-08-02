@@ -21,7 +21,7 @@ export default (req, res) => {
       axios({
         method: 'post',
         headers: { authorization: `Zoho-oauthtoken ${auth.data.access_token}` },
-        url: `https://campaigns.zoho.com/api/json/listsubscribe?scope=CampaignsAPI&resfmt=JSON&authtoken=${config.auth_token}&listkey=${config.list_key}&contactinfo={"First Name":"${name}","Contact Email":"${email}","Phone":"${phone}"}`,
+        url: `https://campaigns.zoho.com/api/json/listsubscribe?scope=CampaignsAPI&resfmt=JSON&authtoken=${config.auth_token}&listkey=${config.list_key}&contactinfo={"First Name":"${name}","Contact Email":"${email}","Phone":"${phone.replace(/\D/g, '')}"}`,
         data: {}
       })
         .then((contact) => {

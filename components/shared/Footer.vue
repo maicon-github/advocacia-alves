@@ -128,9 +128,9 @@ export default {
           title: 'Central de ajuda',
           items: [
             { label: 'Perguntas frequentes', link: 'javascript:;' },
-            { label: 'Atendimento online', link: '/consulta-online' },
-            { label: 'Atendimento presencial', link: 'javascript:;' },
-            { label: 'Solução de problemas', link: 'javascript:;' }
+            { label: 'Atendimento online', link: '/consulta-a-distancia' },
+            { label: 'Atendimento presencial', link: '/consulta-presencial' },
+            { label: 'Solução de problemas', link: '/central-de-ajuda' }
           ]
         },
         {
