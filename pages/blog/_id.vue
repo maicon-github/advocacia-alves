@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-12 mt-4" :style="style">
+  <div class="pt-12" :style="style">
     <Post :post="post" :author="author" />
     <Author :data="author" />
     <Newsletter />

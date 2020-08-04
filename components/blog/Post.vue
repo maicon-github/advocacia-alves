@@ -37,7 +37,7 @@ export default {
       return [
         { text: 'Inicio', disabled: false, href: '/' },
         { text: 'Blog', disabled: false, href: '/blog' },
-        { text: this.post.type, disabled: false, href: `/blog/categoria/${this.post.type}` },
+        { text: this.$categoryDescription(this.post.type), disabled: false, href: `/blog/categoria/${this.post.type}` },
         { text: this.post.title, disabled: true, href: `/blog/${this.post.uid}` }
       ]
     }
