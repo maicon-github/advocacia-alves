@@ -6,7 +6,7 @@
           {{ title }}
         </h1>
         <v-col cols="6" offset="3">
-          <v-text-field label="Pesquise por termos relacionados a sua dúvida" background-color="white" outlined>
+          <v-text-field label="Pesquise por termos relacionados a sua dúvida" background-color="white" dense filled>
             <v-icon slot="append">
               mdi-magnify
             </v-icon>

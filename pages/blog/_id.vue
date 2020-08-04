@@ -24,7 +24,7 @@ export default {
           $prismic.predicates.not('document.id', post.id)
         ],
         { pageSize: 3, page: 1, orderings: '[document.last_publication_date desc]' }
-      ))
+      )).results
       return {
         post: {
           createdAt: post.first_publication_date,

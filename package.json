@@ -23,7 +23,6 @@
     "prismic-dom": "^2.2.3",
     "prismic-javascript": "^2.7.1",
     "prismic-vue": "^2.0.0",
-    "slugify": "^1.4.0",
     "vee-validate": "^3.3.0",
     "vue-the-mask": "^0.11.1"
   },

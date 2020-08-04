@@ -18,7 +18,6 @@
   </v-container>
 </template>
 <script>
-import slugify from 'slugify'
 import Breadcrumb from '../shared/Breadcrumb'
 import PostInfo from './PostInfo'
 export default {
@@ -38,7 +37,7 @@ export default {
       return [
         { text: 'Inicio', disabled: false, href: '/' },
         { text: 'Blog', disabled: false, href: '/blog' },
-        { text: this.post.type, disabled: false, href: `/blog/${slugify(this.post.type, { lower: true })}` },
+        { text: this.post.type, disabled: false, href: `/blog/categoria/${this.post.type}` },
         { text: this.post.title, disabled: true, href: `/blog/${this.post.uid}` }
       ]
     }

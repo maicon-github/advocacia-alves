@@ -1,8 +1,8 @@
 <template>
-  <div class="mt-12 py-12">
+  <div class="mt-12">
     <PageTitle />
     <FeaturedPost :id="uid" :title="title" :image="image" />
-    <PostList :posts="posts" />
+    <PostList :posts="posts" title="Últimas postagens" />
     <Newsletter />
   </div>
 </template>
@@ -14,7 +14,6 @@ import FeaturedPost from '../../components/blog/FeaturedPost'
 import Newsletter from '../../components/shared/Newsletter'
 
 export default {
-  layout: 'blog',
   components: { PostList, PageTitle, FeaturedPost, Newsletter },
   async asyncData ({ $prismic, error }) {
     try {
@@ -27,7 +26,7 @@ export default {
       ))
       const posts = (await $prismic.api.query(
         $prismic.predicates.at('document.type', 'blogpost'),
-        { pageSize: 20, page: 1, orderings: '[document.last_publication_date desc]' }
+        { pageSize: 7, page: 1, orderings: '[document.last_publication_date desc]' }
       ))
       return {
         posts: posts.results,

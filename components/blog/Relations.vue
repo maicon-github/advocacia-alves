@@ -30,6 +30,11 @@ export default {
       type: Array,
       required: true
     }
+  },
+  mounted () {
+    for (let i = 0; i < this.relations.length; i++) {
+      this.relations[i].data.type = this.$categoryDescription(this.relations[i].data.type)
+    }
   }
 }
 </script>

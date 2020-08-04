@@ -3,7 +3,7 @@
     <v-row class="mt-12">
       <v-col cols="12">
         <p class="display-1">
-          Últimas postagens
+          {{ title }}
         </p>
       </v-col>
       <v-col v-for="(post, i) in posts" :key="i" :cols="postSize(i)">
@@ -20,6 +20,10 @@ export default {
     posts: {
       type: Array,
       required: true
+    },
+    title: {
+      type: String,
+      required: true
     }
   },
   data () {
@@ -28,14 +32,11 @@ export default {
     }
   },
   methods: {
-    isBigPost (number) {
-      return (number === 0 || number % 5 === 0 || number % 6 === 0)
-    },
     postSize (number) {
-      return this.isBigPost(number) ? '6' : '3'
+      return number === 0 ? '6' : '3'
     },
     imageSize (number) {
-      return this.isBigPost(number) ? '275px' : '200px'
+      return number === 0 ? '275px' : '200px'
     }
   }
 }

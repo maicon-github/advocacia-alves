@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row class="mt-12">
+    <v-row class="my-12">
       <v-col cols="12">
         <v-img
           width="100%"

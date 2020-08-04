@@ -13,6 +13,7 @@
   </v-card>
 </template>
 <script>
+
 export default {
   props: {
     post: {
@@ -23,6 +24,9 @@ export default {
       type: String,
       required: true
     }
+  },
+  mounted () {
+    this.post.data.type = this.$categoryDescription(this.post.data.type)
   }
 }
 </script>
