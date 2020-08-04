@@ -53,7 +53,8 @@ export default {
     '@nuxtjs/dotenv',
     '@nuxtjs/prismic',
     '@nuxtjs/recaptcha',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    'nuxt-precompress'
   ],
   /*
   ** Axios module configuration
