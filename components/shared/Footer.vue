@@ -58,6 +58,7 @@
                 text
                 small
                 color="white"
+                :rel="item.rel"
                 class="text-capitalize"
                 :target="item.target"
               >
@@ -120,7 +121,7 @@ export default {
             { label: 'Sobre', link: 'javascript:;' },
             { label: 'Politica de privacidade', link: '/politica-de-privacidade' },
             { label: 'Termos de uso', link: '/termos-de-uso' },
-            { label: 'Trabalhe conosco', link: 'https://advocaciaalves.zohorecruit.com/jobs/carreira', target: '_blank' },
+            { label: 'Trabalhe conosco', link: 'https://advocaciaalves.zohorecruit.com/jobs/carreira', target: '_blank', rel: 'noreferrer' },
             { label: 'Imprensa', link: 'javascript:;' }
           ]
         },

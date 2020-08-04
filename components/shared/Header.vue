@@ -55,7 +55,14 @@
         <v-btn href="/central-de-ajuda" class="my-auto" text small>
           Central de ajuda
         </v-btn>
-        <v-btn href="https://advocaciaalves.zohorecruit.com/jobs/carreira" class="my-auto" target="_blank" text small>
+        <v-btn
+          href="https://advocaciaalves.zohorecruit.com/jobs/carreira"
+          class="my-auto"
+          target="_blank"
+          rel="noreferrer"
+          text
+          small
+        >
           Carreira
         </v-btn>
         <v-btn to="/consulta-a-distancia" class="my-auto white--text" color="#e57100" small>
