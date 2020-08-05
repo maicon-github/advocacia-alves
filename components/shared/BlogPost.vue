@@ -7,7 +7,7 @@
       eager
     />
     <v-card-subtitle class="pb-0">
-      {{ post.data.type }}
+      {{ $categoryDescription(post.data.type) }}
     </v-card-subtitle>
     <v-card-title>{{ post.data.title }}</v-card-title>
   </v-card>
@@ -24,9 +24,6 @@ export default {
       type: String,
       required: true
     }
-  },
-  mounted () {
-    this.post.data.type = this.$categoryDescription(this.post.data.type)
   }
 }
 </script>
