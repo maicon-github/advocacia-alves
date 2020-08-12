@@ -1,7 +1,7 @@
 <template>
   <div class="mt-12">
     <PageTitle />
-    <FeaturedPost :id="uid" :title="title" :image="image" />
+    <FeaturedPost v-if="featured != null" :id="featured.uid" :title="featured.title" :image="featured.image" />
     <PostList :posts="posts" :title="`Postagens da categoria '${$categoryDescription(categoryId)}'`" />
     <Pagination :total="total" :loading="loading" @change="loadMorePosts" />
     <Newsletter />
@@ -22,7 +22,8 @@ export default {
       const featuredPost = (await $prismic.api.query(
         [
           $prismic.predicates.at('document.type', 'blogpost'),
-          $prismic.predicates.at('my.blogpost.featured', true)
+          $prismic.predicates.at('my.blogpost.featured', true),
+          $prismic.predicates.at('my.blogpost.type', params.id)
         ],
         { pageSize: 1, page: 1, orderings: '[document.last_publication_date desc]' }
       ))
@@ -38,8 +39,7 @@ export default {
         posts: posts.results,
         categoryId: params.id,
         total: posts.total_pages,
-        ...featuredPost.results[0].data,
-        uid: featuredPost.results[0].uid
+        featured: featuredPost.results[0].data || null
       }
     } catch (e) {
       error({ statusCode: 500, title: 'Internal Server Error' })

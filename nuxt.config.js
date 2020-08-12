@@ -9,7 +9,7 @@ export default {
   head: {
     htmlAttrs: { lang: 'pt-BR' },
     titleTemplate: '%s',
-    title: 'Advocacia Alves',
+    title: 'Advocacia Alves - Previdenciário - Especialistas com atendimento online e presencial',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
