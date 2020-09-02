@@ -1,7 +1,7 @@
 <template>
   <div class="mt-12">
     <PageTitle />
-    <FeaturedPost v-if="featured != null" :id="featured.uid" :title="featured.title" :image="featured.image" />
+    <FeaturedPost v-if="featured != null" :id="featured.uid" :title="featured.data.title" :image="featured.data.image" />
     <PostList :posts="posts" :title="`Postagens da categoria '${$categoryDescription(categoryId)}'`" />
     <Pagination :total="total" :loading="loading" @change="loadMorePosts" />
     <Newsletter />
@@ -39,9 +39,10 @@ export default {
         posts: posts.results,
         categoryId: params.id,
         total: posts.total_pages,
-        featured: featuredPost.results[0].data || null
+        featured: featuredPost.results[0] || null
       }
     } catch (e) {
+      window.console.log(e)
       error({ statusCode: 500, title: 'Internal Server Error' })
     }
   },
