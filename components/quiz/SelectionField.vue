@@ -28,6 +28,7 @@
 <script>
 export default {
   props: {
+    previous: { type: Number, default: -1 },
     id: { type: String, required: true },
     label: { type: String, required: true },
     options: { type: Array, required: true }

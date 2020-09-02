@@ -32,8 +32,8 @@ import PhoneField from '../components/quiz/PhoneField'
 import SelectionField from '../components/quiz/SelectionField'
 export default {
   layout: 'blank',
-  components: { TextField, PhoneField },
   data: () => ({
+    current: 0,
     position: 0,
     quiz: [
       {
@@ -78,7 +78,8 @@ export default {
             { text: 'Preto', value: 1, next: 1 },
             { text: 'Rosa', value: 2, next: 0 },
             { text: 'Vermelho', value: 3, next: 1 }
-          ]
+          ],
+          previous: 2
         }
       }
     ],
