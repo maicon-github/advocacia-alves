@@ -10,7 +10,7 @@
           <prismic-rich-text :field="text" />
         </div>
       </v-col>
-      <v-col md="7" sm="12" class="px-0">
+      <v-col md="7" sm="12" class="px-0 bg-image">
         <v-slide-group :style="negativeMarginSlideGroup" show-arrows>
           <v-slide-item v-for="item in awards" :key="item.id">
             <v-card
@@ -79,5 +79,9 @@ export default {
   color: #3D3D3D;
   font-size: 18px;
   line-height: 21px;
+}
+.bg-image {
+  background-image:url(/orange-points.png);
+  background-position:center;
 }
 </style>

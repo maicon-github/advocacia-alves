@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MainHeader
+    <HeaderSection
       :caption1="hcaption1"
       :caption2="hcaption2"
       :caption3="hcaption3"
@@ -49,15 +49,15 @@
 import Blog from '../components/home/Blog'
 import Award from '../components/home/Award'
 import Testimony from '../components/home/Testimony'
-import MainHeader from '../components/home/MainHeader'
 import MainSection from '../components/home/MainSection'
+import HeaderSection from '../components/home/HeaderSection'
 export default {
   components: {
     Blog,
     Testimony,
     Award,
     MainSection,
-    MainHeader
+    HeaderSection
   },
   async asyncData ({ $prismic, error }) {
     try {
