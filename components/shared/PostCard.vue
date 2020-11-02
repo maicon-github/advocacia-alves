@@ -1,7 +1,13 @@
 <template>
-  <v-card class="mx-auto" height="450" hover :href="`/blog/${post.uid}`">
+  <v-card
+    height="426"
+    :width="width"
+    :href="`/blog/${post.uid}`"
+    class="mx-4 pa-4 d-flex flex-column"
+    hover
+    outlined
+  >
     <v-img
-      :height="imageSize"
       class="white--text align-end"
       :src="post.data.image.url"
       eager
@@ -16,14 +22,8 @@
 
 export default {
   props: {
-    post: {
-      type: Object,
-      required: true
-    },
-    imageSize: {
-      type: String,
-      required: true
-    }
+    post: { type: Object, required: true },
+    width: { type: String, required: true }
   }
 }
 </script>

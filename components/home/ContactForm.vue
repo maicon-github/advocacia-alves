@@ -1,6 +1,11 @@
 <template>
-  <div style="background-color: #003554" class="white--text pa-6 rounded-lg text-center">
-    <p> Quero tirar minhas dúvidas com um advogado </p>
+  <div class="pa-6 rounded-xl form ma-auto">
+    <div class="caption1">
+      {{ caption1 }}
+    </div>
+    <div class="caption2 mt-3 mb-6">
+      {{ caption2 }}
+    </div>
     <v-form ref="leadForm" v-model="form.valid" lazy-validation>
       <v-text-field
         v-model="form.name"
@@ -22,9 +27,9 @@
         required
       />
       <recaptcha @error="onError" @success="onSuccess" @expired="onExpired" />
-      <v-btn color="#e57100" class="my-auto" dark :loading="form.submitting" @click="submit">
+      <v-btn color="#e57100" dark :loading="form.submitting" @click="submit">
         <span class="white--text text-uppercase">
-          Solicitar ligação
+          Enviar
         </span>
       </v-btn>
       <v-snackbar
@@ -53,6 +58,16 @@
 </template>
 <script>
 export default {
+  props: {
+    caption1: {
+      type: String,
+      required: true
+    },
+    caption2: {
+      type: String,
+      required: true
+    }
+  },
   data: () => ({
     snackbar: { show: false, message: '', color: 'success' },
     form: { name: '', phone: '', valid: true, submitting: false },
@@ -131,3 +146,14 @@ export default {
   }
 }
 </script>
+<style scoped>
+.form {
+  background-color:#EEEEEE;
+  width: 340px;
+}
+.caption2 {
+  color: #A3A3A3;
+  font-size: 14px;
+  line-height: 16px;
+}
+</style>

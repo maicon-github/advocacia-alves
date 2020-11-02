@@ -27,12 +27,13 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/plugins/mask.js'
+    '~/css/main.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@/plugins/mask.js',
     '~/plugins/category-description.js'
   ],
   /*

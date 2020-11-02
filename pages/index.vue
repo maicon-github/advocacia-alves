@@ -1,31 +1,63 @@
 <template>
   <div>
-    <MainBanner :title="header_title" :subtitle="header_subtitle" :banner="main_image.url" />
-    <Testimonies :title="testimony_title" :testimonies="testimonies" class="mt-12" />
-    <Informations :informations="informations" style="background-color: #f6f9fc" />
-    <Images :images="media" :title="media_title" class="my-12" />
-    <Coverage :title="coverage_title" :coverage="coverage" :banner="coverage_map.url" />
-    <Blog :content="blog" :posts="posts" :title="blog_title" class="mt-12 pt-12" />
-    <Images :images="payments" :title="payments_title" />
+    <MainHeader
+      :caption1="hcaption1"
+      :caption2="hcaption2"
+      :caption3="hcaption3"
+      :rcaption1="rcaption1"
+      :rcaption2="rcaption2 || ''"
+      :ricon="ricon"
+      :rvalue="rate_value"
+      :fcaption1="fcaption1"
+      :fcaption2="fcaption2"
+      :fimage="fimage"
+    />
+
+    <MainSection
+      :caption1="scaption1"
+      :caption2="scaption2"
+      :caption3="scaption3"
+      :items="sitems"
+      :image="simage"
+    />
+
+    <section class="acontainer mt-16">
+      <Award
+        :caption1="acaption1"
+        :caption2="acaption2"
+        :text="atext"
+        :awards="awards"
+      />
+      <Testimony
+        :caption1="tcaption1"
+        :caption2="tcaption2"
+        :caption3="tcaption3"
+        :testimonies="testimonies"
+      />
+    </section>
+
+    <Blog
+      :caption1="bcaption1"
+      :caption2="bcaption2"
+      :caption3="bcaption3"
+      :posts="posts"
+    />
   </div>
 </template>
 
 <script>
 import Blog from '../components/home/Blog'
-import Images from '../components/home/Images'
-import Coverage from '../components/home/Coverage'
-import MainBanner from '../components/home/MainBanner'
-import Testimonies from '../components/home/Testimonies'
-import Informations from '../components/home/Informations'
-
+import Award from '../components/home/Award'
+import Testimony from '../components/home/Testimony'
+import MainHeader from '../components/home/MainHeader'
+import MainSection from '../components/home/MainSection'
 export default {
   components: {
-    MainBanner,
-    Images,
-    Testimonies,
-    Informations,
-    Coverage,
-    Blog
+    Blog,
+    Testimony,
+    Award,
+    MainSection,
+    MainHeader
   },
   async asyncData ({ $prismic, error }) {
     try {
@@ -34,9 +66,17 @@ export default {
         $prismic.predicates.at('document.type', 'blogpost'),
         { pageSize: 3, page: 1, orderings: '[document.last_publication_date desc]' }
       ))
+      const awards = (await $prismic.api.query(
+        $prismic.predicates.at('document.type', 'awards')
+      ))
+      const testimonies = (await $prismic.api.query(
+        $prismic.predicates.at('document.type', 'testimony')
+      ))
       return {
+        ...homepage.data,
         posts: posts.results,
-        ...homepage.data
+        awards: awards.results,
+        testimonies: testimonies.results
       }
     } catch (e) {
       error({ statusCode: 500, title: 'Internal Server Error' })

@@ -7,15 +7,15 @@
         </p>
       </v-col>
       <v-col v-for="(post, i) in posts" :key="i" :cols="postSize(i)">
-        <BlogPost :post="post" :image-size="imageSize(i)" />
+        <PostCard :post="post" :image-size="imageSize(i)" />
       </v-col>
     </v-row>
   </v-container>
 </template>
 <script>
-import BlogPost from '../shared/BlogPost'
+import PostCard from '../shared/PostCard'
 export default {
-  components: { BlogPost },
+  components: { PostCard },
   props: {
     posts: {
       type: Array,

@@ -1,41 +1,33 @@
 <template>
-  <div>
+  <section>
+    <SectionHeader :caption1="caption1" :caption2="caption2" :caption3="caption3" />
     <v-container>
-      <v-row class="text-center">
-        <div class="flex display-1 font-weight-bold mb-5 text-center">
-          {{ title }}
-        </div>
-        <prismic-rich-text :field="content" />
-      </v-row>
       <v-row>
-        <v-col v-for="(post, i) in posts" :key="i" cols="4" class="mt-6">
-          <BlogPost :post="post" image-size="250px" />
+        <v-col cols="12" class="px-0">
+          <v-slide-group show-arrows>
+            <v-slide-item v-for="item in posts" :key="item.id">
+              <PostCard :post="item" :width="cardWidth" />
+            </v-slide-item>
+          </v-slide-group>
         </v-col>
       </v-row>
-      <v-row align="center">
-        <v-btn color="#e57100" class="mx-auto my-12 white--text" to="/blog">
-          Quero aprender mais
-        </v-btn>
-      </v-row>
     </v-container>
-  </div>
+  </section>
 </template>
 <script>
-import BlogPost from '../shared/BlogPost'
+import PostCard from '../shared/PostCard'
+import SectionHeader from '../shared/SectionHeader'
 export default {
-  components: { BlogPost },
+  components: { PostCard, SectionHeader },
   props: {
-    content: {
-      type: Array,
-      required: true
-    },
-    posts: {
-      type: Array,
-      required: true
-    },
-    title: {
-      type: String,
-      required: true
+    caption1: { type: String, required: true },
+    caption2: { type: String, required: true },
+    caption3: { type: String, required: true },
+    posts: { type: Array, required: true }
+  },
+  computed: {
+    cardWidth () {
+      return this.$vuetify.breakpoint.mdAndUp ? '362' : '295'
     }
   }
 }
