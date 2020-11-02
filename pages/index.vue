@@ -84,3 +84,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.acontainer {
+  background-color: #F0F0F0;
+}
+</style>

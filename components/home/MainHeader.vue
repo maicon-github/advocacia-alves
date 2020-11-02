@@ -25,14 +25,14 @@
           <ContactForm :caption1="fcaption1" :caption2="fcaption2" class="mt-5" />
         </v-col>
 
-        <!-- <v-vol v-if="$vuetify.breakpoint.smAndDown" class="mx-auto pt-16">
+        <v-col v-if="$vuetify.breakpoint.smAndDown" class="mx-auto pt-16">
           <GoogleRate
             :caption1="rcaption1"
             :caption2="rcaption2"
             :icon="ricon"
             :value="rvalue"
           />
-        </v-vol> -->
+        </v-col>
       </v-row>
     </v-container>
   </section>

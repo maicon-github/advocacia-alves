@@ -11,10 +11,7 @@
         </div>
       </v-col>
       <v-col md="7" sm="12" class="px-0">
-        <v-slide-group
-          :style="negativeMarginSlideGroup"
-          show-arrows
-        >
+        <v-slide-group :style="negativeMarginSlideGroup" show-arrows>
           <v-slide-item v-for="item in awards" :key="item.id">
             <v-card
               outlined
@@ -43,7 +40,9 @@
   </v-container>
 </template>
 <script>
+import Caption from '../shared/Caption'
 export default {
+  components: { Caption },
   props: {
     caption1: { type: String, required: true },
     caption2: { type: String, required: true },
@@ -68,9 +67,6 @@ export default {
   color: #555;
   font-size: 18px;
   line-height: 28px;
-}
-.acontainer {
-  background-color: #F0F0F0;
 }
 .aicaption {
   height: 104px;
