@@ -1,14 +1,24 @@
 <template>
   <v-app>
     <v-container>
+      <v-row class="text-left">
+        <v-col cols="12">
+          <Breadcrumb :items="breadCrumbItems" class="mx-auto px-0" />
+        </v-col>
+      </v-row>
+      <v-row>
+        <div class="mx-auto text-center">
+          <CenteredCaption text="SOBRE NÓS" />
+        </div>
+      </v-row>
       <v-row>
         <v-col cols="12" class="mb-12">
-          <h1 class="display-2 font-weight-bold mb-6 text-center mt-12" style="background-image:url(/arrow-blue.png);background-size: contain;">
+          <h1 class="stitle mb-6 text-center">
             {{ title }}
           </h1>
-          <h5 class="headline text--secondary text-center">
+          <p class="ssubtitle text-center">
             {{ subtitle }}
-          </h5>
+          </p>
         </v-col>
       </v-row>
       <v-row v-for="(value, i) in values" :key="i" align="center" justify="center">
@@ -16,13 +26,13 @@
           <v-img :src="value.value_image.url" contain max-width="80%" eager />
         </v-col>
         <v-col cols="6">
-          <p class="title font-weight-medium text--secondary">
+          <p class="sicaption1">
             {{ value.value_title }}
           </p>
-          <p class="headline">
+          <h2 class="sicaption2 mb-4">
             {{ value.value_subtitle }}
-          </p>
-          <p class="title text--secondary">
+          </h2>
+          <p class="sitext">
             {{ value.value_text }}
           </p>
         </v-col>
@@ -31,32 +41,29 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="6" class="mx-auto text-center">
-          <p class="title font-weight-medium text--secondary">
-            {{ way_title }}
-          </p>
-          <h2 class="display-3 font-weight-regular">
+        <v-col cols="6" class="text-center">
+          <v-row>
+            <div class="mx-auto text-center">
+              <CenteredCaption text="MISSÃO, VISÃO E VALORES" />
+            </div>
+          </v-row>
+          <h2 class="swtitle mx-auto py-12">
             {{ way_subtitle }}
           </h2>
-          <v-img
-            width="40%"
-            class="mx-auto"
-            src="/detail1.png"
-            eager
-          />
+          <p class="swsubtitle">
+            {{ way_title }}
+          </p>
         </v-col>
         <v-col v-for="(w, i) in way" :key="i" cols="3">
-          <!-- <v-img v-if="i == 4" width="70%" src="/detail2.png" eager />
-          <v-img v-else-if="i == 5" width="70%" src="/arrow-orange.png" eager /> -->
-          <v-card class="mx-auto" min-height="450">
+          <v-card class="mx-auto rounded-xl" min-height="431">
             <div align="center">
               <v-img width="70%" :src="w.way_image.url" eager />
             </div>
             <v-card-text>
-              <p class="headline black--text font-weight-bold text-center">
+              <p class="waytitle">
                 {{ w.way_title }}
               </p>
-              <p class="text--secondary subtitle-1 font-weight-bold">
+              <p class="waytext">
                 {{ w.way_text }}
               </p>
             </v-card-text>
@@ -64,39 +71,51 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" style="background-image:url(/detail3.png);">
-          <h4 class="font-weight-bold text-center mt-12 mb-0 mt-16 pt-16 text-h4 ">
+        <v-col cols="12" class="mt-16">
+          <v-img src="/gray-line.svg" width="300px" class="ma-auto" />
+          <div class="ocaption1 text-center mt-6">
+            SOBRE O FUNDADOR
+          </div>
+          <h2 class="ocaption2 text-center mt-3">
             {{ origin_title }}
-          </h4>
-          <h5 class="subtitle-1 text--secondary text-center mb-16 font-weight-bold">
+          </h2>
+          <div class="ocaption3 text-center mt-2 mb-16">
             {{ origin_subtitle }}
-          </h5>
-          <div class="text--secondary subtitle-1 font-weight-bold">
+          </div>
+          <div class="otext">
             <prismic-rich-text :field="origin_text" />
           </div>
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12 d-inline">
-          <div class="float-left px-16 width-40">
-            <v-img :src="founder_photo.url" :alt="founder_photo.alt" eager width="100%" />
+        <v-col md="5" sm="12" class="px-8">
+          <v-img :src="founder_photo.url" :alt="founder_photo.alt" eager width="100%" />
+        </v-col>
+        <v-col md="7" sm="12" class="pb-0">
+          <div class="mx-auto fborder pt-16">
+            <h3 class="fcaption1 text-center">
+              {{ founder_name }}
+            </h3>
           </div>
-          <h4 class="font-weight-bold text-center mt-12 mb-0 text-h4">
-            {{ founder_name }}
-          </h4>
-          <h5 class="subtitle-1 text--secondary text-center mb-6  font-weight-bold">
+          <h5 class="fcaption2 text-center py-4 pb-16">
             {{ founder_office }}
           </h5>
-          <div class="text--secondary subtitle-1 font-weight-bold">
+          <div class="ftext">
             <prismic-rich-text :field="founder_presentation" />
           </div>
+        </v-col>
+        <v-col class="ftext pt-0" cols="12">
+          <prismic-rich-text :field="founder_presentation2" />
         </v-col>
       </v-row>
     </v-container>
   </v-app>
 </template>
 <script>
+import Breadcrumb from '../components/shared/Breadcrumb'
+import CenteredCaption from '../components/shared/CenteredCaption'
 export default {
+  components: { CenteredCaption, Breadcrumb },
   async asyncData ({ $prismic, error }) {
     try {
       const sobre = (await $prismic.api.getSingle('sobre'))
@@ -106,11 +125,115 @@ export default {
     } catch (e) {
       error({ statusCode: 500, title: 'Internal Server Error' })
     }
+  },
+  computed: {
+    breadCrumbItems () {
+      return [
+        { text: 'Inicio', disabled: false, href: '/' },
+        { text: 'Sobre nós', disabled: true, href: '/sobre' }
+      ]
+    }
   }
 }
 </script>
 <style scoped>
 .width-40 {
   width: 45%;
+}
+.stitle {
+  color: #3D3D3D;
+  font-size: 48px;
+  line-height: 58px;
+}
+.ssubtitle {
+  color: #707070;
+  font-size: 20px;
+  line-height: 24px;
+}
+.sicaption1 {
+  color: #A3A3A3;
+  font-size: 18px;
+  line-height: 22px;
+}
+.sicaption2 {
+  color: #3D3D3D;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 34px;
+}
+.sitext {
+  color: rgba(0,0,0,0.6);
+  font-family: Roboto;
+  font-size: 18px;
+  line-height: 28px;
+}
+.swtitle {
+  width: 253px;
+  color: #3D3D3D;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 58px;
+  text-align: center;
+}
+.swsubtitle {
+  color: #707070;
+  font-size: 20px;
+  line-height: 24px;
+}
+.waytext {
+  color: #3D3D3D;
+  font-size: 16px;
+  line-height: 19px;
+}
+.waytitle {
+  color: #3D3D3D;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.45px;
+  line-height: 44px;
+}
+.ocaption1 {
+  color: #0257C0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+}
+.ocaption2 {
+  color: #3D3D3D;
+  font-size: 48px;
+  line-height: 58px;
+}
+.ocaption3 {
+  color: #575757;
+  font-size: 20px;
+  line-height: 24px;
+}
+.otext {
+  color: #3D3D3D;
+  font-family: Roboto;
+  font-size: 18px;
+  letter-spacing: 0.17px;
+  line-height: 28px;
+}
+.fcaption1 {
+  color: #3D3D3D;
+  font-size: 34px;
+  letter-spacing: 0.43px;
+  line-height: 41px;
+}
+.fcaption2 {
+  color: #3D3D3D;
+  font-size: 20px;
+  letter-spacing: 0.25px;
+  line-height: 24px;
+}
+.ftext {
+  color: #3D3D3D;
+  font-size: 18px;
+  line-height: 28px;
+}
+.fborder {
+  width: 230px;
+  border-bottom: 3px solid #D6550A;
 }
 </style>

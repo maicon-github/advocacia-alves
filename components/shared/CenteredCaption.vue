@@ -1,9 +1,6 @@
 <template>
-  <div>
-    <div class="caption1">
-      {{ text }}
-    </div>
-    <div class="line mt-3" />
+  <div class="caption1 py-1">
+    {{ text }}
   </div>
 </template>
 <script>
@@ -14,16 +11,11 @@ export default {
 }
 </script>
 <style scoped>
-.line {
-  box-sizing: border-box;
-  height: 1px;
-  width: 138px;
-  border: 2px solid #D6550A;
-}
 .caption1 {
-  color: #0257C0;
   font-size: 14px;
   font-weight: 700;
   line-height: 17px;
+  border-bottom: 3px solid #D6550A;
+  color: #01408D;
 }
 </style>

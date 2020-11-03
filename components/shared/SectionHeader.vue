@@ -38,6 +38,11 @@ export default {
   color: #000;
   font-size: 36px;
   line-height: 44px;
+
+  color: #3D3D3D;
+  font-size: 48px;
+  line-height: 58px;
+  text-align: center;
 }
 .scaption3 {
   color: #707070;
