@@ -22,52 +22,61 @@
         </v-col>
       </v-row>
       <v-row v-for="(value, i) in values" :key="i" align="center" justify="center">
-        <v-col v-if="value.type == 'left'" cols="6" align="center" justify="center">
+        <v-col v-if="value.type == 'left' && !$vuetify.breakpoint.smAndDown" md="6" xs="12" align="center" justify="center">
           <v-img :src="value.value_image.url" contain max-width="80%" eager />
         </v-col>
-        <v-col cols="6">
-          <p class="sicaption1">
+        <v-col md="6" xs="12">
+          <p :class="`sicaption1 ${centerText}`">
             {{ value.value_title }}
           </p>
-          <h2 class="sicaption2 mb-4">
+          <h2 :class="`sicaption2 mb-4  ${centerText}`">
+            <v-icon color="success" class="mb-1">
+              mdi-check-circle-outline
+            </v-icon>
             {{ value.value_subtitle }}
           </h2>
-          <p class="sitext">
+          <p :class="`sitext ${centerText}`">
             {{ value.value_text }}
           </p>
         </v-col>
-        <v-col v-if="value.type == 'right'" cols="6" align="center" justify="center">
-          <v-img :src="value.value_image.url" contain max-width="80%" eager />
+        <v-col v-if="value.type == 'right' || $vuetify.breakpoint.smAndDown" md="6" xs="12" align="center" justify="center">
+          <v-img :src="value.value_image.url" contain max-width="80%" eager class="my-12" />
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="6" class="text-center">
-          <v-row>
-            <div class="mx-auto text-center">
-              <CenteredCaption text="MISSÃO, VISÃO E VALORES" />
+        <v-col v-for="(w, i) in way" :key="i+10" :md="w.wsize" :xs="w.wsize*2" class="text-center">
+          <div v-if="!!w.wcaption">
+            <div class="mx-auto text-center" style="width:200px;">
+              <CenteredCaption :text="w.wcaption" />
             </div>
-          </v-row>
-          <h2 class="swtitle mx-auto py-12">
-            {{ way_subtitle }}
-          </h2>
-          <p class="swsubtitle">
-            {{ way_title }}
-          </p>
-        </v-col>
-        <v-col v-for="(w, i) in way" :key="i" cols="3">
-          <v-card class="mx-auto rounded-xl" min-height="431">
+            <h2 class="swtitle mx-auto py-12">
+              {{ w.wtitle }}
+            </h2>
+            <p class="swsubtitle">
+              {{ w.wsubtitle }}
+            </p>
+          </div>
+          <v-card v-if="!!w.wimage.url" class="mx-auto rounded-xl text-left" min-height="431">
             <div align="center">
-              <v-img width="70%" :src="w.way_image.url" eager />
+              <v-img width="70%" :src="w.wimage.url" :alt="w.wimage.alt" eager />
             </div>
             <v-card-text>
               <p class="waytitle">
-                {{ w.way_title }}
+                {{ w.wtitle }}
               </p>
               <p class="waytext">
-                {{ w.way_text }}
+                {{ w.wtext }}
               </p>
             </v-card-text>
           </v-card>
+          <div v-if="!w.wimage.url && !w.wcaption" class="wtext mx-auto">
+            <h2 class="wtitle3 mx-auto py-12">
+              {{ w.wtitle }}
+            </h2>
+            <p class="wsubtitle3">
+              {{ w.wtext }}
+            </p>
+          </div>
         </v-col>
       </v-row>
       <v-row>
@@ -109,17 +118,21 @@
         </v-col>
       </v-row>
     </v-container>
+    <Newsletter />
   </v-app>
 </template>
 <script>
 import Breadcrumb from '../components/shared/Breadcrumb'
 import CenteredCaption from '../components/shared/CenteredCaption'
+import Newsletter from '../components/shared/Newsletter'
 export default {
-  components: { CenteredCaption, Breadcrumb },
+  components: { CenteredCaption, Breadcrumb, Newsletter },
   async asyncData ({ $prismic, error }) {
     try {
       const sobre = (await $prismic.api.getSingle('sobre'))
+      window.console.log(sobre)
       return {
+        unique: 0,
         ...sobre.data
       }
     } catch (e) {
@@ -132,6 +145,9 @@ export default {
         { text: 'Inicio', disabled: false, href: '/' },
         { text: 'Sobre nós', disabled: true, href: '/sobre' }
       ]
+    },
+    centerText () {
+      return this.$vuetify.breakpoint.smAndDown ? 'text-center' : ''
     }
   }
 }
@@ -235,5 +251,18 @@ export default {
 .fborder {
   width: 230px;
   border-bottom: 3px solid #D6550A;
+}
+.wtitle3 {
+  color: #3D3D3D;
+  font-size: 48px;
+  line-height: 58px;
+}
+.wsubtitle3 {
+  color: #3D3D3D;
+  font-size: 18px;
+  line-height: 21px;
+}
+.wtext {
+    width: 261px;
 }
 </style>
