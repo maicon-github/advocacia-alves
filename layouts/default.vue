@@ -16,9 +16,34 @@
           <v-list-item-title>Sobre</v-list-item-title>
         </v-list-item>
 
-        <v-list-item to="/blog">
-          <v-list-item-title>Blog</v-list-item-title>
-        </v-list-item>
+        <v-list-group :value="true">
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title>Blog</v-list-item-title>
+            </v-list-item-content>
+          </template>
+          <v-list-item to="/blog/categoria/aposentadoria" link>
+            <v-list-item-title>&nbsp;&nbsp;&nbsp;&nbsp;Aposentadoria</v-list-item-title>
+          </v-list-item>
+          <v-list-item to="/blog/categoria/auxilio">
+            <v-list-item-title>&nbsp;&nbsp;&nbsp;&nbsp;Auxílio</v-list-item-title>
+          </v-list-item>
+          <v-list-item href="/blog/categoria/bpc-loas">
+            <v-list-item-title>&nbsp;&nbsp;&nbsp;&nbsp;BPC - LOAS</v-list-item-title>
+          </v-list-item>
+          <v-list-item to="/blog/categoria/dica">
+            <v-list-item-title>&nbsp;&nbsp;&nbsp;&nbsp;Dica</v-list-item-title>
+          </v-list-item>
+          <v-list-item to="/blog/categoria/revisao">
+            <v-list-item-title>&nbsp;&nbsp;&nbsp;&nbsp;Revisão</v-list-item-title>
+          </v-list-item>
+          <v-list-item to="/blog/categoria/salario-maternidade">
+            <v-list-item-title>&nbsp;&nbsp;&nbsp;&nbsp;Salário maternidade</v-list-item-title>
+          </v-list-item>
+          <v-list-item to="/blog/categoria/pensao">
+            <v-list-item-title>&nbsp;&nbsp;&nbsp;&nbsp;Pensão</v-list-item-title>
+          </v-list-item>
+        </v-list-group>
 
         <v-list-item to="/central-de-ajuda">
           <v-list-item-title>Centra de ajuda</v-list-item-title>
