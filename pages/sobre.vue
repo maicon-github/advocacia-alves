@@ -39,21 +39,9 @@ export default {
   async asyncData ({ $prismic, error }) {
     try {
       const sobre = (await $prismic.api.getSingle('sobre'))
-      window.console.log(sobre)
-      return {
-        unique: 0,
-        ...sobre.data
-      }
+      return { ...sobre.data }
     } catch (e) {
       error({ statusCode: 500, title: 'Internal Server Error' })
-    }
-  },
-  computed: {
-    breadCrumbItems () {
-      return [
-        { text: 'Inicio', disabled: false, href: '/' },
-        { text: 'Sobre nós', disabled: true, href: '/sobre' }
-      ]
     }
   }
 }

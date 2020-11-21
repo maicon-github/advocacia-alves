@@ -22,7 +22,7 @@
 <script>
 export default {
   props: {
-    text: { type: String, required: true },
+    text: { type: Array, required: true },
     title: { type: String, required: true },
     subtitle: { type: String, required: true }
   }

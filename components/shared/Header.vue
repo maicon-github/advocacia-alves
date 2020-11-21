@@ -1,11 +1,12 @@
 <template>
   <v-app-bar fixed app>
-    <v-container>
-      <v-row>
-        <a href="/">
-          <img height="64" src="/logo.png" alt="Advocacia Alves">
-        </a>
-        <v-spacer />
+    <v-container class="d-flex py-0">
+      <v-app-bar-nav-icon class="hidden-md-and-up my-auto ml-n6" @click="$emit('menu')" />
+      <a href="/" :class="logoClass">
+        <img height="52" src="/logo.png" alt="Advocacia Alves">
+      </a>
+      <v-spacer v-if="$vuetify.breakpoint.mdAndUp" />
+      <div v-if="$vuetify.breakpoint.mdAndUp" class="my-auto pr-4">
         <v-btn href="/" class="my-auto" text small>
           Inicio
         </v-btn>
@@ -68,7 +69,30 @@
         <v-btn to="/consulta-a-distancia" class="my-auto white--text" color="#e57100" small>
           Consulta à Distância
         </v-btn>
-      </v-row>
+      </div>
+      <v-btn icon :class="searchClass">
+        <v-icon>
+          mdi-magnify
+        </v-icon>
+      </v-btn>
     </v-container>
   </v-app-bar>
 </template>
+<script>
+export default {
+  computed: {
+    searchClass () {
+      if (this.$vuetify.breakpoint.smAndDown) {
+        return 'mr-n6 my-auto'
+      }
+      return 'my-auto'
+    },
+    logoClass () {
+      if (this.$vuetify.breakpoint.smAndDown) {
+        return 'ma-auto'
+      }
+      return 'my-auto ml-n6'
+    }
+  }
+}
+</script>

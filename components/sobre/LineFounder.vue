@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-row>
-      <v-col md="5" sm="12" class="px-8">
-        <v-img :src="picture.url" :alt="picture.alt" eager width="100%" />
+      <v-col md="5" sm="12" class="px-8 d-flex">
+        <v-img :src="picture.url" :alt="picture.alt" eager width="100%" class="my-auto" />
       </v-col>
       <v-col md="7" sm="12" class="pb-0">
         <div class="mx-auto fborder pt-16">
@@ -28,8 +28,8 @@ export default {
   props: {
     name: { type: String, required: true },
     office: { type: String, required: true },
-    text1: { type: String, required: true },
-    text2: { type: String, required: true },
+    text1: { type: Array, required: true },
+    text2: { type: Array, required: true },
     picture: { type: Object, required: true }
   }
 }

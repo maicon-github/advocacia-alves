@@ -39,7 +39,9 @@
   </div>
 </template>
 <script>
+import CenteredCaption from '../shared/CenteredCaption'
 export default {
+  components: { CenteredCaption },
   props: {
     items: { type: Array, required: true }
   },
