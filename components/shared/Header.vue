@@ -13,7 +13,7 @@
         <v-btn href="/sobre" class="my-auto" text small>
           Sobre
         </v-btn>
-        <v-menu open-on-hover offset-y>
+        <v-menu open-on-hover offset-y eager>
           <template v-slot:activator="{ on, attrs }">
             <v-btn
               href="/blog"

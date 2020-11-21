@@ -16,7 +16,7 @@
           <v-list-item-title>Sobre</v-list-item-title>
         </v-list-item>
 
-        <v-list-group :value="true">
+        <v-list-group :value="true" eager>
           <template v-slot:activator>
             <v-list-item-content>
               <v-list-item-title>Blog</v-list-item-title>
