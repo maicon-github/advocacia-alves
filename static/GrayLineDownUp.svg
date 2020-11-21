@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="634" height="185" viewBox="0 0 634 185">
+  <defs>
+    <ellipse id="ellipse-1" cx="8" cy="8" rx="8" ry="8"/>
+    <mask id="mask-2" x="0" y="0" maskContentUnits="userSpaceOnUse" maskUnits="userSpaceOnUse">
+      <rect width="634" height="185" x="0" y="0" fill="black"/>
+      <use fill="white" xlink:href="#ellipse-1"/>
+    </mask>
+    <ellipse id="ellipse-3" cx="626" cy="177" rx="8" ry="8"/>
+    <mask id="mask-4" x="0" y="0" maskContentUnits="userSpaceOnUse" maskUnits="userSpaceOnUse">
+      <rect width="634" height="185" x="0" y="0" fill="black"/>
+      <use fill="white" xlink:href="#ellipse-3"/>
+    </mask>
+  </defs>
+  <g transform="matrix(1 0 0 -1 0 185)">
+    <use fill-opacity="0" stroke="rgb(214,214,214)" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="2" mask="url(#mask-2)" xlink:href="#ellipse-1"/>
+    <use fill-opacity="0" stroke="rgb(214,214,214)" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="2" mask="url(#mask-4)" xlink:href="#ellipse-3"/>
+    <path fill="none" stroke="rgb(214,214,214)" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="1" d="M8 16v65h617.5v88"/>
+  </g>
+</svg>

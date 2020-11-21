@@ -1,132 +1,41 @@
 <template>
   <v-app>
     <v-container>
-      <v-row class="text-left">
-        <v-col cols="12">
-          <Breadcrumb :items="breadCrumbItems" class="mx-auto px-0" />
-        </v-col>
-      </v-row>
-      <v-row>
-        <div class="mx-auto text-center">
-          <CenteredCaption text="SOBRE NÓS" />
-        </div>
-      </v-row>
-      <v-row>
-        <v-col cols="12" class="mb-12">
-          <h1 class="stitle mb-6 text-center">
-            {{ title }}
-          </h1>
-          <p class="ssubtitle text-center">
-            {{ subtitle }}
-          </p>
-        </v-col>
-      </v-row>
-      <v-row v-for="(value, i) in values" :key="i" align="center" justify="center">
-        <v-col v-if="value.type == 'left' && !$vuetify.breakpoint.smAndDown" md="6" xs="12" align="center" justify="center">
-          <v-img :src="value.value_image.url" contain max-width="80%" eager />
-        </v-col>
-        <v-col md="6" xs="12">
-          <p :class="`sicaption1 ${centerText}`">
-            {{ value.value_title }}
-          </p>
-          <h2 :class="`sicaption2 mb-4  ${centerText}`">
-            <v-icon color="success" class="mb-1">
-              mdi-check-circle-outline
-            </v-icon>
-            {{ value.value_subtitle }}
-          </h2>
-          <p :class="`sitext ${centerText}`">
-            {{ value.value_text }}
-          </p>
-        </v-col>
-        <v-col v-if="value.type == 'right' || $vuetify.breakpoint.smAndDown" md="6" xs="12" align="center" justify="center">
-          <v-img :src="value.value_image.url" contain max-width="80%" eager class="my-12" />
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col v-for="(w, i) in way" :key="i+10" :md="w.wsize" :xs="w.wsize*2" class="text-center">
-          <div v-if="!!w.wcaption">
-            <div class="mx-auto text-center" style="width:200px;">
-              <CenteredCaption :text="w.wcaption" />
-            </div>
-            <h2 class="swtitle mx-auto py-12">
-              {{ w.wtitle }}
-            </h2>
-            <p class="swsubtitle">
-              {{ w.wsubtitle }}
-            </p>
-          </div>
-          <v-card v-if="!!w.wimage.url" class="mx-auto rounded-xl text-left" min-height="431">
-            <div align="center">
-              <v-img width="70%" :src="w.wimage.url" :alt="w.wimage.alt" eager />
-            </div>
-            <v-card-text>
-              <p class="waytitle">
-                {{ w.wtitle }}
-              </p>
-              <p class="waytext">
-                {{ w.wtext }}
-              </p>
-            </v-card-text>
-          </v-card>
-          <div v-if="!w.wimage.url && !w.wcaption" class="wtext mx-auto">
-            <h2 class="wtitle3 mx-auto py-12">
-              {{ w.wtitle }}
-            </h2>
-            <p class="wsubtitle3">
-              {{ w.wtext }}
-            </p>
-          </div>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" class="mt-16">
-          <v-img src="/gray-line.svg" width="300px" class="ma-auto" />
-          <div class="ocaption1 text-center mt-6">
-            SOBRE O FUNDADOR
-          </div>
-          <h2 class="ocaption2 text-center mt-3">
-            {{ origin_title }}
-          </h2>
-          <div class="ocaption3 text-center mt-2 mb-16">
-            {{ origin_subtitle }}
-          </div>
-          <div class="otext">
-            <prismic-rich-text :field="origin_text" />
-          </div>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col md="5" sm="12" class="px-8">
-          <v-img :src="founder_photo.url" :alt="founder_photo.alt" eager width="100%" />
-        </v-col>
-        <v-col md="7" sm="12" class="pb-0">
-          <div class="mx-auto fborder pt-16">
-            <h3 class="fcaption1 text-center">
-              {{ founder_name }}
-            </h3>
-          </div>
-          <h5 class="fcaption2 text-center py-4 pb-16">
-            {{ founder_office }}
-          </h5>
-          <div class="ftext">
-            <prismic-rich-text :field="founder_presentation" />
-          </div>
-        </v-col>
-        <v-col class="ftext pt-0" cols="12">
-          <prismic-rich-text :field="founder_presentation2" />
-        </v-col>
-      </v-row>
+      <MainSection caption="SOBRE NÓS" :title="title" :subtitle="subtitle" />
+
+      <LineValues :items="values" />
+
+      <LineWay :items="way" />
+
+      <LineOrigin :title="origin_title" :subtitle="origin_subtitle" :text="origin_text" />
+
+      <LineFounder
+        :picture="founder_photo"
+        :name="founder_name"
+        :office="founder_office"
+        :text1="founder_presentation"
+        :text2="founder_presentation2"
+      />
     </v-container>
     <Newsletter />
   </v-app>
 </template>
 <script>
-import Breadcrumb from '../components/shared/Breadcrumb'
-import CenteredCaption from '../components/shared/CenteredCaption'
+import LineWay from '../components/sobre/LineWay'
+import LineOrigin from '../components/sobre/LineOrigin'
+import LineValues from '../components/sobre/LineValues'
 import Newsletter from '../components/shared/Newsletter'
+import MainSection from '../components/sobre/MainSection'
+import LineFounder from '../components/sobre/LineFounder'
 export default {
-  components: { CenteredCaption, Breadcrumb, Newsletter },
+  components: {
+    LineWay,
+    LineOrigin,
+    LineValues,
+    Newsletter,
+    MainSection,
+    LineFounder
+  },
   async asyncData ({ $prismic, error }) {
     try {
       const sobre = (await $prismic.api.getSingle('sobre'))
@@ -145,124 +54,7 @@ export default {
         { text: 'Inicio', disabled: false, href: '/' },
         { text: 'Sobre nós', disabled: true, href: '/sobre' }
       ]
-    },
-    centerText () {
-      return this.$vuetify.breakpoint.smAndDown ? 'text-center' : ''
     }
   }
 }
 </script>
-<style scoped>
-.width-40 {
-  width: 45%;
-}
-.stitle {
-  color: #3D3D3D;
-  font-size: 48px;
-  line-height: 58px;
-}
-.ssubtitle {
-  color: #707070;
-  font-size: 20px;
-  line-height: 24px;
-}
-.sicaption1 {
-  color: #A3A3A3;
-  font-size: 18px;
-  line-height: 22px;
-}
-.sicaption2 {
-  color: #3D3D3D;
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 34px;
-}
-.sitext {
-  color: rgba(0,0,0,0.6);
-  font-family: Roboto;
-  font-size: 18px;
-  line-height: 28px;
-}
-.swtitle {
-  width: 253px;
-  color: #3D3D3D;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 58px;
-  text-align: center;
-}
-.swsubtitle {
-  color: #707070;
-  font-size: 20px;
-  line-height: 24px;
-}
-.waytext {
-  color: #3D3D3D;
-  font-size: 16px;
-  line-height: 19px;
-}
-.waytitle {
-  color: #3D3D3D;
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: 0.45px;
-  line-height: 44px;
-}
-.ocaption1 {
-  color: #0257C0;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 17px;
-}
-.ocaption2 {
-  color: #3D3D3D;
-  font-size: 48px;
-  line-height: 58px;
-}
-.ocaption3 {
-  color: #575757;
-  font-size: 20px;
-  line-height: 24px;
-}
-.otext {
-  color: #3D3D3D;
-  font-family: Roboto;
-  font-size: 18px;
-  letter-spacing: 0.17px;
-  line-height: 28px;
-}
-.fcaption1 {
-  color: #3D3D3D;
-  font-size: 34px;
-  letter-spacing: 0.43px;
-  line-height: 41px;
-}
-.fcaption2 {
-  color: #3D3D3D;
-  font-size: 20px;
-  letter-spacing: 0.25px;
-  line-height: 24px;
-}
-.ftext {
-  color: #3D3D3D;
-  font-size: 18px;
-  line-height: 28px;
-}
-.fborder {
-  width: 230px;
-  border-bottom: 3px solid #D6550A;
-}
-.wtitle3 {
-  color: #3D3D3D;
-  font-size: 48px;
-  line-height: 58px;
-}
-.wsubtitle3 {
-  color: #3D3D3D;
-  font-size: 18px;
-  line-height: 21px;
-}
-.wtext {
-    width: 261px;
-}
-</style>
