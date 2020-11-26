@@ -20,9 +20,10 @@
             />
           </div>
         </v-col>
-
-        <v-col sm="12" md="6" :style="`background-image:url(${fimage.url});background-size:contain;background-position:center;`">
-          <ContactForm :caption1="fcaption1" :caption2="fcaption2" class="mt-5" />
+        <v-col sm="12" md="6" :class="imageContainerStyles">
+          <v-img :src="fimage.url" :alt="fimage.alt" :class="imageStyles" eager>
+            <ContactForm :caption1="fcaption1" :caption2="fcaption2" class="mt-5" />
+          </v-img>
         </v-col>
 
         <div v-if="$vuetify.breakpoint.smAndDown" class="mx-auto pt-16">
@@ -54,6 +55,14 @@ export default {
     fimage: { type: Object, required: true },
     ricon: { type: Object, required: true },
     rvalue: { type: String, required: true }
+  },
+  computed: {
+    imageContainerStyles () {
+      return this.$vuetify.breakpoint.smAndDown ? 'pa-4' : 'pa-0'
+    },
+    imageStyles () {
+      return this.$vuetify.breakpoint.smAndDown ? 'pa-0' : 'pa-4'
+    }
   }
 }
 </script>
