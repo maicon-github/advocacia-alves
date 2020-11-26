@@ -18,7 +18,7 @@
         {{ caption2 }}
       </h3>
       <v-btn color="#f88d4f" class="white--text mx-auto mt-16">
-        AGENDE A VISITA
+        Quero atendimento à distância
       </v-btn>
     </v-col>
   </v-row>

@@ -6,7 +6,6 @@
       </v-col>
       <v-col md="5" sm="12" class="d-flex flex-column">
         <Caption :text="caption" />
-
         <h1 class="htitle mt-6">
           {{ title }}
         </h1>
@@ -14,7 +13,7 @@
           <prismic-rich-text :field="text" />
         </div>
         <v-btn color="#f88d4f" class="white--text mx-auto my-10">
-          AGENDE A VISITA
+          {{ btnText }}
         </v-btn>
       </v-col>
       <v-col md="7" sm="12" class="d-flex">
@@ -32,13 +31,14 @@ export default {
     caption: { type: String, required: true },
     image: { type: Object, required: true },
     title: { type: String, required: true },
-    text: { type: Array, required: true }
+    text: { type: Array, required: true },
+    btnText: { type: String, required: true }
   },
   data () {
     return {
       breadCrumbItems: [
         { text: 'Inicio', disabled: false, href: '/' },
-        { text: 'Atendimento presencial', disabled: true, href: '/atendimento-presencial' }
+        { text: 'Atendimento à distância', disabled: true, href: '/atendimento-a-distancia' }
       ]
     }
   }
