@@ -1,6 +1,6 @@
 <template>
-  <div class="my-5" style="border-bottom: 1px solid #BDBDBD;">
-    <p class="body-2 text--secondary">
+  <div class="my-5 pcontainer">
+    <p class="pinfo">
       Por: {{ author.name }} / Publicação: {{ formatedCreatedAt }} / Atualização: {{ formatedUpdatedAt }}
     </p>
   </div>
@@ -10,18 +10,9 @@
 import moment from 'moment'
 export default {
   props: {
-    author: {
-      type: Object,
-      required: true
-    },
-    createdAt: {
-      type: String,
-      required: true
-    },
-    updatedAt: {
-      type: String,
-      required: true
-    }
+    author: { type: Object, required: true },
+    createdAt: { type: String, required: true },
+    updatedAt: { type: String, required: true }
   },
   computed: {
     formatedCreatedAt () {
@@ -36,3 +27,14 @@ export default {
   }
 }
 </script>
+<style scoped>
+.pinfo {
+  color: #8A8A8A;
+  font-size: 14px;
+  letter-spacing: 0.13px;
+  line-height: 20px;
+}
+.pcontainer {
+  border-bottom: 1px solid #BDBDBD !important;
+}
+</style>

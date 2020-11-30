@@ -1,5 +1,6 @@
 <template>
-  <div class="pt-12" :style="style">
+  <div :style="style">
+    <v-img v-if="$vuetify.breakpoint.smAndDown" :src="post.image.url" :alt="post.image.alt" eager />
     <Post :post="post" :author="author" />
     <Author :data="author" />
     <Newsletter />
@@ -41,7 +42,11 @@ export default {
   },
   computed: {
     style () {
-      return 'background-image:url(' + this.post.image.url + '); background-size:contain;'
+      if (this.$vuetify.breakpoint.mdAndUp) {
+        return 'background-image:url(' + this.post.image.url + '); background-size:contain;'
+      } else {
+        return ''
+      }
     }
   }
 }

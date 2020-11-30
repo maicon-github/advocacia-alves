@@ -16,9 +16,9 @@ export default {
 <style scoped>
 .line {
   box-sizing: border-box;
-  height: 1px;
+  height: 3px;
   width: 138px;
-  border: 2px solid #D6550A;
+  background-color: #D6550A;
 }
 .caption1 {
   color: #0257C0;

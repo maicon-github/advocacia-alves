@@ -6,8 +6,8 @@
           {{ title }}
         </p>
       </v-col>
-      <v-col v-for="(post, i) in posts" :key="i" :cols="postSize(i)">
-        <PostCard :post="post" :image-size="imageSize(i)" />
+      <v-col v-for="(post, i) in posts" :key="i" :cols="4">
+        <PostCard :post="post" />
       </v-col>
     </v-row>
   </v-container>
@@ -17,27 +17,8 @@ import PostCard from '../shared/PostCard'
 export default {
   components: { PostCard },
   props: {
-    posts: {
-      type: Array,
-      required: true
-    },
-    title: {
-      type: String,
-      required: true
-    }
-  },
-  data () {
-    return {
-      count: 0
-    }
-  },
-  methods: {
-    postSize (number) {
-      return number === 0 ? '6' : '3'
-    },
-    imageSize (number) {
-      return number === 0 ? '275px' : '200px'
-    }
+    posts: { type: Array, required: true },
+    title: { type: String, required: true }
   }
 }
 </script>

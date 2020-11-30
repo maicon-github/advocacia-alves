@@ -21,7 +21,13 @@
           </div>
         </v-col>
         <v-col sm="12" md="6" :class="imageContainerStyles">
-          <v-img :src="fimage.url" :alt="fimage.alt" :class="imageStyles" eager>
+          <v-img
+            :src="fimage.url"
+            :alt="fimage.alt"
+            :class="`${imageStyles} mx-auto`"
+            max-width="550"
+            eager
+          >
             <ContactForm :caption1="fcaption1" :caption2="fcaption2" class="mt-5" />
           </v-img>
         </v-col>

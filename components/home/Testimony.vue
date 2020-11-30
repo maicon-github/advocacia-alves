@@ -4,40 +4,51 @@
     <v-container>
       <v-row>
         <v-col cols="12" class="px-0">
-          <v-slide-group show-arrows>
-            <v-slide-item v-for="item in testimonies" :key="item.id">
-              <v-card class="mx-4 pa-4 d-flex flex-column" height="426" :width="cardWidth" outlined>
-                <v-icon color="blue accent-1" x-large>
-                  mdi-format-quote-open
-                </v-icon>
-                <p class="titext text-center mb-0">
-                  {{ item.data.text }}
-                </p>
-                <v-spacer />
-                <v-divider />
-                <v-rating
-                  align="center"
-                  color="yellow darken-2"
-                  readonly
-                  length="5"
-                  size="30"
-                  :value="item.data.stars"
-                />
-                <p class="tiperson text-center mb-0">
-                  {{ item.data.person }}
-                </p>
-              </v-card>
-            </v-slide-item>
-          </v-slide-group>
+          <v-carousel
+            v-if="$vuetify.breakpoint.mdAndUp"
+            hide-delimiters
+            show-arrows-on-hover
+            cycle
+            interval="10000"
+            :show-arrows="testimonies.length > 3"
+          >
+            <v-carousel-item v-for="(chunk, i) in testimonyChunks" :key="i">
+              <v-container>
+                <v-row>
+                  <v-col v-for="(item, j) in chunk" :key="j+100" md="4">
+                    <TestimonyCard :item="item" />
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-carousel-item>
+          </v-carousel>
+          <v-carousel
+            v-if="$vuetify.breakpoint.smAndDown"
+            hide-delimiters
+            show-arrows
+            cycle
+            interval="10000"
+          >
+            <v-carousel-item v-for="(item, i) in testimonies" :key="i">
+              <v-container>
+                <v-row>
+                  <v-col cols="12">
+                    <TestimonyCard :item="item" class="mx-4" />
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-carousel-item>
+          </v-carousel>
         </v-col>
       </v-row>
     </v-container>
   </section>
 </template>
 <script>
+import TestimonyCard from '../testimony/Card'
 import SectionHeader from '../shared/SectionHeader'
 export default {
-  components: { SectionHeader },
+  components: { SectionHeader, TestimonyCard },
   props: {
     caption1: { type: String, required: true },
     caption2: { type: String, required: true },
@@ -45,8 +56,20 @@ export default {
     testimonies: { type: Array, required: true }
   },
   computed: {
-    cardWidth () {
-      return this.$vuetify.breakpoint.mdAndUp ? '355' : '295'
+    testimonyChunks () {
+      const perChunk = 3
+
+      return this.testimonies.reduce((resultArray, item, index) => {
+        const chunkIndex = Math.floor(index / perChunk)
+
+        if (!resultArray[chunkIndex]) {
+          resultArray[chunkIndex] = []
+        }
+
+        resultArray[chunkIndex].push(item)
+
+        return resultArray
+      }, [])
     }
   }
 }

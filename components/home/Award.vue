@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col md="5" sm="12">
+      <v-col xs="12" sm="12" md="5">
         <Caption :text="caption1" />
         <h2 class="acaption2 my-8">
           {{ caption2 }}
@@ -10,39 +10,39 @@
           <prismic-rich-text :field="text" />
         </div>
       </v-col>
-      <v-col md="7" sm="12" class="px-0 bg-image">
-        <v-slide-group :style="negativeMarginSlideGroup" show-arrows>
-          <v-slide-item v-for="item in awards" :key="item.id">
-            <v-card
-              outlined
-              class="mx-4 rounded-xl"
-              height="426"
-              width="295"
-            >
-              <v-img
-                :src="item.data.image.url"
-                :alt="item.data.image.alt"
-                height="144"
-                class="mx-8 mt-12"
-                contain
-              />
-              <v-card-title class="aicaption">
-                {{ item.data.caption }}
-              </v-card-title>
-              <v-card-text class="aitext">
-                <prismic-rich-text :field="item.data.text" />
-              </v-card-text>
-            </v-card>
-          </v-slide-item>
-        </v-slide-group>
+      <v-col xs="12" sm="12" md="7" class="bg-image">
+        <v-container v-if="$vuetify.breakpoint.smAndUp" :class="negativeMargin">
+          <v-row>
+            <v-col v-for="(item, i) in awards" :key="i" cols="6">
+              <AwardCard :item="item" />
+            </v-col>
+          </v-row>
+        </v-container>
+        <v-carousel
+          v-else
+          hide-delimiters
+          show-arrows
+          interval="10000"
+        >
+          <v-carousel-item v-for="(item, i) in awards" :key="i+10">
+            <v-container>
+              <v-row>
+                <v-col cols="12">
+                  <AwardCard :item="item" class="mx-8" />
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-carousel-item>
+        </v-carousel>
       </v-col>
     </v-row>
   </v-container>
 </template>
 <script>
 import Caption from '../shared/Caption'
+import AwardCard from '../awards/Card'
 export default {
-  components: { Caption },
+  components: { Caption, AwardCard },
   props: {
     caption1: { type: String, required: true },
     caption2: { type: String, required: true },
@@ -50,8 +50,8 @@ export default {
     awards: { type: Array, required: true }
   },
   computed: {
-    negativeMarginSlideGroup () {
-      return this.$vuetify.breakpoint.mdAndUp ? 'margin-top: -90px' : ''
+    negativeMargin () {
+      return this.$vuetify.breakpoint.mdAndUp ? 'negative-margin' : ''
     }
   }
 }
@@ -68,20 +68,11 @@ export default {
   font-size: 18px;
   line-height: 28px;
 }
-.aicaption {
-  height: 104px;
-  color: #000;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 24px;
-}
-.aitext {
-  color: #3D3D3D;
-  font-size: 18px;
-  line-height: 21px;
-}
 .bg-image {
   background-image:url(/orange-points.png);
   background-position:center;
+}
+.negative-margin {
+  margin-top: -90px;
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
-  <v-container style="margin-top: 350px;">
-    <v-row>
-      <v-col cols="10" offset="1" class="white px-12">
-        <div class="px-12">
+  <v-container :class="paddingT">
+    <v-row :class="paddingT">
+      <v-col cols="12" class="pa-0">
+        <div :class="`maxcontent mx-auto white ${paddingX}`">
           <Breadcrumb :items="breadCrumbItems" class="mx-auto px-0" />
-          <h1 class="display-2">
+          <h1 class="ptitle">
             {{ post.title }}
           </h1>
           <PostInfo :author="author" :updated-at="post.updatedAt" :created-at="post.createdAt" />
@@ -23,16 +23,16 @@ import PostInfo from './PostInfo'
 export default {
   components: { PostInfo, Breadcrumb },
   props: {
-    post: {
-      type: Object,
-      required: true
-    },
-    author: {
-      type: Object,
-      required: true
-    }
+    post: { type: Object, required: true },
+    author: { type: Object, required: true }
   },
   computed: {
+    paddingT () {
+      return this.$vuetify.breakpoint.mdAndUp ? 'mt-16 pt-16' : ''
+    },
+    paddingX () {
+      return this.$vuetify.breakpoint.mdAndUp ? 'px-12' : 'px-4'
+    },
     breadCrumbItems () {
       return [
         { text: 'Inicio', disabled: false, href: '/' },
@@ -44,3 +44,15 @@ export default {
   }
 }
 </script>
+<style scoped>
+.ptitle {
+  color: #3D3D3D;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0.45px;
+  line-height: 56px;
+}
+.maxcontent {
+  max-width: 830px;
+}
+</style>

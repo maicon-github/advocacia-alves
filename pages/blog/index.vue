@@ -28,7 +28,7 @@ export default {
       ))
       const posts = (await $prismic.api.query(
         $prismic.predicates.at('document.type', 'blogpost'),
-        { pageSize: 7, page: 1, orderings: '[document.last_publication_date desc]' }
+        { pageSize: 9, page: 1, orderings: '[document.last_publication_date desc]' }
       ))
       return {
         loading: false,
