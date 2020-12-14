@@ -12,19 +12,19 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/axios": "^5.12.4",
     "@nuxtjs/dotenv": "^1.4.0",
-    "@nuxtjs/prismic": "^1.2.3",
+    "@nuxtjs/prismic": "^1.2.4",
     "@nuxtjs/recaptcha": "^0.6.2",
     "@nuxtjs/sitemap": "^2.4.0",
     "axios": "^0.19.2",
-    "moment": "^2.27.0",
-    "nuxt": "^2.14.4",
+    "moment": "^2.29.1",
+    "nuxt": "^2.14.11",
     "nuxt-precompress": "^0.4.9",
-    "prismic-dom": "^2.2.3",
+    "prismic-dom": "^2.2.4",
     "prismic-javascript": "^2.7.1",
     "prismic-vue": "^2.0.1",
-    "vee-validate": "^3.3.9",
+    "vee-validate": "^3.4.5",
     "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {

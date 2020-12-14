@@ -1,94 +1,94 @@
 <template>
-  <div class="white">
-    <v-footer color="blue-grey darken-3 white--text">
-      <v-container>
-        <v-row class="mb-12">
-          <v-col cols="5" align="center">
-            <h4 class="text-center mb-5">
-              Converse com um especialista sem compromisso
-            </h4>
-            <v-btn color="success" href="https://api.whatsapp.com/send?l=pt_BR&phone=5547988802222" target="_blank" rel="noreferrer">
-              <v-icon left>
-                mdi-whatsapp
-              </v-icon> Whatsapp
-            </v-btn>
-          </v-col>
-          <v-col cols="2" align="center">
-            <h4 class="text-center mb-5">
-              Consulta online
-            </h4>
-            <v-btn color="#e57100" class="white--text">
-              Agendar agora
-            </v-btn>
-          </v-col>
-          <v-col cols="5">
-            <h4 class="text-center mb-5">
-              {{ socials.title }}
-            </h4>
-            <v-row justify="space-around" class="mx-12 px-12">
-              <v-btn
-                v-for="(item, i) in socials.items"
-                :key="i"
-                :href="item.link"
-                :title="item.label"
-                target="_blank"
-                rel="noreferrer"
-                icon
-              >
-                <v-icon large color="white">
-                  {{ item.icon }}
-                </v-icon>
-              </v-btn>
-            </v-row>
-          </v-col>
-          <v-col cols="12" class="text-center">
-            <span>
-              Atendimento de segunda a sexta das 09:00 as 12:00 e das 13:00 as 21:00
-            </span>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col v-for="(link, i) in links" :key="i" cols="3">
-            <p class="title bold pl-3">
-              {{ link.title }}
-            </p>
-            <p v-for="(item, j) in link.items" :key="j" class="mb-0">
-              <v-btn
-                :href="item.link"
-                text
-                small
-                color="white"
-                :rel="item.rel"
-                class="text-capitalize"
-                :target="item.target"
-              >
-                {{ item.label }}
-              </v-btn>
-            </p>
-          </v-col>
-          <v-col cols="12">
-            <font>
-              Advocacia Alves - CNPJ: XXX
-            </font>
-            <br>
-            <font>
-              Rua Paschoal Apóstolo Ptsica, 4860, Bairro Agronômica, Florianópolis/SC - CEP: 88025-255
-            </font>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-footer>
-    <v-container>
+  <v-footer class="blue-grey darken-3 white--text pa-0">
+    <v-container fluid>
       <v-row>
-        <v-col cols="6">
+        <v-col md="5" cols="12" align="center">
+          <h4 class="text-center mb-5">
+            Converse com um especialista sem compromisso
+          </h4>
+          <v-btn color="success" href="https://api.whatsapp.com/send?l=pt_BR&phone=5547988802222" target="_blank" rel="noreferrer">
+            <v-icon left>
+              mdi-whatsapp
+            </v-icon>
+            Whatsapp
+          </v-btn>
+        </v-col>
+
+        <v-col cols="12" md="2" align="center">
+          <h4 class="text-center mb-5">
+            Consulta online
+          </h4>
+          <v-btn color="#e57100" class="white--text">
+            Agendar agora
+          </v-btn>
+        </v-col>
+
+        <v-col cols="12" md="5">
+          <h4 class="text-center mb-5">
+            {{ socials.title }}
+          </h4>
+          <div class="d-flex flex-row justify-space-between mx-auto" style="max-width: 300px;">
+            <v-btn
+              v-for="(item, i) in socials.items"
+              :key="i"
+              :href="item.link"
+              :title="item.label"
+              target="_blank"
+              rel="noreferrer"
+              icon
+            >
+              <v-icon large color="white">
+                {{ item.icon }}
+              </v-icon>
+            </v-btn>
+          </div>
+        </v-col>
+
+        <v-col cols="12" class="text-center">
+          <span>
+            Atendimento de segunda a sexta das 09:00 as 12:00 e das 13:00 as 21:00
+          </span>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col v-for="(link, i) in links" :key="i" cols="6" md="3">
+          <p class="title bold pl-3">
+            {{ link.title }}
+          </p>
+          <p v-for="(item, j) in link.items" :key="j" class="mb-0">
+            <v-btn
+              :href="item.link"
+              text
+              small
+              color="white"
+              :rel="item.rel"
+              class="text-capitalize"
+              :target="item.target"
+            >
+              {{ item.label }}
+            </v-btn>
+          </p>
+        </v-col>
+        <v-col cols="12">
+          <font>
+            Advocacia Alves - CNPJ: XXX
+          </font>
+          <br>
+          <font>
+            Rua Paschoal Apóstolo Ptsica, 4860, Bairro Agronômica, Florianópolis/SC - CEP: 88025-255
+          </font>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="6" md="12">
           <p>Empresa Registrada Na OAB/SC sob o número.</p>
         </v-col>
-        <v-col cols="6">
+        <v-col cols="6" md="12">
           2020 Advocacia Alves - Todos os direitos reservados
         </v-col>
       </v-row>
     </v-container>
-  </div>
+  </v-footer>
 </template>
 <script>
 export default {
