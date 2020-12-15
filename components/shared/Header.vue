@@ -5,15 +5,15 @@
       <a href="/" :class="logoClass">
         <img height="52" src="/logo.png" alt="Advocacia Alves">
       </a>
-      <v-spacer v-if="$vuetify.breakpoint.mdAndUp" />
-      <div v-if="$vuetify.breakpoint.mdAndUp" class="my-auto pr-4">
+      <v-spacer class="hidden-sm-and-down" />
+      <div class="my-auto pr-4 hidden-sm-and-down">
         <v-btn href="/" class="my-auto" text small>
           Inicio
         </v-btn>
         <v-btn href="/sobre" class="my-auto" text small>
           Sobre
         </v-btn>
-        <v-menu open-on-hover offset-y eager>
+        <v-menu open-on-hover offset-y>
           <template v-slot:activator="{ on, attrs }">
             <v-btn
               href="/blog"
@@ -70,11 +70,23 @@
           Consulta à Distância
         </v-btn>
       </div>
-      <v-btn icon :class="searchClass">
-        <v-icon>
-          mdi-magnify
-        </v-icon>
-      </v-btn>
+      <v-menu offset-y bottom left :close-on-content-click="false" :close-on-click="false">
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            icon
+            :class="searchClass"
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon>
+              mdi-magnify
+            </v-icon>
+          </v-btn>
+        </template>
+        <v-card class="pa-4 pb-2" width="300px">
+          <v-text-field label="Pesquisar no blog" dense hide-details autofocus />
+        </v-card>
+      </v-menu>
     </v-container>
   </v-app-bar>
 </template>
@@ -91,7 +103,7 @@ export default {
       if (this.$vuetify.breakpoint.smAndDown) {
         return 'ma-auto'
       }
-      return 'my-auto ml-n6'
+      return 'ma-auto ml-n6'
     }
   }
 }
