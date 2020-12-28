@@ -1,12 +1,12 @@
 <template>
   <v-app-bar fixed app>
     <v-container class="d-flex py-0">
-      <v-app-bar-nav-icon class="hidden-md-and-up my-auto ml-n6" @click="$emit('menu')" />
+      <v-app-bar-nav-icon class="hidden-md-and-up my-auto ml-n6" @click.stop="$emit('menu')" />
       <a href="/" class="ma-auto">
         <img height="52" src="/logo.png" alt="Advocacia Alves">
       </a>
       <v-spacer class="hidden-sm-and-down" />
-      <div class="d-flex my-auto pr-4 hidden-sm-and-down">
+      <div class="d-flex hidden-sm-and-down my-auto pr-4">
         <v-btn href="/" class="my-auto" text small>
           Inicio
         </v-btn>
