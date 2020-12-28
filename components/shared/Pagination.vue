@@ -1,35 +1,35 @@
 <template>
   <div class="text-center">
-    <v-pagination
+    <v-btn
+      v-show="current != total"
+      color="primary"
+      :loading="loading"
+      @click="load"
+    >
+      Ver mais
+    </v-btn>
+    <!-- <v-pagination
       v-model="current"
       :length="total"
-      :total-visible="7"
+      :total-visible="9"
       :disabled="loading"
       @input="begin"
-    />
+    /> -->
   </div>
 </template>
 <script>
 export default {
   props: {
-    loading: {
-      type: Boolean,
-      required: true
-    },
-    total: {
-      type: Number,
-      required: true
-    }
+    total: { type: Number, required: true },
+    loading: { type: Boolean, required: true }
   },
-  data: () => {
-    return {
-      current: 1
-    }
-  },
+  data: () => ({ current: 1 }),
   methods: {
-    begin (page) {
-      this.loading = true
-      this.$emit('change', page)
+    load (page) {
+      if (this.current < this.total) {
+        this.current++
+        this.$emit('change', this.current)
+      }
     }
   }
 }

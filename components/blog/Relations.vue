@@ -7,7 +7,7 @@
         </div>
       </v-col>
       <v-col v-for="(related,i) in relations" :key="i" :cols="cardSize">
-        <v-card hover height="220" :href="`/blog/${related.uid}`">
+        <v-card hover min-height="225" :href="`/blog/${related.uid}`">
           <v-img :src="related.data.image.url" cover eager height="75" />
           <v-card-subtitle class="py-0 pt-2">
             {{ related.data.type }}
@@ -29,8 +29,9 @@ export default {
     cardSize () {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
-        case 'sm':
           return '12'
+        case 'sm':
+          return '6'
         case 'md':
           return '6'
         default:

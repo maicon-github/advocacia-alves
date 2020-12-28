@@ -26,10 +26,12 @@ export default {
         ],
         { pageSize: 1, page: 1, orderings: '[document.last_publication_date desc]' }
       ))
+
       const posts = (await $prismic.api.query(
         $prismic.predicates.at('document.type', 'blogpost'),
         { pageSize: 9, page: 1, orderings: '[document.last_publication_date desc]' }
       ))
+
       return {
         loading: false,
         posts: posts.results,
@@ -43,13 +45,14 @@ export default {
   },
   methods: {
     async loadMorePosts (page) {
+      this.loading = true
       const posts = (await this.$prismic.api.query(
         this.$prismic.predicates.at('document.type', 'blogpost'),
-        { pageSize: 7, page, orderings: '[document.last_publication_date desc]' }
+        { pageSize: 9, page, orderings: '[document.last_publication_date desc]' }
       ))
-      this.loading = false
-      this.posts = posts.results
+      this.posts = [...this.posts, ...posts.results]
       this.total = posts.total_pages
+      this.loading = false
     }
   }
 }
