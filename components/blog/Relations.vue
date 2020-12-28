@@ -1,12 +1,12 @@
 <template>
   <v-container>
-    <v-row class="my-12">
+    <v-row class="mt-12">
       <v-col cols="12">
         <div class="flex title font-weight-bold">
           Conteúdo relacionado
         </div>
       </v-col>
-      <v-col v-for="(related,i) in relations" :key="i" cols="4">
+      <v-col v-for="(related,i) in relations" :key="i" :cols="cardSize">
         <v-card hover height="220" :href="`/blog/${related.uid}`">
           <v-img :src="related.data.image.url" cover eager height="75" />
           <v-card-subtitle class="py-0 pt-2">
@@ -23,9 +23,19 @@
 <script>
 export default {
   props: {
-    relations: {
-      type: Array,
-      required: true
+    relations: { type: Array, required: true }
+  },
+  computed: {
+    cardSize () {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+        case 'sm':
+          return '12'
+        case 'md':
+          return '6'
+        default:
+          return '4'
+      }
     }
   },
   mounted () {

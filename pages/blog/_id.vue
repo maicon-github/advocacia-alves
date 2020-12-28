@@ -3,8 +3,8 @@
     <v-img v-if="$vuetify.breakpoint.smAndDown" :src="post.image.url" :alt="post.image.alt" eager />
     <Post :post="post" :author="author" />
     <Author :data="author" />
-    <Newsletter />
     <Relations :relations="relations" />
+    <Newsletter />
   </div>
 </template>
 <script>

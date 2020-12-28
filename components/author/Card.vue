@@ -2,28 +2,22 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <v-card class="pa-4">
-          <v-container>
-            <v-row>
-              <v-col sm="12" md="3">
-                <v-avatar size="150" class="my-4">
-                  <v-img :src="data.image.url" contain eager />
-                </v-avatar>
-              </v-col>
-              <v-col sm="12" md="9">
-                <h5 class="aname" sm="12">
-                  {{ data.name }}
-                </h5>
-                <div class="line my-2" />
-                <p class="atitle text-uppercase mb-0 atitle">
-                  Sócio fundador
-                </p>
-                <p class="adegree mt-4">
-                  {{ data.degree }}
-                </p>
-              </v-col>
-            </v-row>
-          </v-container>
+        <v-card :class="`pa-4 d-flex ${cardDirection}`">
+          <v-avatar size="150" class="ma-auto">
+            <v-img :src="data.image.url" contain eager />
+          </v-avatar>
+          <div class="px-4 pt-4">
+            <h5 :class="`aname ${textCenter}`" sm="12">
+              {{ data.name }}
+            </h5>
+            <div :class="`line my-2 ${mxAuto}`" />
+            <p :class="`atitle text-uppercase mb-0 atitle ${textCenter}`">
+              Sócio fundador
+            </p>
+            <p class="adegree mt-4">
+              {{ data.degree }}
+            </p>
+          </div>
         </v-card>
       </v-col>
     </v-row>
@@ -33,6 +27,17 @@
 export default {
   props: {
     data: { type: Object, required: true }
+  },
+  computed: {
+    cardDirection () {
+      return this.$vuetify.breakpoint.smAndDown ? 'flex-column' : 'flex-row'
+    },
+    textCenter () {
+      return this.$vuetify.breakpoint.smAndDown ? 'text-center' : ''
+    },
+    mxAuto () {
+      return this.$vuetify.breakpoint.smAndDown ? 'mx-auto' : ''
+    }
   }
 }
 </script>
