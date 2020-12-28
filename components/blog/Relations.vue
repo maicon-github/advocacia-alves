@@ -7,17 +7,14 @@
         </div>
       </v-col>
       <v-col v-for="(related,i) in relations" :key="i" cols="4">
-        <v-card hover height="180" :href="`/blog/${related.uid}`">
-          <v-img height="100%" :src="related.data.image.url" eager>
-            <v-overlay :absolute="true" :value="true" opacity="0.30" class="d-flex align-start">
-              <v-card-subtitle class="white--text pb-0">
-                {{ related.data.type }}
-              </v-card-subtitle>
-              <v-card-title class="white--text pt-0">
-                {{ related.data.title }}
-              </v-card-title>
-            </v-overlay>
-          </v-img>
+        <v-card hover height="220" :href="`/blog/${related.uid}`">
+          <v-img :src="related.data.image.url" cover eager height="75" />
+          <v-card-subtitle class="py-0 pt-2">
+            {{ related.data.type }}
+          </v-card-subtitle>
+          <v-card-title class="pt-0">
+            {{ related.data.title }}
+          </v-card-title>
         </v-card>
       </v-col>
     </v-row>

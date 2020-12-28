@@ -73,11 +73,6 @@ export default {
   components: { Header, Footer },
   data: () => ({
     drawer: false
-  }),
-  watch: {
-    drawer (value) {
-      window.console.log(value)
-    }
-  }
+  })
 }
 </script>

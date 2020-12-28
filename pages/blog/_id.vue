@@ -25,7 +25,8 @@ export default {
           $prismic.predicates.not('document.id', post.id)
         ],
         { pageSize: 3, page: 1, orderings: '[document.last_publication_date desc]' }
-      )).results
+      )).results || []
+      window.console.log(relations)
       return {
         post: {
           createdAt: post.first_publication_date,
@@ -34,7 +35,7 @@ export default {
           ...post.data
         },
         author: author.data,
-        relations: relations.results || []
+        relations
       }
     } catch (e) {
       error({ statusCode: 500, title: 'Internal Server Error' })
