@@ -26,7 +26,7 @@ export default {
         ],
         { pageSize: 3, page: 1, orderings: '[document.last_publication_date desc]' }
       )).results || []
-      window.console.log(relations)
+
       return {
         post: {
           createdAt: post.first_publication_date,

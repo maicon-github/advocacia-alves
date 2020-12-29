@@ -11,12 +11,12 @@
               {{ data.name }}
             </h5>
             <div :class="`line my-2 ${mxAuto}`" />
-            <p :class="`atitle text-uppercase mb-0 atitle ${textCenter}`">
-              Sócio fundador
-            </p>
-            <p class="adegree mt-4">
+            <div :class="`atitle text-uppercase mb-0 atitle ${textCenter}`">
+              Sócio-fundador
+            </div>
+            <div class="adegree mt-4">
               {{ data.degree }}
-            </p>
+            </div>
           </div>
         </v-card>
       </v-col>

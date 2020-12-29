@@ -1,9 +1,9 @@
 <template>
   <section>
     <SectionHeader :caption1="caption1" :caption2="caption2" :caption3="caption3" />
-    <v-container>
-      <v-row>
-        <v-col cols="12" class="px-0">
+    <v-container class="left-bg-img">
+      <v-row class="right-bg-img">
+        <v-col cols="12" :class="$vuetify.breakpoint.smAndDown ? 'px-0' : '' ">
           <v-carousel
             v-if="$vuetify.breakpoint.mdAndUp"
             hide-delimiters
@@ -84,5 +84,14 @@ export default {
   color: #01408D;
   font-size: 18px;
   line-height: 21px;
+}
+.left-bg-img {
+  background-image: url(/orange-points.png);
+  background-position: top 25px left;
+}
+
+.right-bg-img {
+  background-image: url(/orange-points.png);
+  background-position: bottom 35px right;
 }
 </style>

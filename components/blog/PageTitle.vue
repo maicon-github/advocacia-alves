@@ -6,7 +6,9 @@
           Postagens de profissionais capacitados
         </h1>
         <br>
-        <span class="subtitle-2 grey--text">Aproveite todo esse conteúdo disponível gratuitamente.</span>
+        <span class="subtitle-2 grey--text" style="font-weight: normal;">
+          Aproveite todo esse conteúdo disponível gratuitamente.
+        </span>
       </v-col>
     </v-row>
   </v-container>

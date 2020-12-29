@@ -3,23 +3,23 @@
     <v-container>
       <v-row class="my-12">
         <v-col cols="12" class="bg-color text-center">
-          <p class="newsletter mb-0">
+          <div class="newsletter mb-0">
             Newsletter
-          </p>
+          </div>
           <div class="border mx-auto">
             <h2 class="title">
               Novo Rumo
             </h2>
           </div>
-          <p class="byma mt-2">
+          <div class="byma mt-2">
             Por Maicon Alves
-          </p>
-          <p class="text mx-auto pt-5">
+          </div>
+          <div class="text mx-auto pt-5">
             Quer receber  conteúdos sensacionais como este para adiantar a sua aposentadoria ou melhorar o valor dela?
-          </p>
-          <p class="text2 mx-auto pt-5">
+          </div>
+          <div class="text2 mx-auto pt-5">
             Cadastre-se na newsletter Novo Rumo. Os seus netos vão te agradecer eternamente por essa decisão!
-          </p>
+          </div>
           <v-btn color="#f88d4f" class="white--text text-capitalize mt-6" href="/newsletter">
             Cadastre-se agora
           </v-btn>
@@ -62,6 +62,7 @@ export default { }
   letter-spacing: 0.1px;
   line-height: 17px;
   text-align: center;
+  margin-bottom: 16px;
 }
 .text {
   width: 80%;
@@ -69,6 +70,7 @@ export default { }
   font-size: 28px;
   line-height: 34px;
   text-align: center;
+  margin-bottom: 16px;
 }
 .text2 {
   width: 80%;
@@ -76,5 +78,6 @@ export default { }
   font-size: 18px;
   line-height: 21px;
   text-align: center;
+  margin-bottom: 16px;
 }
 </style>

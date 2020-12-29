@@ -10,12 +10,13 @@
     <v-img
       class="white--text align-end"
       :src="post.data.image.url"
+      max-height="70%"
       eager
     />
-    <v-card-subtitle class="pa-0">
+    <v-card-subtitle class="pa-0" style="font-size: 0.750rem;">
       {{ $categoryDescription(post.data.type) }}
     </v-card-subtitle>
-    <v-card-title class="pa-0">
+    <v-card-title class="pa-0" style="font-weight: normal;">
       {{ post.data.title }}
     </v-card-title>
   </v-card>

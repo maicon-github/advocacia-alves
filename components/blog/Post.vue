@@ -44,7 +44,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style>
 .ptitle {
   color: #3D3D3D;
   font-size: 48px;
@@ -54,5 +54,13 @@ export default {
 }
 .maxcontent {
   max-width: 830px;
+}
+.v-application p {
+  font-size: 18px !important;
+  margin-bottom: 24px !important;
+}
+.v-application ul, .v-application ol {
+  font-size: 18px !important;
+  margin-bottom: 24px !important;
 }
 </style>

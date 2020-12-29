@@ -1,5 +1,6 @@
 <template>
   <v-card
+    elevation="6"
     class="rounded-xl"
     min-height="426"
     outlined

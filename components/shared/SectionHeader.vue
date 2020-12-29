@@ -47,7 +47,6 @@ export default {
 .scaption3 {
   color: #707070;
   font-size: 20px;
-  font-weight: 700;
   line-height: 32px;
 }
 </style>

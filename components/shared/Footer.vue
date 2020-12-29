@@ -80,10 +80,10 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="6" md="12">
+        <v-col cols="6">
           <p>Empresa Registrada Na OAB/SC sob o número.</p>
         </v-col>
-        <v-col cols="6" md="12">
+        <v-col cols="6">
           2020 Advocacia Alves - Todos os direitos reservados
         </v-col>
       </v-row>
