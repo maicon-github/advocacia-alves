@@ -33,8 +33,7 @@ export default {
         total: 0,
         uid: featuredPost.results[0].uid,
         ...featuredPost.results[0].data,
-        postListTitle: 'Últimas postagens',
-        lastSearchText: ''
+        postListTitle: 'Últimas postagens'
       }
     } catch (e) {
       error({ statusCode: 500, title: 'Internal Server Error' })
@@ -48,14 +47,12 @@ export default {
   async mounted () {
     await this.loadPosts(1)
   },
-  // async beforeUpdate () {
-  //   await this.loadPosts(1)
-  // },
   methods: {
     async loadPosts (page) {
       this.loading = true
       const { query } = this.$route
       const hasSearch = (query.s && query.s.length) || false
+
       const posts = (await this.$prismic.api.query(
         [
           this.$prismic.predicates.at('document.type', 'blogpost'),
@@ -63,8 +60,8 @@ export default {
         ],
         { pageSize: 9, page, orderings: '[document.last_publication_date desc]' }
       ))
+
       this.loading = false
-      this.lastSearchText = query.s
       this.total = posts.total_pages
       this.posts = page === 1 ? posts.results : [...this.posts, ...posts.results]
       this.postListTitle = hasSearch ? `Resultado da pesquisa: ${posts.total_results_size}` : 'Últimas postagens'

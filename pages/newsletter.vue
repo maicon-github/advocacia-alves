@@ -1,10 +1,10 @@
 <template>
   <v-app>
     <v-row>
-      <v-col cols="6" class="pa-0">
+      <v-col cols="12" md="6" class="pa-0 hidden-sm-and-down">
         <v-img cover src="/newsletter-signature.png" :height="availableHeight" eager />
       </v-col>
-      <v-col cols="6" class="pa-12 grey lighten-3">
+      <v-col cols="12" md="6" class="pa-12 grey lighten-3">
         <p class="title text-center">
           Tenha acesso às novidades exclusivas sobre a previdência direto de especialistas
         </p>
