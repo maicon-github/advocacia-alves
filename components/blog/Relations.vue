@@ -7,12 +7,12 @@
         </div>
       </v-col>
       <v-col v-for="(related,i) in relations" :key="i" :cols="cardSize">
-        <v-card hover min-height="225" :href="`/blog/${related.uid}`" class="py-3">
+        <v-card hover min-height="225" :href="`/blog/${related.uid}`" class="pa-3">
           <v-img :src="related.data.image.url" cover eager height="75" />
-          <v-card-subtitle class="py-0 pt-2" style="font-size: 0.750rem;">
+          <v-card-subtitle class="pa-0 pt-2" style="font-size: 0.750rem;">
             {{ related.data.type }}
           </v-card-subtitle>
-          <v-card-title class="pt-0" style="font-weight: normal;">
+          <v-card-title class="pa-0" style="font-weight: normal;">
             {{ related.data.title }}
           </v-card-title>
         </v-card>

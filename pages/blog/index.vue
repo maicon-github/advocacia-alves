@@ -3,7 +3,7 @@
     <PageTitle />
     <FeaturedPost :id="uid" :title="title" :image="image" />
     <PostList :posts="posts" :title="postListTitle" />
-    <Pagination v-show="posts.length > 0" :total="total" :loading="loading" @change="loadMorePosts" />
+    <Pagination v-show="posts.length > 0" :total="total" :loading="loading" @change="loadPosts" />
     <Newsletter />
   </div>
 </template>
@@ -19,7 +19,6 @@ export default {
   components: { PostList, PageTitle, FeaturedPost, Newsletter, Pagination },
   async asyncData ({ $prismic, error, query }) {
     try {
-      const hasSearch = query.s && query.s.length
       const featuredPost = (await $prismic.api.query(
         [
           $prismic.predicates.at('document.type', 'blogpost'),
@@ -28,42 +27,47 @@ export default {
         { pageSize: 1, page: 1, orderings: '[document.last_publication_date desc]' }
       ))
 
-      const posts = (await $prismic.api.query(
-        [
-          $prismic.predicates.at('document.type', 'blogpost'),
-          (hasSearch) ? $prismic.predicates.fulltext('document', query.s) : null
-        ],
-        { pageSize: 9, page: 1, orderings: '[document.last_publication_date desc]' }
-      ))
-
       return {
         loading: false,
-        posts: posts.results,
-        total: posts.total_pages,
+        posts: [],
+        total: 0,
         uid: featuredPost.results[0].uid,
         ...featuredPost.results[0].data,
-        postListTitle: hasSearch ? `Resultado da pesquisa: ${posts.total_results_size}` : 'Últimas postagens',
-        searchTerm: query.s || '',
-        hasSearch
+        postListTitle: 'Últimas postagens',
+        lastSearchText: ''
       }
     } catch (e) {
       error({ statusCode: 500, title: 'Internal Server Error' })
     }
   },
-  watchQuery: ['s'],
+  watch: {
+    async $route (value) {
+      await this.loadPosts(1)
+    }
+  },
+  async mounted () {
+    await this.loadPosts(1)
+  },
+  // async beforeUpdate () {
+  //   await this.loadPosts(1)
+  // },
   methods: {
-    async loadMorePosts (page) {
+    async loadPosts (page) {
       this.loading = true
+      const { query } = this.$route
+      const hasSearch = (query.s && query.s.length) || false
       const posts = (await this.$prismic.api.query(
         [
           this.$prismic.predicates.at('document.type', 'blogpost'),
-          (this.hasSearch) ? this.$prismic.predicates.fulltext('document', this.searchTerm) : null
+          (hasSearch) ? this.$prismic.predicates.fulltext('document', query.s) : null
         ],
         { pageSize: 9, page, orderings: '[document.last_publication_date desc]' }
       ))
-      this.posts = [...this.posts, ...posts.results]
-      this.total = posts.total_pages
       this.loading = false
+      this.lastSearchText = query.s
+      this.total = posts.total_pages
+      this.posts = page === 1 ? posts.results : [...this.posts, ...posts.results]
+      this.postListTitle = hasSearch ? `Resultado da pesquisa: ${posts.total_results_size}` : 'Últimas postagens'
     }
   }
 }

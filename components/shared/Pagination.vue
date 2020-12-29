@@ -1,7 +1,7 @@
 <template>
   <div class="text-center">
     <v-btn
-      v-show="current != total"
+      v-show="current < total"
       color="primary"
       :loading="loading"
       @click="load"
@@ -17,6 +17,11 @@ export default {
     loading: { type: Boolean, required: true }
   },
   data: () => ({ current: 1 }),
+  watch: {
+    total () {
+      this.current = 1
+    }
+  },
   methods: {
     load (page) {
       if (this.current < this.total) {
