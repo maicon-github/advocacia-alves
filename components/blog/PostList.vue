@@ -6,6 +6,11 @@
           {{ title }}
         </p>
       </v-col>
+      <v-col v-show="posts.length == 0" cols="12">
+        <p class="text-center">
+          Nenhuma postagem encontrada!
+        </p>
+      </v-col>
       <v-col v-for="(post, i) in posts" :key="i" :cols="cardSize">
         <PostCard :post="post" />
       </v-col>

@@ -8,13 +8,6 @@
     >
       Ver mais
     </v-btn>
-    <!-- <v-pagination
-      v-model="current"
-      :length="total"
-      :total-visible="9"
-      :disabled="loading"
-      @input="begin"
-    /> -->
   </div>
 </template>
 <script>

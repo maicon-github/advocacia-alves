@@ -2,8 +2,8 @@
   <div class="mt-12">
     <PageTitle />
     <FeaturedPost :id="uid" :title="title" :image="image" />
-    <PostList :posts="posts" title="Últimas postagens" />
-    <Pagination :total="total" :loading="loading" @change="loadMorePosts" />
+    <PostList :posts="posts" :title="postListTitle" />
+    <Pagination v-show="posts.length > 0" :total="total" :loading="loading" @change="loadMorePosts" />
     <Newsletter />
   </div>
 </template>
@@ -17,8 +17,9 @@ import Pagination from '../../components/shared/Pagination'
 
 export default {
   components: { PostList, PageTitle, FeaturedPost, Newsletter, Pagination },
-  async asyncData ({ $prismic, error }) {
+  async asyncData ({ $prismic, error, query }) {
     try {
+      const hasSearch = query.s && query.s.length
       const featuredPost = (await $prismic.api.query(
         [
           $prismic.predicates.at('document.type', 'blogpost'),
@@ -28,7 +29,10 @@ export default {
       ))
 
       const posts = (await $prismic.api.query(
-        $prismic.predicates.at('document.type', 'blogpost'),
+        [
+          $prismic.predicates.at('document.type', 'blogpost'),
+          (hasSearch) ? $prismic.predicates.fulltext('document', query.s) : null
+        ],
         { pageSize: 9, page: 1, orderings: '[document.last_publication_date desc]' }
       ))
 
@@ -37,17 +41,24 @@ export default {
         posts: posts.results,
         total: posts.total_pages,
         uid: featuredPost.results[0].uid,
-        ...featuredPost.results[0].data
+        ...featuredPost.results[0].data,
+        postListTitle: hasSearch ? `Resultado da pesquisa: ${posts.total_results_size}` : 'Últimas postagens',
+        searchTerm: query.s || '',
+        hasSearch
       }
     } catch (e) {
       error({ statusCode: 500, title: 'Internal Server Error' })
     }
   },
+  watchQuery: ['s'],
   methods: {
     async loadMorePosts (page) {
       this.loading = true
       const posts = (await this.$prismic.api.query(
-        this.$prismic.predicates.at('document.type', 'blogpost'),
+        [
+          this.$prismic.predicates.at('document.type', 'blogpost'),
+          (this.hasSearch) ? this.$prismic.predicates.fulltext('document', this.searchTerm) : null
+        ],
         { pageSize: 9, page, orderings: '[document.last_publication_date desc]' }
       ))
       this.posts = [...this.posts, ...posts.results]
