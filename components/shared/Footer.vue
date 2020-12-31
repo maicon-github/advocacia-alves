@@ -71,7 +71,7 @@
         </v-col>
         <v-col cols="12">
           <font>
-            Advocacia Alves - CNPJ: XXX
+            Advocacia Alves - CNPJ: 39.993.814/0001-00
           </font>
           <br>
           <font>
@@ -81,7 +81,7 @@
       </v-row>
       <v-row>
         <v-col cols="12" md="6">
-          <p>Empresa Registrada Na OAB/SC sob o número.</p>
+          <p>Empresa Registrada Na OAB/SC sob o número 5856.</p>
         </v-col>
         <v-col cols="12" md="6">
           2020 Advocacia Alves - Todos os direitos reservados
