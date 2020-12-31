@@ -12,7 +12,12 @@
         <div class="htext mt-10">
           <prismic-rich-text :field="text" />
         </div>
-        <v-btn color="#f88d4f" class="white--text mx-auto my-10">
+        <v-btn
+          color="#f88d4f"
+          class="white--text mx-auto my-10"
+          href="https://api.whatsapp.com/send?l=pt_BR&phone=5548999565060"
+          target="_blank"
+        >
           {{ btnText }}
         </v-btn>
       </v-col>
