@@ -22,7 +22,7 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-col v-for="(contact, i) in contacts" :key="i" :cols="12/contacts.length">
+          <v-col v-for="(contact, i) in contacts" :key="i" cols="12" :md="12/contacts.length">
             <v-card outlined height="180">
               <v-card-title class="headline white--text" style="background-color: #e57100;">
                 {{ contact.name }}

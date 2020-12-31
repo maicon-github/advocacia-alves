@@ -108,27 +108,27 @@ export default {
           title: 'Conteúdo',
           items: [
             { label: 'Newsletter', link: '/newsletter' },
-            { label: 'Podcasts', link: 'javascript:;' },
-            { label: 'Vídeos', link: 'https://www.youtube.com/channel/UCpAjHLxtknsC0CICqXSwSqA' },
-            { label: 'Artigos', link: '/blog' },
-            { label: 'Telegram', link: 'javascript:;' },
-            { label: 'E-books', link: 'javascript:;' }
+            // { label: 'Podcasts', link: 'javascript:;' },
+            { label: 'Vídeos', link: 'https://www.youtube.com/channel/UCpAjHLxtknsC0CICqXSwSqA', target: '_blank', rel: 'noreferrer' },
+            { label: 'Artigos', link: '/blog' }
+            // { label: 'Telegram', link: 'javascript:;' },
+            // { label: 'E-books', link: 'javascript:;' }
           ]
         },
         {
           title: 'Institucional',
           items: [
-            { label: 'Sobre', link: 'javascript:;' },
+            { label: 'Sobre', link: '/sobre' },
             { label: 'Politica de privacidade', link: '/politica-de-privacidade' },
             { label: 'Termos de uso', link: '/termos-de-uso' },
-            { label: 'Trabalhe conosco', link: 'https://advocaciaalves.zohorecruit.com/jobs/carreira', target: '_blank', rel: 'noreferrer' },
-            { label: 'Imprensa', link: 'javascript:;' }
+            { label: 'Trabalhe conosco', link: 'https://advocaciaalves.zohorecruit.com/jobs/carreira', target: '_blank', rel: 'noreferrer' }
+            // { label: 'Imprensa', link: 'javascript:;' }
           ]
         },
         {
           title: 'Central de ajuda',
           items: [
-            { label: 'Perguntas frequentes', link: 'javascript:;' },
+            { label: 'Perguntas frequentes', link: '/central-de-ajuda' },
             { label: 'Atendimento online', link: '/consulta-a-distancia' },
             { label: 'Atendimento presencial', link: '/consulta-presencial' },
             { label: 'Solução de problemas', link: '/central-de-ajuda' }
@@ -137,8 +137,8 @@ export default {
         {
           title: 'Eventos',
           items: [
-            { label: 'Palestras', link: 'javscript:;' },
-            { label: 'Cursos', link: 'javscript:;' }
+            { label: 'Palestras', link: 'https://api.whatsapp.com/send?l=pt_BR&phone=5548999565060', target: '_blank', rel: 'noreferrer' },
+            { label: 'Cursos', link: 'https://api.whatsapp.com/send?l=pt_BR&phone=5548999565060', target: '_blank', rel: 'noreferrer' }
           ]
         }
       ]
