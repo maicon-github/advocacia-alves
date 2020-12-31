@@ -15,8 +15,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'preload', as: 'image', href: 'https://images.prismic.io/advocacia/1903dfc0-4660-45a5-a1bc-0857549905e0_Bg-form-homepage.png?auto=compress,format' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   /*
