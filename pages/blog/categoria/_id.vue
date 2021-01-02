@@ -3,7 +3,7 @@
     <PageTitle />
     <FeaturedPost v-if="featured != null" :id="featured.uid" :title="featured.data.title" :image="featured.data.image" />
     <PostList :posts="posts" :title="`Postagens da categoria '${$categoryDescription(categoryId)}'`" />
-    <Pagination :total="total" :loading="loading" @change="loadMorePosts" />
+    <Pagination v-show="posts.length > 0" :total="total" :loading="loading" @change="loadPosts" />
     <Newsletter />
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
           $prismic.predicates.at('document.type', 'blogpost'),
           $prismic.predicates.at('my.blogpost.type', params.id)
         ],
-        { pageSize: 7, page: 1, orderings: '[document.last_publication_date desc]' }
+        { pageSize: 9, page: 1, orderings: '[document.last_publication_date desc]' }
       ))
       return {
         loading: false,
@@ -47,17 +47,20 @@ export default {
     }
   },
   methods: {
-    async loadMorePosts (page) {
+    async loadPosts (page) {
+      this.loading = true
+
       const posts = (await this.$prismic.api.query(
         [
           this.$prismic.predicates.at('document.type', 'blogpost'),
-          this.$prismic.predicates.at('my.blogpost.type', this.categoryId)
+          this.$prismic.predicates.at('my.blogpost.type', this.$route.params.id)
         ],
-        { pageSize: 7, page, orderings: '[document.last_publication_date desc]' }
+        { pageSize: 9, page, orderings: '[document.last_publication_date desc]' }
       ))
+
       this.loading = false
-      this.posts = posts.results
       this.total = posts.total_pages
+      this.posts = page === 1 ? posts.results : [...this.posts, ...posts.results]
     }
   }
 }
