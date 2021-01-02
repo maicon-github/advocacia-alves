@@ -28,7 +28,7 @@
             max-width="550"
             eager
           >
-            <ContactForm :caption1="fcaption1" :caption2="fcaption2" class="mt-5" />
+            <!-- <ContactForm :caption1="fcaption1" :caption2="fcaption2" class="mt-5" /> -->
           </v-img>
         </v-col>
 
@@ -47,9 +47,9 @@
 <script>
 import Caption from '../shared/Caption'
 import GoogleRate from '../shared/GoogleRate'
-import ContactForm from './ContactForm'
+// import ContactForm from './ContactForm'
 export default {
-  components: { Caption, ContactForm, GoogleRate },
+  components: { Caption, GoogleRate },
   props: {
     caption1: { type: String, required: true },
     caption2: { type: String, required: true },

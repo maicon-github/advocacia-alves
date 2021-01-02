@@ -67,7 +67,7 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     '@nuxtjs/prismic',
-    '@nuxtjs/recaptcha',
+    // '@nuxtjs/recaptcha',
     '@nuxtjs/sitemap',
     'nuxt-precompress'
   ],
