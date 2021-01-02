@@ -16,7 +16,6 @@ export default {
       { 'http-equiv': 'cache-control', content: 'max-age=31536000' }
     ],
     link: [
-      { rel: 'preload', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap', as: 'stylesheet' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'preconnect', href: 'https://images.prismic.io' },
       { rel: 'dns-prefetch', href: 'https://images.prismic.io' },
@@ -68,7 +67,7 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     '@nuxtjs/prismic',
-    // '@nuxtjs/recaptcha',
+    '@nuxtjs/recaptcha',
     '@nuxtjs/sitemap',
     'nuxt-precompress'
   ],
