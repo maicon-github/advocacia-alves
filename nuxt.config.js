@@ -16,6 +16,10 @@ export default {
       { 'http-equiv': 'cache-control', content: 'max-age=31536000' }
     ],
     link: [
+      { rel: 'preload', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.8.55', as: 'font' },
+      { rel: 'preload', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBBc4.woff2', as: 'font' },
+      { rel: 'preload', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc4.woff2', as: 'font' },
+      { rel: 'preload', href: 'https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2', as: 'font' },
       { rel: 'preload', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap', as: 'style' },
       { rel: 'preload', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css', as: 'style' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
