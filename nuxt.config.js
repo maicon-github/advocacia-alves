@@ -16,23 +16,23 @@ export default {
       { 'http-equiv': 'cache-control', content: 'max-age=31536000' }
     ],
     link: [
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap', async: true },
-      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css', async: true }
-      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      // { rel: 'preconnect', href: 'https://images.prismic.io' },
-      // { rel: 'dns-prefetch', href: 'https://images.prismic.io' },
-      // { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
-      // { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' },
-      // { rel: 'preconnect', href: 'https://cdn.jsdelivr.net' },
-      // { rel: 'dns-prefetch', href: 'https://cdn.jsdelivr.net' },
-      // { rel: 'preconnect', href: 'https://advocacia.cdn.prismic.io' },
-      // { rel: 'dns-prefetch', href: 'https://advocacia.cdn.prismic.io' },
-      // { rel: 'preconnect', href: 'https://www.google.com' },
-      // { rel: 'dns-prefetch', href: 'https://www.google.com' },
-      // { rel: 'preconnect', href: 'https://prismic-io.s3.amazonaws.com' },
-      // { rel: 'dns-prefetch', href: 'https://prismic-io.s3.amazonaws.com' },
-      // { rel: 'preconnect', href: 'https://www.gstatic.com' },
-      // { rel: 'dns-prefetch', href: 'https://www.gstatic.com' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap', defer: true },
+      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css', defer: true },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'preconnect', href: 'https://images.prismic.io' },
+      { rel: 'dns-prefetch', href: 'https://images.prismic.io' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+      { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' },
+      { rel: 'preconnect', href: 'https://cdn.jsdelivr.net' },
+      { rel: 'dns-prefetch', href: 'https://cdn.jsdelivr.net' },
+      { rel: 'preconnect', href: 'https://advocacia.cdn.prismic.io' },
+      { rel: 'dns-prefetch', href: 'https://advocacia.cdn.prismic.io' },
+      { rel: 'preconnect', href: 'https://www.google.com' },
+      { rel: 'dns-prefetch', href: 'https://www.google.com' },
+      { rel: 'preconnect', href: 'https://prismic-io.s3.amazonaws.com' },
+      { rel: 'dns-prefetch', href: 'https://prismic-io.s3.amazonaws.com' },
+      { rel: 'preconnect', href: 'https://www.gstatic.com' },
+      { rel: 'dns-prefetch', href: 'https://www.gstatic.com' }
     ]
   },
   /*
