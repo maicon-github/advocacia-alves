@@ -16,8 +16,7 @@ export default {
       { 'http-equiv': 'cache-control', content: 'max-age=31536000' }
     ],
     link: [
-      { rel: 'preload', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.8.55', as: 'font' },
-      { rel: 'preload', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css', as: 'style' },
+      { rel: 'preload', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap', as: 'stylesheet' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'preconnect', href: 'https://images.prismic.io' },
       { rel: 'dns-prefetch', href: 'https://images.prismic.io' },
