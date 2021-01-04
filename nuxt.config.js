@@ -70,7 +70,8 @@ export default {
     '@nuxtjs/prismic',
     '@nuxtjs/recaptcha',
     '@nuxtjs/sitemap',
-    'nuxt-precompress'
+    'nuxt-precompress',
+    '@nuxtjs/gtm'
   ],
   /*
   ** Axios module configuration
@@ -133,5 +134,10 @@ export default {
     cacheTime: 1000 * 60 * 60 * 2,
     trailingSlash: true,
     gzip: true
+  },
+  gtm: {
+    id: process.env.GOOGLE_TAG_MANAGER,
+    pageTracking: true,
+    scriptDefer: true
   }
 }
