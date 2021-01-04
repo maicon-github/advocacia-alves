@@ -42,7 +42,6 @@ export default {
         featured: featuredPost.results[0] || null
       }
     } catch (e) {
-      window.console.log(e)
       error({ statusCode: 500, title: 'Internal Server Error' })
     }
   },
