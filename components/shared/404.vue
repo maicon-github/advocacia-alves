@@ -11,11 +11,17 @@
       <p class="headline">
         Você pode voltar para página inicial ou fazer uma busca em nosso site:
       </p>
-      <v-text-field label="Digite a sua busca..." background-color="white" outlined>
-        <v-icon slot="append">
-          mdi-magnify
-        </v-icon>
-      </v-text-field>
+      <v-text-field
+        v-model="text"
+        label="Pesquisar no blog"
+        dense
+        hide-details
+        autofocus
+        background-color="white"
+        outlined
+        :loading="loading"
+        @keyup.enter="onEnter"
+      />
       <p class="headline">
         Talvez esses links possam te ajudar:
       </p>
@@ -24,12 +30,21 @@
 </template>
 <script>
 export default {
+  data: () => ({ text: '', loading: false }),
   computed: {
     availableHeight () {
-      if (process.client) {
-        return window.innerHeight
+      return process.client ? window.innerHeight : 0
+    }
+  },
+  methods: {
+    onEnter () {
+      this.loading = true
+      if (this.text.length) {
+        this.$router.push({ path: '/blog', query: { s: this.text } }, this.endSearch)
       }
-      return 0
+    },
+    endSearch () {
+      this.loading = false
     }
   }
 }
