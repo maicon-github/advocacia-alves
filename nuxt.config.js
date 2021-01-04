@@ -136,8 +136,12 @@ export default {
     gzip: true
   },
   gtm: {
-    id: process.env.GOOGLE_TAG_MANAGER,
     pageTracking: true,
     scriptDefer: true
+  },
+  publicRuntimeConfig: {
+    gtm: {
+      id: process.env.GOOGLE_TAG_MANAGER
+    }
   }
 }
