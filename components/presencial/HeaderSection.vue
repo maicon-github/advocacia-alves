@@ -43,7 +43,7 @@ export default {
     return {
       breadCrumbItems: [
         { text: 'Inicio', disabled: false, href: '/' },
-        { text: 'Atendimento presencial', disabled: true, href: '/atendimento-presencial' }
+        { text: 'Atendimento presencial', disabled: true, href: '/consulta-presencial' }
       ]
     }
   }

@@ -43,7 +43,7 @@ export default {
     return {
       breadCrumbItems: [
         { text: 'Inicio', disabled: false, href: '/' },
-        { text: 'Atendimento à distância', disabled: true, href: '/atendimento-a-distancia' }
+        { text: 'Atendimento à distância', disabled: true, href: '/consulta-a-distancia' }
       ]
     }
   }
