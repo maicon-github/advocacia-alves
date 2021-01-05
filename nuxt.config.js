@@ -141,7 +141,7 @@ export default {
   },
   publicRuntimeConfig: {
     gtm: {
-      id: process.env.GOOGLE_TAG_MANAGER
+      id: process.env.GOOGLE_TAG_MANAGER_ID
     }
   }
 }
