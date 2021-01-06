@@ -45,7 +45,7 @@
         </v-list-group>
 
         <v-list-item to="/central-de-ajuda">
-          <v-list-item-title>Centra de ajuda</v-list-item-title>
+          <v-list-item-title>Central de ajuda</v-list-item-title>
         </v-list-item>
 
         <v-list-item href="https://advocaciaalves.zohorecruit.com/jobs/carreira" target="blank">
