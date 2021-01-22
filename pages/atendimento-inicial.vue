@@ -87,7 +87,7 @@ export default {
         type: TextField,
         props: {
           id: 'text4',
-          label: '5 - Amarelo?',
+          label: '5 - Amarelo??',
           rules: [v => !!v || 'Preencha com seu nome.']
         }
       },
