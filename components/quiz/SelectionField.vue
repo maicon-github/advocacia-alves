@@ -28,7 +28,7 @@
 <script>
 export default {
   props: {
-    previous: { type: Number, default: -1 },
+    next: { type: Number, default: -1 },
     id: { type: String, required: true },
     label: { type: String, required: true },
     options: { type: Array, required: true }
@@ -37,7 +37,7 @@ export default {
   methods: {
     onChange (value) {
       const option = this.options[value]
-      this.$emit('response', option.value, option.next)
+      setTimeout(() => this.$emit('response', option.value, option.next), 300)
     }
   }
 }

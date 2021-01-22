@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     paddingT () {
-      return this.$vuetify.breakpoint.mdAndUp ? 'mt-16 pt-16' : ''
+      return this.$vuetify.breakpoint.mdAndUp ? 'pt-16' : ''
     },
     paddingX () {
       return this.$vuetify.breakpoint.mdAndUp ? 'px-12' : 'px-4'

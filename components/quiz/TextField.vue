@@ -15,13 +15,16 @@
 <script>
 export default {
   props: {
+    next: { type: Number, default: -1 },
     id: { type: String, required: true },
     label: { type: String, required: true },
     rules: { type: Array, required: true }
   },
   methods: {
     onInput (value) {
-      this.$emit('response', value)
+      const answer = {}
+      answer[this.id] = value
+      this.$emit('response', answer, this.next)
     }
   }
 }

@@ -33,15 +33,15 @@ import SelectionField from '../components/quiz/SelectionField'
 export default {
   layout: 'blank',
   data: () => ({
-    current: 0,
+    selected: 0,
     position: 0,
     quiz: [
       {
         type: TextField,
-        value: '',
         props: {
           id: 'email',
           label: '1 - Qual o seu e-mail?',
+          next: 1,
           rules: [
             v => !!v || 'Preencha com seu endereço de e-mail.',
             v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Preencha com seu endereço de e-mail.'
@@ -52,6 +52,7 @@ export default {
         type: TextField,
         props: {
           id: 'name',
+          next: 2,
           label: '2 - Qual o seu nome?',
           rules: [v => !!v || 'Preencha com seu nome.']
         }
@@ -59,6 +60,7 @@ export default {
       {
         type: PhoneField,
         props: {
+          next: 3,
           id: 'phone',
           label: '3 - Qual o seu número de telefone celular?',
           mask: ['(##) ####-####', '(##) #####-####'],
@@ -74,35 +76,72 @@ export default {
           id: 'cor',
           label: '4 - Qual sua cor favorita?',
           options: [
-            { text: 'Amarelo', value: 0, next: 0 },
-            { text: 'Preto', value: 1, next: 1 },
-            { text: 'Rosa', value: 2, next: 0 },
-            { text: 'Vermelho', value: 3, next: 1 }
-          ],
-          previous: 2
+            { text: 'Amarelo', value: 0, next: 4 },
+            { text: 'Preto', value: 1, next: 5 },
+            { text: 'Rosa', value: 2, next: 6 },
+            { text: 'Vermelho', value: 3, next: 7 }
+          ]
+        }
+      },
+      {
+        type: TextField,
+        props: {
+          id: 'text4',
+          label: '5 - Amarelo?',
+          rules: [v => !!v || 'Preencha com seu nome.']
+        }
+      },
+      {
+        type: TextField,
+        props: {
+          id: 'text5',
+          label: '6 - Preto?',
+          rules: [v => !!v || 'Preencha com seu nome.']
+        }
+      },
+      {
+        type: TextField,
+        props: {
+          id: 'text6',
+          label: '7 - Rosa?',
+          rules: [v => !!v || 'Preencha com seu nome.']
+        }
+      },
+      {
+        type: TextField,
+        props: {
+          id: 'text7',
+          label: '8 - Vermelho?',
+          rules: [v => !!v || 'Preencha com seu nome.']
         }
       }
     ],
-    responses: []
+    responses: [],
+    track: []
   }),
   methods: {
     nextQuestion () {
-      const next = this.position + 1
-      if (next < this.quiz.length) {
-        this.position++
-      }
+      this.track.push(this.position)
+      this.position = this.selected
+      // const next = this.position + 1
+      // if (next < this.quiz.length) {
+      //   this.position++
+      // }
     },
     previousQuestion () {
-      const previous = this.position - 1
-      if (previous >= 0) {
-        this.position--
+      if (this.track.length) {
+        this.position = this.track.pop()
       }
+      // const previous = this.position - 1
+      // if (previous >= 0) {
+      //   this.position--
+      // }
     },
     updateResponse (answer, next) {
-      this.responses[this.position] = answer
-      if (next !== 'undefined') {
-        setTimeout(() => { this.position = next }, 300)
+      if (next > -1) {
+        this.selected = next
       }
+      this.responses[this.position] = answer
     }
   }
 }
