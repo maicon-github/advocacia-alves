@@ -71,7 +71,8 @@ export default {
     '@nuxtjs/recaptcha',
     '@nuxtjs/sitemap',
     'nuxt-precompress',
-    '@nuxtjs/gtm'
+    '@nuxtjs/gtm',
+    'nuxt-trailingslash-module'
   ],
   /*
   ** Axios module configuration
