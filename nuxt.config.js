@@ -72,7 +72,11 @@ export default {
     '@nuxtjs/sitemap',
     'nuxt-precompress',
     '@nuxtjs/gtm',
-    'nuxt-trailingslash-module'
+    ['nuxt-canonical', {
+      baseUrl: 'https://advocaciaalves.com.br',
+      trailingSlashes: false,
+      forceLowerCase: false
+    }]
   ],
   /*
   ** Axios module configuration
