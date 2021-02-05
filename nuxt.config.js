@@ -1,7 +1,7 @@
 import Prismic from 'prismic-javascript'
 
 export default {
-  target: 'static',
+  target: 'server',
   /*
   ** Headers of the page
   */
