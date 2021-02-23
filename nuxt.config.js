@@ -126,7 +126,7 @@ export default {
   },
   recaptcha: {
     hideBadge: false,
-    siteKey: process.env.GOOGLE_RECAPTCHA_KEY,
+    siteKey: process.env.GOOGLE_RECAPTCHA_SITE_KEY,
     version: 2,
     size: 'invisible'
   },
