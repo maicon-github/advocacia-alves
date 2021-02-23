@@ -82,17 +82,14 @@ export default {
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {
-  },
+  axios: {},
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
   */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    theme: {
-      dark: false
-    }
+    theme: { dark: false }
   },
   /*
   ** Build configuration
@@ -129,7 +126,7 @@ export default {
   },
   recaptcha: {
     hideBadge: false,
-    siteKey: '6Lc7ybgZAAAAAJ6REYF30iOA8TL2Mi1PzySpzJN6',
+    siteKey: process.env.GOOGLE_RECAPTCHA_KEY,
     version: 2,
     size: 'invisible'
   },

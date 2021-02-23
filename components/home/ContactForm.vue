@@ -111,8 +111,7 @@ export default {
       try {
         if (this.$refs.leadForm.validate()) {
           this.form.submitting = true
-          const token = await this.$recaptcha.getResponse()
-          window.console.log('ReCaptcha token:', token)
+          await this.$recaptcha.getResponse()
           await this.$recaptcha.reset()
         }
       } catch (error) {
@@ -122,7 +121,7 @@ export default {
       }
     },
     onSuccess (token) {
-      this.$axios.post(`${window.location.origin}/api/lead`, { name: this.form.name, phone: this.form.phone })
+      this.$axios.post(`${window.location.origin}/api/lead`, { name: this.form.name, phone: this.form.phone, token: token })
         .then((res) => {
           if (res.status === 200) {
             this.resetFormValues()
