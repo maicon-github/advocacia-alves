@@ -3,9 +3,9 @@ import axios from 'axios'
 export default (req, res) => {
   const { name, email, token } = req.body
 
-  axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.GOOGLE_RECAPTCHA_SECRET_KEY}&response=${token}`)
-    .then((recaptcha) => {
-      if (recaptcha.data.success) {
+  // axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.GOOGLE_RECAPTCHA_SECRET_KEY}&response=${token}`)
+  //   .then((recaptcha) => {
+  //     if (recaptcha.data.success) {
         const config = {
           client_id: process.env.ZOHO_CLIENT_ID,
           client_secret: process.env.ZOHO_CLIENT_SECRET,
@@ -37,10 +37,10 @@ export default (req, res) => {
             res.status(200).json({ status: 'zauth' })
           })
 
-      } else {
-        res.status(200).json(recaptcha.data)
-      }
-    }).catch((err) => {
-      res.status(200).json({ status: 'recaptcha', error: err })
-    })
+    //   } else {
+    //     res.status(200).json(recaptcha.data)
+    //   }
+    // }).catch((err) => {
+    //   res.status(200).json({ status: 'recaptcha', error: err })
+    // })
 }
