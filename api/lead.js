@@ -26,7 +26,7 @@ export default (req, res) => {
               data: { data: [{ Email: email, Last_Name: name, Phone: phone.replace(/\D/g, '') }] }
             })
               .then((lead) => {
-                res.status(200).json(lead.data)
+                res.status(200)
               })
               .catch((err) => {
                 res.status(400)

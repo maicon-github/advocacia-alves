@@ -27,7 +27,7 @@ export default (req, res) => {
               data: {}
             })
               .then((contact) => {
-                res.status(200).json(contact.data)
+                res.status(200)
               })
               .catch((err) => {
                 res.status(400)
