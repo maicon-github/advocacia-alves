@@ -3,7 +3,7 @@ import axios from 'axios'
 export default (req, res) => {
   const { name, email, token } = req.body
 
-  axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.GOOGLE_RECAPTCHA_KEY}&response=${token}`)
+  axios.get(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.GOOGLE_RECAPTCHA_KEY}&response=${token}`)
     .then((recaptcha) => {
       res.status(200).json(recaptcha)
       // if (recaptcha.success) {
