@@ -29,12 +29,12 @@ export default (req, res) => {
                 res.status(200).json(lead.data)
               })
               .catch((err) => {
-                res.status(200).json({ status: 'zleads', error: err })
+                res.status(400).json({ status: 'zleads', error: err })
               })
 
           })
           .catch((err) => {
-            res.status(200).json({ status: 'zauth' })
+            res.status(400).json({ status: 'zauth' })
           })
 
     //   } else {
