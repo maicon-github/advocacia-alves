@@ -5,7 +5,10 @@ export default (req, res) => {
 
   axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.GOOGLE_RECAPTCHA_KEY}&response=${token}`)
     .then((recaptcha) => {
-      res.status(200).json(recaptcha)
+      res.status(200).json({
+        key: 'success',
+        recaptcha
+      })
       // if (recaptcha.success) {
       //   const config = {
       //     client_id: process.env.ZOHO_CLIENT_ID,
@@ -37,6 +40,9 @@ export default (req, res) => {
       //     })
       // }
     }).catch((err) => {
-      res.status(200).json(err)
+      res.status(200).json({
+        key: 'success',
+        err
+      })
     })
 }
