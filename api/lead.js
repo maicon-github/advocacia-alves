@@ -29,18 +29,18 @@ export default (req, res) => {
                 res.status(200).json(lead.data)
               })
               .catch((err) => {
-                res.status(200).json({ status: 'zleads', error: err.data })
+                res.status(200).json({ status: 'zleads', error: err })
               })
 
           })
           .catch((err) => {
-            res.status(200).json({ status: 'zauth', error: err.data })
+            res.status(200).json({ status: 'zauth', error: err })
           })
 
       } else {
         res.status(200).json(recaptcha.data)
       }
     }).catch((err) => {
-      res.status(200).json({ status: 'recaptcha', error: err.data })
+      res.status(200).json({ status: 'recaptcha', error: err })
     })
 }
