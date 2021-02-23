@@ -26,20 +26,20 @@ export default (req, res) => {
               url: `https://campaigns.zoho.com/api/json/listsubscribe?scope=CampaignsAPI&resfmt=JSON&authtoken=${config.auth_token}&listkey=${config.list_key}&contactinfo={"First Name":"${name}","Contact Email":"${email}","Phone":"${phone.replace(/\D/g, '')}"}`,
               data: {}
             })
-              .then((contact) => {
-                res.status(200)
+              .then( _ => {
+                res.status(200).json({})
               })
-              .catch((err) => {
-                res.status(400)
+              .catch( _ => {
+                res.status(400).json({})
               })
           })
-          .catch((err) => {
-            res.status(400)
+          .catch( _ => {
+            res.status(400).json({})
           })
       } else {
-        res.status(400)
+        res.status(400).json({})
       }
-    }).catch((err) => {
-      res.status(400)
+    }).catch( _ => {
+      res.status(400).json({})
     })
 }

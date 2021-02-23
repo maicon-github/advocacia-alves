@@ -25,22 +25,22 @@ export default (req, res) => {
               headers: { authorization: `Zoho-oauthtoken ${auth.data.access_token}` },
               data: { data: [{ Email: email, Last_Name: name, Phone: phone.replace(/\D/g, '') }] }
             })
-              .then((lead) => {
-                res.status(200)
+              .then( _ => {
+                res.status(200).json({})
               })
-              .catch((err) => {
-                res.status(400)
+              .catch( _ => {
+                res.status(400).json({})
               })
 
           })
-          .catch((err) => {
-            res.status(400)
+          .catch( _ => {
+            res.status(400).json({})
           })
 
       } else {
-        res.status(400)
+        res.status(400).json({})
       }
-    }).catch((err) => {
-      res.status(400)
+    }).catch( _ => {
+      res.status(400).json({})
     })
 }
