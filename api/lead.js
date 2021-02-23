@@ -18,6 +18,7 @@ export default (req, res) => {
       
         axios.post(`https://accounts.zoho.com/oauth/v2/token?refresh_token=${config.refresh_token}&client_id=${config.client_id}&client_secret=${config.client_secret}&grant_type=refresh_token`)
           .then((auth) => {
+          
             axios({
               method: 'post',
               url: 'https://www.zohoapis.com/crm/v2/Leads',
@@ -28,16 +29,18 @@ export default (req, res) => {
                 res.status(200).json(lead.data)
               })
               .catch((err) => {
-                res.status(200).json({ status: 'zleads' })
+                res.status(200).json({ status: 'zleads', error: err.data })
               })
+
           })
           .catch((err) => {
-            res.status(200).json({ status: 'zauth' })
+            res.status(200).json({ status: 'zauth', error: err.data })
           })
+
       } else {
         res.status(200).json(recaptcha.data)
       }
     }).catch((err) => {
-      res.status(200).json({ status: 'recaptcha' })
+      res.status(200).json({ status: 'recaptcha', error: err.data })
     })
 }
