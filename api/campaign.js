@@ -30,16 +30,16 @@ export default (req, res) => {
                 res.status(200).json(contact.data)
               })
               .catch((err) => {
-                res.status(400).send(err)
+                res.status(400)
               })
           })
           .catch((err) => {
-            res.status(400).send(err)
+            res.status(400)
           })
       } else {
-        res.status(200).json(recaptcha.data)
+        res.status(400)
       }
     }).catch((err) => {
-      res.status(200).json(err)
+      res.status(400)
     })
 }
