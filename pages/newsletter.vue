@@ -134,8 +134,7 @@ export default {
       try {
         if (this.$refs.campaignForm.validate()) {
           this.form.submitting = true
-          const token = await this.$recaptcha.getResponse()
-          window.console.log('ReCaptcha token:', token)
+          await this.$recaptcha.getResponse()
           await this.$recaptcha.reset()
         }
       } catch (error) {
@@ -146,7 +145,7 @@ export default {
     },
     onSuccess (token) {
       this.$axios.post(`${window.location.origin}/api/campaign`,
-        { name: this.form.name, phone: this.form.phone, email: this.form.email })
+        { name: this.form.name, phone: this.form.phone, email: this.form.email, token: token })
         .then((res) => {
           if (res.status === 200) {
             this.resetFormValues()
