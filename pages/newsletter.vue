@@ -144,8 +144,13 @@ export default {
       }
     },
     onSuccess (token) {
-      this.$axios.post(`${window.location.origin}/api/campaign`,
-        { name: this.form.name, phone: this.form.phone, email: this.form.email, token: token })
+      const data = {
+        token,
+        name: this.form.name,
+        phone: this.form.phone,
+        email: this.form.email
+      }
+      this.$axios.post(`${window.location.origin}/api/campaign`, data)
         .then((res) => {
           if (res.status === 200) {
             this.resetFormValues()
