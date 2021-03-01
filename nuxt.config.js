@@ -16,22 +16,22 @@ export default {
       { 'http-equiv': 'cache-control', content: 'max-age=31536000' }
     ],
     link: [
-      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      // { rel: 'preconnect', href: 'https://images.prismic.io' },
-      // { rel: 'dns-prefetch', href: 'https://images.prismic.io' },
-      // { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
-      // { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' },
-      // { rel: 'preconnect', href: 'https://cdn.jsdelivr.net' },
-      // { rel: 'dns-prefetch', href: 'https://cdn.jsdelivr.net' },
-      // { rel: 'preconnect', href: 'https://advocacia.cdn.prismic.io' },
-      // { rel: 'dns-prefetch', href: 'https://advocacia.cdn.prismic.io' },
-      // { rel: 'preconnect', href: 'https://www.google.com' },
-      // { rel: 'dns-prefetch', href: 'https://www.google.com' },
-      // { rel: 'preconnect', href: 'https://prismic-io.s3.amazonaws.com' },
-      // { rel: 'dns-prefetch', href: 'https://prismic-io.s3.amazonaws.com' },
-      // { rel: 'preconnect', href: 'https://www.gstatic.com' },
-      // { rel: 'dns-prefetch', href: 'https://www.gstatic.com' }
-      // { rel: 'preload', as: 'font', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.8.55', crossorigin: '' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'preconnect', href: 'https://images.prismic.io' },
+      { rel: 'dns-prefetch', href: 'https://images.prismic.io' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+      { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' },
+      { rel: 'preconnect', href: 'https://cdn.jsdelivr.net' },
+      { rel: 'dns-prefetch', href: 'https://cdn.jsdelivr.net' },
+      { rel: 'preconnect', href: 'https://advocacia.cdn.prismic.io' },
+      { rel: 'dns-prefetch', href: 'https://advocacia.cdn.prismic.io' },
+      { rel: 'preconnect', href: 'https://www.google.com' },
+      { rel: 'dns-prefetch', href: 'https://www.google.com' },
+      { rel: 'preconnect', href: 'https://prismic-io.s3.amazonaws.com' },
+      { rel: 'dns-prefetch', href: 'https://prismic-io.s3.amazonaws.com' },
+      { rel: 'preconnect', href: 'https://www.gstatic.com' },
+      { rel: 'dns-prefetch', href: 'https://www.gstatic.com' }
+      { rel: 'preload', as: 'font', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.8.55', crossorigin: '' }
     ]
   },
   /*
