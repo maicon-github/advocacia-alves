@@ -30,7 +30,7 @@ export default {
       { rel: 'preconnect', href: 'https://prismic-io.s3.amazonaws.com' },
       { rel: 'dns-prefetch', href: 'https://prismic-io.s3.amazonaws.com' },
       { rel: 'preconnect', href: 'https://www.gstatic.com' },
-      { rel: 'dns-prefetch', href: 'https://www.gstatic.com' }
+      { rel: 'dns-prefetch', href: 'https://www.gstatic.com' },
       { rel: 'preload', as: 'font', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.8.55', crossorigin: '' }
     ]
   },
