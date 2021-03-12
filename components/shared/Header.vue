@@ -3,7 +3,7 @@
     <v-container class="d-flex py-0">
       <v-app-bar-nav-icon class="hidden-md-and-up my-auto ml-n6" @click.stop="$emit('menu')" />
       <a href="/" class="ma-auto">
-        <img height="52" src="/logo.png" alt="Advocacia Alves">
+        <img height="52" width="156" src="/logo.png" alt="Advocacia Alves">
       </a>
       <v-spacer class="hidden-sm-and-down" />
       <div class="hidden-sm-and-down my-auto">

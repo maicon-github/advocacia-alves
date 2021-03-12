@@ -49,6 +49,14 @@ export default {
         return ''
       }
     }
+  },
+  head () {
+    return {
+      title: this.post.title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.post.meta_description }
+      ]
+    }
   }
 }
 </script>

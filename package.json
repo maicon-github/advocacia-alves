@@ -1,7 +1,7 @@
 {
   "name": "advocacia",
   "version": "2.0.0",
-  "description": "Advocacia Alves",
+  "description": "Escritório de advocacia previdenciário. Planejamento previdenciário, revisões, aposentadorias, processo, INSS, consulta advogado.",
   "author": "Daniel Alves",
   "private": true,
   "scripts": {
