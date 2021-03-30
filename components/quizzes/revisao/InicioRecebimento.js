@@ -10,11 +10,11 @@ export default new QuestionModel({
   options: [
     new ChoiceOption({ label: 'De 05/10/1998 a 04/04/1991', value: 'a' }),
     new ChoiceOption({ label: 'De 05/04/1991 a 31/12/2003', value: 'b' }),
-    new ChoiceOption({ label: 'Outro', value: 'c' })
+    new ChoiceOption({ label: 'Outro período', value: 'c' })
   ],
   jump: {
     a: 'BuracoNegro',
-    b: 'PagamentoExtendido',
+    b: 'RevisaoTeto',
     c: 'InicioRecebimentoOutro'
   }
 })

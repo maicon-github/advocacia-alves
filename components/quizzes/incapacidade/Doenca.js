@@ -1,10 +1,11 @@
 import { QuestionModel, QuestionType } from '@ditdot-dev/vue-flow-form'
 
 export default new QuestionModel({
-  id: 'AcaoTrabalhistaTempoDetalhe',
-  title: 'Você tem algum detalhe para comentar sobre a reclamatória trabalhista que ganhou?',
+  id: 'Doenca',
+  title: 'Quais são as doenças que você possui?',
   type: QuestionType.LongText,
   helpText: 'SHIFT+ENTER para quebrar a linha',
   placeholder: 'Responda aqui...',
-  jump: () => 'MeioRural'
+  required: true,
+  jump: () => 'DoencaCid'
 })

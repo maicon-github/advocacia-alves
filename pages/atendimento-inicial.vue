@@ -8,9 +8,10 @@
 </template>
 <script>
 import FlowForm, { LanguageModel } from '@ditdot-dev/vue-flow-form'
-import contact from '../components/quizzes/contact'
-import aposentadoria from '../components/quizzes/aposentadoria'
-import revisao from '../components/quizzes/revisao'
+// import contact from '../components/quizzes/contact'
+// import aposentadoria from '../components/quizzes/aposentadoria'
+// import revisao from '../components/quizzes/revisao'
+import incapacidade from '../components/quizzes/incapacidade'
 export default {
   layout: 'blank',
   components: { FlowForm },
@@ -18,9 +19,10 @@ export default {
     return {
       current: null,
       questions: [
-        ...contact,
-        ...aposentadoria,
-        ...revisao
+        // ...contact,
+        // ...aposentadoria,
+        // ...revisao,
+        ...incapacidade
       ],
       language: new LanguageModel({
         continue: 'Continuar',

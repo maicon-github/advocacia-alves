@@ -21,7 +21,7 @@ export default new QuestionModel({
   jump: {
     a: 'PedidoAndamento',
     b: 'RevisaoAndamento',
-    c: '_submit',
+    c: 'IncapacidadeInicial',
     d: '_submit',
     e: '_submit',
     f: '_submit',

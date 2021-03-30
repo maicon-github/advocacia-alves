@@ -2,7 +2,7 @@ import { QuestionModel, QuestionType, ChoiceOption } from '@ditdot-dev/vue-flow-
 
 export default new QuestionModel({
   id: 'MeioRuralTempo',
-  title: 'Quanto tempo você trabalhou no meio rural antes de 1991, após ter completado 12 anos?',
+  title: 'Quanto tempo você trabalhou no meio rural antes de 1991, após ter completado 8 anos?',
   type: QuestionType.MultipleChoice,
   helpText: 'Selecione uma opção',
   required: true,
