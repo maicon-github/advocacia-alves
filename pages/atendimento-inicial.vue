@@ -33,7 +33,7 @@ export default {
   mounted () {
     window.console.log(this.page)
     const config = this.page.data.body
-
+    window.console.log(config)
     const questions = []
     for (const i in config) {
       const { primary, items } = config[i]
@@ -109,6 +109,7 @@ export default {
         helpText: data.help_text,
         required: data.required,
         multiple: data.multiple,
+        nextStepOnAnswer: data.next_step_on_answer,
         options,
         jump
       })
