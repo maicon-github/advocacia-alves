@@ -8,7 +8,7 @@
   />
 </template>
 <script>
-import FlowForm, { LanguageModel, QuestionModel, QuestionType, ChoiceOption } from '@ditdot-dev/vue-flow-form'
+import FlowForm, { LanguageModel, QuestionModel, QuestionType, ChoiceOption, LinkOption } from '@ditdot-dev/vue-flow-form'
 export default {
   layout: 'blank',
   components: { FlowForm },
@@ -31,14 +31,12 @@ export default {
     }
   },
   mounted () {
-    window.console.log(this.page)
     const config = this.page.data.body
-    window.console.log(config)
     const questions = []
     for (const i in config) {
       const { primary, items } = config[i]
       if (config[i].slice_type === 'section_break') {
-        questions.push(this.createSectionBreak(primary))
+        questions.push(this.createSectionBreak(primary, items))
       }
       if (config[i].slice_type === 'text') {
         questions.push(this.createTextField(primary))
@@ -57,14 +55,16 @@ export default {
     this.questions = questions
   },
   methods: {
-    createSectionBreak (data) {
+    createSectionBreak (data, items) {
+      const links = this.createDescriptionLinks(items)
       return new QuestionModel({
         id: data.id,
         title: data.title,
         description: data.description,
         content: data.content,
         type: QuestionType.SectionBreak,
-        jump: () => data.jump
+        jump: () => data.jump,
+        descriptionLink: links
       })
     },
     createTextField (data) {
@@ -89,7 +89,6 @@ export default {
       })
     },
     createEmailField (data) {
-      window.console.log(data)
       return new QuestionModel({
         id: data.id,
         title: data.question,
@@ -123,6 +122,17 @@ export default {
       }
 
       return { options, jump }
+    },
+    createDescriptionLinks (items) {
+      const links = []
+      for (const i in items) {
+        links.push(new LinkOption({
+          url: items[i].url,
+          text: items[i].text,
+          target: '_self'
+        }))
+      }
+      return links
     }
 
     // step (id, question) {
