@@ -1,6 +1,5 @@
 <template>
-  <div :style="style">
-    <v-img v-if="$vuetify.breakpoint.smAndDown" :src="post.image.url" :alt="post.image.alt" eager />
+  <div>
     <Post :post="post" :author="author" />
     <Author :data="author" />
     <Relations :relations="relations" />
@@ -39,15 +38,6 @@ export default {
       }
     } catch (e) {
       error({ statusCode: 500, title: 'Internal Server Error' })
-    }
-  },
-  computed: {
-    style () {
-      if (this.$vuetify.breakpoint.mdAndUp) {
-        return 'background-image:url(' + this.post.image.url + '); background-size:contain;'
-      } else {
-        return ''
-      }
     }
   },
   head () {

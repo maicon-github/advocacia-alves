@@ -43,6 +43,13 @@ export default {
     } catch (e) {
       error({ statusCode: 500, title: 'Internal Server Error' })
     }
+  },
+  head () {
+    return {
+      meta: [
+        { hid: 'description', name: 'description', content: this.meta_description }
+      ]
+    }
   }
 }
 </script>

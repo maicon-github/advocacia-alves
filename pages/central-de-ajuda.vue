@@ -74,6 +74,7 @@ export default {
   async asyncData ({ $prismic, error }) {
     try {
       const page = (await $prismic.api.getSingle('central_de_ajuda'))
+      window.console.log(page)
       const sections = (await $prismic.api.query(
         $prismic.predicates.at('document.type', 'faq')
       ))
@@ -92,6 +93,14 @@ export default {
   methods: {
     cardHref (link) {
       return link && link.length > 0 ? link : 'javascript:;'
+    }
+  },
+  head () {
+    return {
+      title: this.title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.meta_description }
+      ]
     }
   }
 }

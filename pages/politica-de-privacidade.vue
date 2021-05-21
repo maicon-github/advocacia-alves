@@ -27,6 +27,13 @@ export default {
         { text: 'Política de Privacidade', disabled: true, href: '/politica-de-privacidade' }
       ]
     }
+  },
+  head () {
+    return {
+      meta: [
+        { hid: 'description', name: 'description', content: this.meta_description }
+      ]
+    }
   }
 }
 </script>

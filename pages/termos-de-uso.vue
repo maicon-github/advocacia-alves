@@ -27,6 +27,13 @@ export default {
         { text: 'Termos de Uso', disabled: true, href: '/termos-de-uso' }
       ]
     }
+  },
+  head () {
+    return {
+      meta: [
+        { hid: 'description', name: 'description', content: this.meta_description }
+      ]
+    }
   }
 }
 </script>
