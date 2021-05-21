@@ -2,7 +2,7 @@
   <div>
     <Caption :text="caption1" />
     <div class="d-flex">
-      <v-img :src="icon.url" :alt="icon.alt" :max-width="130" contain />
+      <v-img :src="icon.url" :alt="icon.alt" max-width="150" contain />
       <div class="rate-value ml-8">
         {{ value }}
       </div>
@@ -29,7 +29,6 @@ export default {
   color: #3D3D3D;
   font-size: 32px;
   line-height: 71px;
-  align-self: flex-end;
 }
 .rate-text {
   color: #A3A3A3;

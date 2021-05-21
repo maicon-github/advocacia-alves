@@ -3,16 +3,15 @@
     <v-container>
       <v-row>
         <v-col sm="12" md="6">
-          <div>
-            <Caption :text="caption1" />
-            <h1 class="caption2 mt-6">
-              {{ caption2 }}
-            </h1>
-            <div class="caption3 mt-6 mb-16">
-              {{ caption3 }}
-            </div>
+          <Caption :text="caption1" />
+          <h1 class="caption2 mt-6">
+            {{ caption2 }}
+          </h1>
+          <div :class="`caption3 mt-6 ${stylesCaption3}`">
+            {{ caption3 }}
+          </div>
+          <div class="hidden-sm-and-down">
             <GoogleRate
-              v-if="$vuetify.breakpoint.mdAndUp"
               :caption1="rcaption1"
               :caption2="rcaption2"
               :icon="ricon"
@@ -20,26 +19,23 @@
             />
           </div>
         </v-col>
-        <v-col sm="12" md="6" :class="imageContainerStyles">
+        <v-col sm="12" md="6">
           <v-img
             :src="fimage.url"
             :alt="fimage.alt"
             :class="`${imageStyles} mx-auto`"
             max-width="550"
             eager
-          >
-            <!-- <ContactForm :caption1="fcaption1" :caption2="fcaption2" class="mt-5" /> -->
-          </v-img>
+          />
         </v-col>
-
-        <div v-if="$vuetify.breakpoint.smAndDown" class="mx-auto pt-16">
+      </v-row>
+      <v-row class="hidden-md-and-up mt-10" align="center" justify="center">
           <GoogleRate
             :caption1="rcaption1"
             :caption2="rcaption2"
             :icon="ricon"
             :value="rvalue"
           />
-        </div>
       </v-row>
     </v-container>
   </section>
@@ -47,7 +43,6 @@
 <script>
 import Caption from '../shared/Caption'
 import GoogleRate from '../shared/GoogleRate'
-// import ContactForm from './ContactForm'
 export default {
   components: { Caption, GoogleRate },
   props: {
@@ -63,11 +58,11 @@ export default {
     rvalue: { type: String, required: true }
   },
   computed: {
-    imageContainerStyles () {
-      return this.$vuetify.breakpoint.smAndDown ? 'pa-4' : 'pa-0'
-    },
     imageStyles () {
-      return this.$vuetify.breakpoint.smAndDown ? 'pa-0' : 'pa-4'
+      return this.$vuetify.breakpoint.smAndDown ? 'pa-0' : 'pa-4 mt-16'
+    },
+    stylesCaption3 () {
+      return this.$vuetify.breakpoint.smAndDown ? '' : 'mb-16'
     }
   }
 }
