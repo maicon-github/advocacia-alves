@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar fixed app>
+  <v-app-bar fixed app height="64">
     <v-container class="d-flex py-0">
       <v-app-bar-nav-icon class="hidden-md-and-up my-auto ml-n6" @click.stop="$emit('menu')" />
       <a href="/" class="ma-auto">
@@ -30,16 +30,6 @@
           <v-btn href="/central-de-ajuda" class="my-auto" text small>
             Central de ajuda
           </v-btn>
-          <!-- <v-btn
-            href="https://advocaciaalves.zohorecruit.com/jobs/carreira"
-            class="my-auto"
-            target="_blank"
-            rel="noreferrer"
-            text
-            small
-          >
-            Carreira
-          </v-btn> -->
           <v-btn to="/consulta-a-distancia" class="my-auto white--text" color="#e57100" small>
             Consulta à Distância
           </v-btn>
@@ -71,12 +61,6 @@ export default {
     },
     tempSearchStyle () {
       return this.showSearchTemp ? '' : 'display:none;'
-    },
-    logoClass () {
-      if (this.$vuetify.breakpoint.smAndDown) {
-        return 'ma-auto'
-      }
-      return 'ma-auto ml-n6'
     },
     data () {
       return { showTemp: true }

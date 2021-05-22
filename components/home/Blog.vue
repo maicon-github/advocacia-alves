@@ -4,7 +4,7 @@
     <v-container>
       <v-row>
         <v-col cols="12" class="px-0">
-          <v-container v-if="$vuetify.breakpoint.mdAndUp">
+          <v-container class="hidden-sm-and-down">
             <v-row>
               <v-col v-for="(item, i) in posts" :key="i" md="4">
                 <PostCard :post="item" class="ma-1" />
@@ -12,7 +12,7 @@
             </v-row>
           </v-container>
           <v-carousel
-            v-if="$vuetify.breakpoint.smAndDown"
+            class="hidden-md-and-up"
             hide-delimiters
             show-arrows
             cycle

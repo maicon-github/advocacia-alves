@@ -1,15 +1,16 @@
 <template>
   <section>
     <v-container>
-      <v-row>
+      <v-row class="fill-height">
         <v-col sm="12" md="6">
           <Caption :text="caption1" />
           <h1 class="caption2 mt-6">
             {{ caption2 }}
           </h1>
-          <div :class="`caption3 mt-6 ${stylesCaption3}`">
+          <div class="caption3 mt-6">
             {{ caption3 }}
           </div>
+          <div class="hidden-sm-and-down mt-16" />
           <div class="hidden-sm-and-down">
             <GoogleRate
               :caption1="rcaption1"
@@ -19,23 +20,24 @@
             />
           </div>
         </v-col>
-        <v-col sm="12" md="6">
+        <v-col sm="12" md="6" class="pb-0">
+          <div class="hidden-sm-and-down mt-16" />
           <v-img
             :src="fimage.url"
             :alt="fimage.alt"
-            :class="`${imageStyles} mx-auto`"
-            max-width="550"
+            class="mx-auto"
+            width="95%"
             eager
           />
         </v-col>
       </v-row>
       <v-row class="hidden-md-and-up mt-10" align="center" justify="center">
-          <GoogleRate
-            :caption1="rcaption1"
-            :caption2="rcaption2"
-            :icon="ricon"
-            :value="rvalue"
-          />
+        <GoogleRate
+          :caption1="rcaption1"
+          :caption2="rcaption2"
+          :icon="ricon"
+          :value="rvalue"
+        />
       </v-row>
     </v-container>
   </section>
@@ -56,14 +58,6 @@ export default {
     fimage: { type: Object, required: true },
     ricon: { type: Object, required: true },
     rvalue: { type: String, required: true }
-  },
-  computed: {
-    imageStyles () {
-      return this.$vuetify.breakpoint.smAndDown ? 'pa-0' : 'pa-4 mt-16'
-    },
-    stylesCaption3 () {
-      return this.$vuetify.breakpoint.smAndDown ? '' : 'mb-16'
-    }
   }
 }
 </script>
