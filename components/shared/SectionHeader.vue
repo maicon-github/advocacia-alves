@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <v-col sm="12" class="mt-16">
-          <v-img src="/gray-line.svg" width="360px" height="26px" class="ma-auto d-block" />
+          <v-img src="/gray-line.svg" width="360px" height="26px" class="ma-auto d-block" eager />
           <div class="scaption1 text-center mt-6">
             {{ caption1 }}
           </div>

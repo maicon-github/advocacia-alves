@@ -1,9 +1,11 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="8" offset="2" class="pb-12">
-        <Breadcrumb :items="breadCrumbItems" class="mx-auto px-0" />
-        <prismic-rich-text :field="content" />
+      <v-col class="pb-12 px-4">
+        <div class="maxcontent mx-auto">
+          <Breadcrumb :items="breadCrumbItems" class="mx-auto px-0" />
+          <prismic-rich-text :field="content" />
+        </div>
       </v-col>
     </v-row>
   </v-container>
@@ -37,3 +39,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.maxcontent {
+  max-width: 830px;
+}
+</style>

@@ -6,17 +6,19 @@
           EM DESTAQUE
         </div>
         <div class="flex display-1 font-weight-regular">
-          <a :href="`/blog/${id}`">{{ title }}</a>
+          <a :href="`/blog/${id}`" class="text-decoration-none">
+            {{ title }}
+          </a>
         </div>
       </v-col>
       <v-col cols="12" md="6">
         <a :href="`/blog/${id}`">
-          <img
+          <v-img
             :src="image.url"
             width="100%"
-            class="m-auto"
-            style="display: inline-block;height: 100%;"
-          >
+            class="ma-auto"
+            height="266px"
+          />
         </a>
       </v-col>
     </v-row>

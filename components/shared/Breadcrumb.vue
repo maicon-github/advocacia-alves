@@ -1,7 +1,9 @@
 <template>
   <v-breadcrumbs :items="items" style="">
     <template v-slot:divider>
-      <v-icon>mdi-chevron-right</v-icon>
+      <v-icon size="16">
+        mdi-chevron-right
+      </v-icon>
     </template>
   </v-breadcrumbs>
 </template>
