@@ -1,5 +1,5 @@
 <template>
-  <div class="my-5 pcontainer">
+  <div class="my-8 pcontainer">
     <div class="pinfo">
       Por: {{ author.name }} / Publicação: {{ formatedCreatedAt }} / Atualização: {{ formatedUpdatedAt }}
     </div>

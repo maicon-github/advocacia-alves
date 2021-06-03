@@ -9,7 +9,14 @@
           </h1>
           <prismic-rich-text :field="post.content_head_subtitle" />
           <PostInfo :author="author" :updated-at="post.updatedAt" :created-at="post.createdAt" />
-          <v-img :src="post.image.url" :alt="post.image.alt" width="100%" height="343" eager />
+          <v-img
+            :src="post.image.url"
+            :alt="post.image.alt"
+            width="80%"
+            height="343"
+            class="ma-auto"
+            eager
+          />
           <div v-for="(slice,i) in post.body" :key="i">
             <prismic-rich-text v-if="slice.slice_type == 'texto'" :field="slice.primary.content" />
             <v-img v-if="slice.slice_type == 'image'" :src="slice.primary.img.url" contain max-width="100%" eager />

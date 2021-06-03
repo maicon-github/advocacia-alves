@@ -16,7 +16,6 @@ export default {
   async asyncData ({ $prismic, error, params }) {
     try {
       const post = (await $prismic.api.getByUID('blogpost', params.id))
-      window.console.log(post)
       const author = (await $prismic.api.getByID(post.data.author.id))
       const relations = (await $prismic.api.query(
         [
