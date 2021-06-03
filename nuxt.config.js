@@ -31,7 +31,9 @@ export default {
       { rel: 'dns-prefetch', href: 'https://prismic-io.s3.amazonaws.com' },
       { rel: 'preconnect', href: 'https://www.gstatic.com' },
       { rel: 'dns-prefetch', href: 'https://www.gstatic.com' },
-      { rel: 'preload', as: 'font', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.8.55', crossorigin: '' }
+      { rel: 'preload', as: 'font', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.8.55', crossorigin: '' },
+      { rel: 'preload', as: 'font', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap', crossorigin: '' },
+      { rel: 'preload', as: 'font', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css', crossorigin: '' },
     ]
   },
   /*
