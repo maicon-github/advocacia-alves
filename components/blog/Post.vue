@@ -14,7 +14,7 @@
             :alt="post.image.alt"
             width="80%"
             height="343px"
-            class="ma-auto"
+            class="ma-auto d-block"
           />
           <div v-for="(slice,i) in post.body" :key="i">
             <prismic-rich-text v-if="slice.slice_type == 'texto'" :field="slice.primary.content" />
