@@ -1,17 +1,16 @@
 <template>
   <v-card
-    height="426"
+    height="350"
     :href="`/blog/${post.uid}`"
     class="pa-4 d-flex flex-column"
     hover
     outlined
     :light="true"
   >
-    <v-img
+    <img
       class="white--text align-end"
       :src="post.data.image.url"
-      max-height="70%"
-      eager
+      width="100%"
     />
     <v-card-subtitle class="pa-0" style="font-size: 0.750rem;">
       {{ $categoryDescription(post.data.type) }}

@@ -2,7 +2,7 @@
   <div>
     <v-row>
       <v-col cols="12" class="mt-16">
-        <v-img src="/gray-line.svg" width="300px" class="ma-auto" />
+        <img src="/gray-line.svg" width="300px" class="ma-auto d-block" />
         <div class="ocaption1 text-center mt-6">
           SOBRE O FUNDADOR
         </div>

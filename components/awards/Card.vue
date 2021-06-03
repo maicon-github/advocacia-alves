@@ -6,12 +6,11 @@
     outlined
     :light="true"
   >
-    <v-img
+    <img
       :src="item.data.image.url"
       :alt="item.data.image.alt"
-      height="144"
+      height="144px"
       class="mx-8 mt-8"
-      contain
     />
     <v-card-title class="aicaption">
       {{ item.data.caption }}

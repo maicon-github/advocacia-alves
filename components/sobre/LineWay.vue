@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row>
-      <v-col v-for="(w, i) in items" :key="i+10" :md="w.wsize" :xs="w.wsize*2" :class="`text-center pa-3 ${bgPosition(i)}`">
+      <v-col v-for="(w, i) in items" :key="i+10" :md="w.wsize" :cols="w.wsize*2" :class="`text-center pa-3 ${bgPosition(i)}`">
         <div v-if="!!w.wcaption">
           <div class="mx-auto text-center" style="width:200px;">
             <CenteredCaption :text="w.wcaption" />
@@ -13,10 +13,8 @@
             {{ w.wsubtitle }}
           </p>
         </div>
-        <v-card v-if="!!w.wimage.url" class="mx-auto rounded-xl text-left" min-height="451">
-          <div align="center">
-            <v-img width="70%" :src="w.wimage.url" :alt="w.wimage.alt" eager />
-          </div>
+        <v-card v-if="!!w.wimage.url" class="mx-auto rounded-xl text-left" min-height="539">
+          <img width="100%" :src="w.wimage.url" :alt="w.wimage.alt" class="pa-4"/>
           <v-card-text>
             <p class="waytitle">
               {{ w.wtitle }}

@@ -1,8 +1,8 @@
 <template>
   <section>
     <v-container>
-      <v-row class="fill-height">
-        <v-col sm="12" md="6">
+      <v-row>
+        <v-col cols="12" md="6">
           <Caption :text="caption1" />
           <h1 class="caption2 mt-6">
             {{ caption2 }}
@@ -20,7 +20,7 @@
             />
           </div>
         </v-col>
-        <v-col sm="12" md="6" class="pb-0">
+        <v-col cols="12" md="6" class="pb-0 d-flex">
           <div class="hidden-sm-and-down mt-16" />
           <img
             :src="fimage.url"

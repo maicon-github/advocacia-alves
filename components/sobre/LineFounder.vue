@@ -1,10 +1,10 @@
 <template>
   <div>
     <v-row>
-      <v-col md="5" sm="12" class="px-8 d-flex">
-        <v-img :src="picture.url" :alt="picture.alt" eager width="100%" class="my-auto" />
+      <v-col md="5" cols="12" class="px-8 d-flex">
+        <img :src="picture.url" :alt="picture.alt" width="100%" class="my-auto" />
       </v-col>
-      <v-col md="7" sm="12" class="pb-0">
+      <v-col md="7" cols="12" class="pb-0">
         <div class="mx-auto fborder pt-16">
           <h3 class="fcaption1 text-center">
             {{ name }}

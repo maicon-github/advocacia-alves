@@ -4,7 +4,7 @@
 
     <v-container :class="centerText">
       <v-row class="px-5">
-        <v-col sm="12" md="3">
+        <v-col cols="12" md="3">
           <v-row v-for="(item, i) in items.slice(0, 2)" :key="i">
             <div :class="`rounded-circle blue darken-2 pa-4 ${centerIcon}`">
               <v-icon color="white">
@@ -17,15 +17,13 @@
             <prismic-rich-text :field="item.text" class="sitext" />
           </v-row>
         </v-col>
-        <v-col sm="12" md="6" class="d-flex align-center justify-center px-5">
-          <v-img
-            class="mb-16"
+        <v-col cols="12" md="6" class="d-flex align-center justify-center px-5">
+          <img
+            class="mb-16 px-4"
             :src="image.url"
             :alt="image.alt"
             width="100%"
             max-width="400"
-            contain
-            eager
           />
         </v-col>
         <v-col sm="12" md="3">

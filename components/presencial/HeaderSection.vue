@@ -4,7 +4,7 @@
       <v-col cols="12">
         <Breadcrumb :items="breadCrumbItems" class="mx-auto px-0" />
       </v-col>
-      <v-col md="5" sm="12" class="d-flex flex-column">
+      <v-col md="5" cols="12" class="d-flex flex-column">
         <Caption :text="caption" />
 
         <h1 class="htitle mt-6">
@@ -22,8 +22,8 @@
           AGENDE A VISITA
         </v-btn>
       </v-col>
-      <v-col md="7" sm="12" class="d-flex">
-        <v-img eager :src="image.url" :alt="image.alt" class="my-auto" />
+      <v-col md="7" cols="12" class="d-flex">
+        <img :src="image.url" :alt="image.alt" class="my-auto pa-4" width="100%"/>
       </v-col>
     </v-row>
   </v-container>

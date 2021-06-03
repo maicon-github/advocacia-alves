@@ -13,11 +13,11 @@
       </v-col>
       <v-col cols="12" md="6">
         <a :href="`/blog/${id}`">
-          <v-img
+          <img
             :src="image.url"
             width="100%"
             class="ma-auto"
-            height="266px"
+            max-height="266px"
           />
         </a>
       </v-col>
