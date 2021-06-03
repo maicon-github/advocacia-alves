@@ -4,9 +4,10 @@
       <v-col cols="12" class="pa-0">
         <div :class="`maxcontent mx-auto white px-4`">
           <Breadcrumb :items="breadCrumbItems" class="mx-auto px-0" />
-          <h1 class="ptitle">
+          <h1 class="ptitle mb-16 mt-8">
             {{ post.title }}
           </h1>
+          <prismic-rich-text :field="post.content_head_subtitle" />
           <PostInfo :author="author" :updated-at="post.updatedAt" :created-at="post.createdAt" />
           <v-img :src="post.image.url" :alt="post.image.alt" width="100%" height="343" eager />
           <div v-for="(slice,i) in post.body" :key="i">
