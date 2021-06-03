@@ -66,6 +66,13 @@ export default {
       this.posts = page === 1 ? posts.results : [...this.posts, ...posts.results]
       this.postListTitle = hasSearch ? `Resultado da pesquisa: ${posts.total_results_size}` : 'Últimas postagens'
     }
+  },
+  head () {
+    return {
+      link: [
+        { rel: 'preload', type: 'image', href: this.image.url }
+      ]
+    }
   }
 }
 </script>

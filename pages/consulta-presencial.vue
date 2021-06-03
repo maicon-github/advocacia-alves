@@ -38,6 +38,9 @@ export default {
     return {
       meta: [
         { hid: 'description', name: 'description', content: this.meta_description }
+      ],
+      link: [
+        { rel: 'preload', type: 'image', href: this.himage.url }
       ]
     }
   }

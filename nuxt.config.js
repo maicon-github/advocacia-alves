@@ -16,6 +16,9 @@ export default {
       { 'http-equiv': 'cache-control', content: 'max-age=31536000' }
     ],
     link: [
+      { rel: 'preload', as: 'font', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.8.55', crossorigin: '' },
+      { rel: 'preload', as: 'style', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap', crossorigin: '' },
+      { rel: 'preload', as: 'style', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css', crossorigin: '' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'preconnect', href: 'https://images.prismic.io' },
       { rel: 'dns-prefetch', href: 'https://images.prismic.io' },
@@ -30,10 +33,7 @@ export default {
       { rel: 'preconnect', href: 'https://prismic-io.s3.amazonaws.com' },
       { rel: 'dns-prefetch', href: 'https://prismic-io.s3.amazonaws.com' },
       { rel: 'preconnect', href: 'https://www.gstatic.com' },
-      { rel: 'dns-prefetch', href: 'https://www.gstatic.com' },
-      { rel: 'preload', as: 'font', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.8.55', crossorigin: '' },
-      { rel: 'preload', as: 'style', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap', crossorigin: '' },
-      { rel: 'preload', as: 'style', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css', crossorigin: '' },
+      { rel: 'dns-prefetch', href: 'https://www.gstatic.com' }
     ]
   },
   /*

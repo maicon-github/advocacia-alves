@@ -61,6 +61,13 @@ export default {
       this.total = posts.total_pages
       this.posts = page === 1 ? posts.results : [...this.posts, ...posts.results]
     }
+  },
+  head () {
+    return {
+      link: [
+        { rel: 'preload', type: 'image', href: this.featured.data.image.url }
+      ]
+    }
   }
 }
 </script>
