@@ -47,7 +47,7 @@ export default {
         { hid: 'description', name: 'description', content: this.meta_description }
       ],
       link: [
-        { rel: 'preload', type: 'image', href: this.himage.url }
+        { rel: 'preload', as: 'image', href: this.himage.url }
       ]
     }
   }

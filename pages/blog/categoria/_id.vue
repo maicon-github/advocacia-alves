@@ -65,7 +65,7 @@ export default {
   head () {
     return {
       link: [
-        { rel: 'preload', type: 'image', href: this.featured.data.image.url }
+        { rel: 'preload', as: 'image', href: this.featured.data.image.url }
       ]
     }
   }

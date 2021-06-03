@@ -70,7 +70,7 @@ export default {
   head () {
     return {
       link: [
-        { rel: 'preload', type: 'image', href: this.image.url }
+        { rel: 'preload', as: 'image', href: this.image.url }
       ]
     }
   }

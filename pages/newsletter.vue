@@ -171,6 +171,13 @@ export default {
       this.form.submitting = false
       window.console.log('Expired')
     }
+  },
+  head () {
+    return {
+      link: [
+        { rel: 'preload', as: 'image', href: '/newsletter-signature.png' }
+      ]
+    }
   }
 }
 </script>
