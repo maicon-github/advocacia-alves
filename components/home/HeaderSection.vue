@@ -23,7 +23,7 @@
         <v-col sm="12" md="6" class="pb-0">
           <div class="hidden-sm-and-down mt-16" />
           <v-img
-            :src="fimage.url"
+            src="/home-banner.png"
             :alt="fimage.alt"
             class="mx-auto"
             width="95%"
