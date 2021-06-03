@@ -22,12 +22,11 @@
         </v-col>
         <v-col sm="12" md="6" class="pb-0">
           <div class="hidden-sm-and-down mt-16" />
-          <v-img
-            src="/home-banner.png"
+          <img
+            :src="fimage.url"
             :alt="fimage.alt"
             class="mx-auto"
             width="95%"
-            eager
           />
         </v-col>
       </v-row>
