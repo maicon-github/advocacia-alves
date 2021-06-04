@@ -70,13 +70,12 @@
           </p>
         </v-col>
         <v-col cols="12">
-          <font>
+          <div>
             Advocacia Alves - CNPJ: 39.993.814/0001-00
-          </font>
-          <br>
-          <font>
+          </div>
+          <div>
             Rua Paschoal Apóstolo Ptsica, 4860, Bairro Agronômica, Florianópolis/SC - CEP: 88025-255
-          </font>
+          </div>
         </v-col>
       </v-row>
       <v-row>

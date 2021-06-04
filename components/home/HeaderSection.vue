@@ -26,7 +26,8 @@
             :src="fimage.url"
             :alt="fimage.alt"
             class="mx-auto img-contain"
-            width="100%"
+            :width="fimage.dimensions.width"
+            :height="fimage.dimensions.height"
           >
         </v-col>
       </v-row>
