@@ -83,17 +83,13 @@ export default {
     }
   },
   head () {
-    const images = []
-    images.push({ rel: 'preload', as: 'image', href: this.fimage.url })
-    images.push({ rel: 'preload', as: 'image', href: this.simage.url })
-    for (const i in this.awards) { images.push({ rel: 'preload', as: 'image', href: this.awards[i].data.image.url }) }
-    for (const i in this.posts) { images.push({ rel: 'preload', as: 'image', href: this.posts[i].data.image.url }) }
-
     return {
       meta: [
         { hid: 'description', name: 'description', content: this.meta_description }
       ],
-      link: images
+      link: [
+        { rel: 'preload', as: 'image', href: this.fimage.url }
+      ]
     }
   }
 }
