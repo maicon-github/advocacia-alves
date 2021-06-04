@@ -7,7 +7,7 @@
     outlined
     :light="true"
   >
-    <img class="white--text align-end" :src="post.data.image.url" width="100%">
+    <img class="white--text align-end" :src="post.data.image.url" :alt="post.data.image.alt" width="100%">
     <v-card-subtitle class="pa-0" style="font-size: 0.750rem;">
       {{ $categoryDescription(post.data.type) }}
     </v-card-subtitle>
