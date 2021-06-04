@@ -11,7 +11,7 @@
         </div>
       </v-col>
       <v-col cols="12" md="7" class="bg-image">
-        <v-container v-if="$vuetify.breakpoint.smAndUp" :class="negativeMargin">
+        <v-container :class="`${negativeMargin} hidden-xs-only`">
           <v-row>
             <v-col v-for="(item, i) in awards" :key="i" cols="6">
               <AwardCard :item="item" />
@@ -19,7 +19,7 @@
           </v-row>
         </v-container>
         <v-carousel
-          v-else
+          class="hidden-sm-and-up"
           hide-delimiters
           show-arrows
           interval="10000"
@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     negativeMargin () {
-      return this.$vuetify.breakpoint.mdAndUp ? 'negative-margin' : ''
+      return this.$vuetify.breakpoint.mdAndUp ? 'mt-n90' : ''
     }
   }
 }
@@ -72,7 +72,7 @@ export default {
   background-image:url(/orange-points.png);
   background-position:center;
 }
-.negative-margin {
+.mt-n90 {
   margin-top: -90px;
 }
 </style>

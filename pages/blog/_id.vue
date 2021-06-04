@@ -17,7 +17,6 @@ export default {
     try {
       const post = (await $prismic.api.getByUID('blogpost', params.id))
       const author = (await $prismic.api.getByID(post.data.author.id))
-      window.console.log(author)
       const relations = (await $prismic.api.query(
         [
           $prismic.predicates.at('document.type', 'blogpost'),
