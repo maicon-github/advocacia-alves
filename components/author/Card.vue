@@ -4,7 +4,7 @@
       <v-col cols="12">
         <v-card :class="`pa-4 d-flex ${cardDirection}`">
           <v-avatar size="150" class="ma-auto">
-            <img :src="data.image.url" contain />
+            <img :src="data.image.url" :alt="data.image.alt" width="100%">
           </v-avatar>
           <div class="px-4 pt-4">
             <h5 :class="`aname ${textCenter}`" sm="12">

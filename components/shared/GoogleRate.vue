@@ -2,7 +2,7 @@
   <div>
     <Caption :text="caption1" />
     <div class="d-flex">
-      <img :src="icon.url" :alt="icon.alt" width="110px" height="57px"/>
+      <img :src="icon.url" :alt="icon.alt" width="110px" height="57px">
       <div class="rate-value ml-8">
         {{ value }}
       </div>

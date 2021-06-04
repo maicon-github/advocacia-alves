@@ -24,7 +24,7 @@
             :alt="image.alt"
             width="100%"
             max-width="400"
-          />
+          >
         </v-col>
         <v-col sm="12" md="3">
           <v-row v-for="(item, i) in items.slice(2)" :key="i">

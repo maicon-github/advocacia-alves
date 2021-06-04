@@ -22,7 +22,7 @@
         </v-btn>
       </v-col>
       <v-col md="7" sm="12" class="d-flex">
-        <img :src="image.url" :alt="image.alt" class="my-auto pa-4" width="100%"/>
+        <img :src="image.url" :alt="image.alt" class="my-auto pa-4" width="100%">
       </v-col>
     </v-row>
   </v-container>

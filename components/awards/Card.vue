@@ -2,16 +2,17 @@
   <v-card
     elevation="6"
     class="rounded-xl"
-    min-height="426"
+    min-height="460"
     outlined
     :light="true"
   >
     <img
       :src="item.data.image.url"
       :alt="item.data.image.alt"
+      width="100%"
       height="144px"
-      class="mx-8 mt-8"
-    />
+      class="mx-8 mt-8 mx-auto d-block img-contain"
+    >
     <v-card-title class="aicaption">
       {{ item.data.caption }}
     </v-card-title>

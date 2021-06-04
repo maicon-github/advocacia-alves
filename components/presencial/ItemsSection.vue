@@ -2,12 +2,12 @@
   <v-container>
     <v-row>
       <v-col v-if="$vuetify.breakpoint.mdAndUp" cols="12" class="mt-6 mb-16 pb-16 d-flex">
-        <img src="/gray-line.svg" width="300px" class="ma-auto" />
+        <img src="/gray-line.svg" width="300px" class="ma-auto">
       </v-col>
     </v-row>
     <v-row v-for="(item, i) in items" :key="i" class="mt-10">
       <v-col v-if="!item.position && !$vuetify.breakpoint.smAndDown" md="6" cols="12" class="px-8 d-flex">
-        <img :src="item.image.url" :alt="item.image.alt" class="my-auto" width="100%"/>
+        <img :src="item.image.url" :alt="item.image.alt" class="my-auto" width="100%">
       </v-col>
       <v-col md="6" sm="12">
         <h2 :class="`scaption ${centerText}`">
@@ -18,7 +18,7 @@
         </div>
       </v-col>
       <v-col v-if="item.position || $vuetify.breakpoint.smAndDown" md="6" cols="12" class="px-8 d-flex">
-        <img :src="item.image.url" :alt="item.image.alt" class="my-auto" width="100%"/>
+        <img :src="item.image.url" :alt="item.image.alt" class="my-auto" width="100%">
       </v-col>
       <v-col v-if="$vuetify.breakpoint.mdAndUp" cols="12" class="my-8 py-16">
         &nbsp;

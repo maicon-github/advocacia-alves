@@ -25,9 +25,9 @@
           <img
             :src="fimage.url"
             :alt="fimage.alt"
-            class="mx-auto"
-            width="95%"
-          />
+            class="mx-auto img-contain"
+            width="100%"
+          >
         </v-col>
       </v-row>
       <v-row class="hidden-md-and-up mt-10" align="center" justify="center">

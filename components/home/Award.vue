@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col xs="12" sm="12" md="5">
+      <v-col cols="12" md="5">
         <Caption :text="caption1" />
         <h2 class="acaption2 my-8">
           {{ caption2 }}
@@ -10,7 +10,7 @@
           <prismic-rich-text :field="text" />
         </div>
       </v-col>
-      <v-col xs="12" sm="12" md="7" class="bg-image">
+      <v-col cols="12" md="7" class="bg-image">
         <v-container v-if="$vuetify.breakpoint.smAndUp" :class="negativeMargin">
           <v-row>
             <v-col v-for="(item, i) in awards" :key="i" cols="6">

@@ -2,7 +2,7 @@
   <div>
     <v-row v-for="(value, i) in items" :key="i" justify="center" align="center">
       <v-col v-if="value.type == 'left'" md="6" cols="12" class="hidden-sm-and-down">
-        <img :src="value.value_image.url" width="100%" class="mx-auto pa-4 d-block" />
+        <img :src="value.value_image.url" width="100%" class="mx-auto pa-4 d-block">
       </v-col>
       <v-col md="6" cols="12">
         <p class="sicaption1 text-md-left text-center">
@@ -19,13 +19,13 @@
         </p>
       </v-col>
       <v-col v-if="value.type == 'right'" md="6" cols="12" class="hidden-sm-and-down">
-        <img :src="value.value_image.url" max-width="90%" class="my-12 mx-auto d-block"/>
+        <img :src="value.value_image.url" max-width="90%" class="my-12 mx-auto d-block">
       </v-col>
       <v-col md="6" cols="12" class="hidden-md-and-up">
-        <img :src="value.value_image.url" width="100%" class="my-12 mx-auto pa-4" />
+        <img :src="value.value_image.url" width="100%" class="my-12 mx-auto pa-4">
       </v-col>
       <v-col cols="12" class="pa-0 d-flex">
-        <img v-if="(i === 0 || i === 1)" :src="`/GrayLine-${value.type}.svg`" max-width="55%" class="hidden-sm-and-down mx-auto"/>
+        <img v-if="(i === 0 || i === 1)" :src="`/GrayLine-${value.type}.svg`" max-width="55%" class="hidden-sm-and-down mx-auto">
       </v-col>
     </v-row>
   </div>

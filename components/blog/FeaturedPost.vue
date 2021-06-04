@@ -18,7 +18,7 @@
             width="100%"
             class="ma-auto"
             max-height="266px"
-          />
+          >
         </a>
       </v-col>
     </v-row>

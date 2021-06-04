@@ -2,7 +2,7 @@
   <v-container>
     <v-row v-for="(item, i) in items" :key="i" class="mt-10">
       <v-col v-if="!item.position && !$vuetify.breakpoint.smAndDown" md="6" sm="12" class="px-8 d-flex">
-        <img eager :src="item.image.url" :alt="item.image.alt" class="my-auto" width="100%"/>
+        <img eager :src="item.image.url" :alt="item.image.alt" class="my-auto" width="100%">
       </v-col>
       <v-col md="6" cols="12">
         <h2 :class="`scaption ${centerText}`">
@@ -13,7 +13,7 @@
         </div>
       </v-col>
       <v-col v-if="item.position || $vuetify.breakpoint.smAndDown" md="6" cols="12" class="px-8 d-flex">
-        <img :src="item.image.url" :alt="item.image.alt" class="my-auto" width="100%"/>
+        <img :src="item.image.url" :alt="item.image.alt" class="my-auto" width="100%">
       </v-col>
       <v-col v-if="$vuetify.breakpoint.mdAndUp" cols="12" class="my-8 py-16">
         &nbsp;

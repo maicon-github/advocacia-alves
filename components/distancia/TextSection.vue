@@ -2,7 +2,7 @@
   <v-container :class="`mb-16 pb-16 ${styleMargins}`">
     <v-row :class="styleMargins">
       <v-col cols="12" class="mt-6 d-flex">
-        <img src="/gray-line.svg" width="300px" class="ma-auto" />
+        <img src="/gray-line.svg" width="300px" class="ma-auto">
       </v-col>
       <v-col cols="12" class="d-flex">
         <v-avatar color="primary" size="60" class="mx-auto">

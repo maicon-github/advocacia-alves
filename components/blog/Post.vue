@@ -13,12 +13,11 @@
             :src="post.image.url"
             :alt="post.image.alt"
             width="80%"
-            height="343px"
             class="ma-auto d-block"
-          />
+          >
           <div v-for="(slice,i) in post.body" :key="i">
             <prismic-rich-text v-if="slice.slice_type == 'texto'" :field="slice.primary.content" />
-            <img v-if="slice.slice_type == 'image'" :src="slice.primary.img.url" width="100%" />
+            <img v-if="slice.slice_type == 'image'" :src="slice.primary.img.url" width="100%">
           </div>
         </div>
       </v-col>

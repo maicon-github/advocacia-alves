@@ -14,7 +14,7 @@
           </p>
         </div>
         <v-card v-if="!!w.wimage.url" class="mx-auto rounded-xl text-left" min-height="539">
-          <img width="100%" :src="w.wimage.url" :alt="w.wimage.alt" class="pa-4"/>
+          <img width="100%" :src="w.wimage.url" :alt="w.wimage.alt" class="pa-4">
           <v-card-text>
             <p class="waytitle">
               {{ w.wtitle }}
