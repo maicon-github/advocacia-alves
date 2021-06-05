@@ -2,8 +2,7 @@
   <img
     :src="image.url"
     :alt="image.alt"
-    width="100%"
-    :max-width="width"
+    :width="width"
     :max-height="height"
     class="ma-auto img-contain d-block"
   >
