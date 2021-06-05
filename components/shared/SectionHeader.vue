@@ -2,8 +2,8 @@
   <section>
     <v-container>
       <v-row>
-        <v-col sm="12" class="mt-16">
-          <img src="/gray-line.svg" width="360px" height="26px" class="ma-auto d-block">
+        <v-col sm="12" class="mt-16 img-parent">
+          <SeoImage :image="{ url: '/gray-line.svg', alt: 'Espaçador' }" width="360px" height="26px" css-class="ma-auto d-block img-cover" />
           <div class="scaption1 text-center mt-6">
             {{ caption1 }}
           </div>
@@ -19,7 +19,9 @@
   </section>
 </template>
 <script>
+import SeoImage from './SeoImage'
 export default {
+  components: { SeoImage },
   props: {
     caption1: { type: String, required: true },
     caption2: { type: String, required: true },

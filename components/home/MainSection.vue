@@ -17,14 +17,8 @@
             <prismic-rich-text :field="item.text" class="sitext" />
           </v-row>
         </v-col>
-        <v-col cols="12" md="6" class="d-flex align-center justify-center px-5">
-          <img
-            class="mb-16 px-4"
-            :src="image.url"
-            :alt="image.alt"
-            width="100%"
-            max-width="400"
-          >
+        <v-col cols="12" md="6" class="d-flex align-center justify-center px-5 img-parent">
+          <SeoImage :image="image" css-class="mb-16 px-4 img-contain" />
         </v-col>
         <v-col sm="12" md="3">
           <v-row v-for="(item, i) in items.slice(2)" :key="i">
@@ -45,8 +39,9 @@
 </template>
 <script>
 import SectionHeader from '../shared/SectionHeader'
+import SeoImage from '../shared/SeoImage'
 export default {
-  components: { SectionHeader },
+  components: { SectionHeader, SeoImage },
   props: {
     caption1: { type: String, required: true },
     caption2: { type: String, required: true },

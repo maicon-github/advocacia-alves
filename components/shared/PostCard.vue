@@ -2,12 +2,12 @@
   <v-card
     height="350"
     :href="`/blog/${post.uid}`"
-    class="pa-4 d-flex flex-column"
+    class="pa-4 d-flex flex-column img-parent"
     hover
     outlined
     :light="true"
   >
-    <img class="white--text align-end" :src="post.data.image.url" :alt="post.data.image.alt" width="100%">
+    <SeoImage :image="post.data.image" height="154px" css-class="img-cover" />
     <v-card-subtitle class="pa-0" style="font-size: 0.750rem;">
       {{ $categoryDescription(post.data.type) }}
     </v-card-subtitle>
@@ -17,8 +17,9 @@
   </v-card>
 </template>
 <script>
-
+import SeoImage from '../shared/SeoImage'
 export default {
+  components: { SeoImage },
   props: {
     post: { type: Object, required: true }
   }

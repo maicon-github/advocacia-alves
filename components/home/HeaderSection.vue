@@ -22,14 +22,7 @@
         </v-col>
         <v-col cols="12" md="6" class="pb-0 d-flex img-parent">
           <div class="hidden-sm-and-down mt-16" />
-          <!-- <img
-            :src="fimage.url"
-            :alt="fimage.alt"
-            class="mx-auto img-contain"
-            width="100%"
-            height="auto"
-          > -->
-          <ResponsiveImage :image="fimage" />
+          <SeoImage :image="fimage" css-class="ma-auto d-block px-4 img-contain" />
         </v-col>
       </v-row>
       <v-row class="hidden-md-and-up mt-10" align="center" justify="center">
@@ -46,9 +39,9 @@
 <script>
 import Caption from '../shared/Caption'
 import GoogleRate from '../shared/GoogleRate'
-import ResponsiveImage from '../shared/ResponsiveImage'
+import SeoImage from '../shared/SeoImage'
 export default {
-  components: { Caption, GoogleRate, ResponsiveImage },
+  components: { Caption, GoogleRate, SeoImage },
   props: {
     caption1: { type: String, required: true },
     caption2: { type: String, required: true },

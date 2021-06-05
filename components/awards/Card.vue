@@ -1,18 +1,12 @@
 <template>
   <v-card
     elevation="6"
-    class="rounded-xl"
+    class="rounded-xl img-parent"
     min-height="460"
     outlined
     :light="true"
   >
-    <img
-      :src="item.data.image.url"
-      :alt="item.data.image.alt"
-      width="100%"
-      height="144px"
-      class="mx-8 mt-8 mx-auto d-block img-contain"
-    >
+    <SeoImage :image="item.data.image" height="144px" css-class="mx-8 mt-8 mx-auto d-block" />
     <v-card-title class="aicaption">
       {{ item.data.caption }}
     </v-card-title>
@@ -22,7 +16,9 @@
   </v-card>
 </template>
 <script>
+import SeoImage from '../shared/SeoImage'
 export default {
+  components: { SeoImage },
   props: {
     item: { type: Object, required: true }
   }

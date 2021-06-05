@@ -15,3 +15,7 @@
 .img-contain {
     object-fit: contain;
 }
+
+.img-cover {
+    object-fit: cover;
+}

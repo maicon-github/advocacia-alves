@@ -1,8 +1,8 @@
 <template>
   <div>
     <Caption :text="caption1" />
-    <div class="d-flex">
-      <img :src="icon.url" :alt="icon.alt" width="110px" height="57px">
+    <div class="d-flex img-parent">
+      <SeoImage :image="icon" width="110px" height="57px" css-class="img-contain" />
       <div class="rate-value ml-8">
         {{ value }}
       </div>
@@ -14,8 +14,9 @@
 </template>
 <script>
 import Caption from './Caption'
+import SeoImage from './SeoImage'
 export default {
-  components: { Caption },
+  components: { Caption, SeoImage },
   props: {
     caption1: { type: String, required: true },
     caption2: { type: String, required: true },

@@ -5,7 +5,7 @@
       <v-row class="right-bg-img">
         <v-col cols="12" :class="$vuetify.breakpoint.smAndDown ? 'px-0' : '' ">
           <v-carousel
-            v-if="$vuetify.breakpoint.mdAndUp"
+            class="hidden-sm-and-down"
             hide-delimiters
             show-arrows-on-hover
             cycle
@@ -23,7 +23,7 @@
             </v-carousel-item>
           </v-carousel>
           <v-carousel
-            v-if="$vuetify.breakpoint.smAndDown"
+            class="hidden-md-and-up"
             hide-delimiters
             show-arrows
             cycle
