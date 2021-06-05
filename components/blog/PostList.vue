@@ -11,7 +11,7 @@
           Nenhuma postagem encontrada!
         </p>
       </v-col>
-      <v-col v-for="(post, i) in posts" :key="i" :cols="cardSize">
+      <v-col v-for="(post, i) in posts" :key="i" md="4" cols="12">
         <PostCard :post="post" />
       </v-col>
     </v-row>
@@ -24,20 +24,6 @@ export default {
   props: {
     posts: { type: Array, required: true },
     title: { type: String, required: true }
-  },
-  computed: {
-    cardSize () {
-      switch (this.$vuetify.breakpoint.name) {
-        case 'xs':
-          return '12'
-        case 'sm':
-          return '6'
-        case 'md':
-          return '6'
-        default:
-          return '4'
-      }
-    }
   }
 }
 </script>

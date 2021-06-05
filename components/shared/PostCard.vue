@@ -7,10 +7,10 @@
     outlined
   >
     <SeoImage :image="post.data.image" height="154px" css-class="img-cover" />
-    <v-card-subtitle class="pa-0" style="font-size: 0.750rem;">
+    <v-card-subtitle class="pa-0 card-subtitle">
       {{ $categoryDescription(post.data.type) }}
     </v-card-subtitle>
-    <v-card-title class="pa-0" style="font-weight: normal;">
+    <v-card-title class="pa-0 card-title">
       {{ post.data.title }}
     </v-card-title>
   </v-card>
@@ -25,7 +25,7 @@ export default {
 }
 </script>
 <style scoped>
-  .v-card__title {
-    word-break: normal !important;
-  }
+  .v-card__title { word-break: normal !important; }
+  .card-subtitle { font-size: 0.750rem; }
+  .card-title { font-weight: normal; }
 </style>

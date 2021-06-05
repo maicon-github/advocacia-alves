@@ -6,38 +6,18 @@
           Conteúdo relacionado
         </div>
       </v-col>
-      <v-col v-for="(related,i) in relations" :key="i" :cols="cardSize">
-        <v-card hover min-height="225" :href="`/blog/${related.uid}`" class="pa-3">
-          <img :src="related.data.image.url" :alt="related.data.image.alt" width="100%">
-          <v-card-subtitle class="pa-0 pt-2" style="font-size: 0.750rem;">
-            {{ related.data.type }}
-          </v-card-subtitle>
-          <v-card-title class="pa-0" style="font-weight: normal;">
-            {{ related.data.title }}
-          </v-card-title>
-        </v-card>
+      <v-col v-for="(related,i) in relations" :key="i" md="4" cols="12">
+        <PostCard :post="related" />
       </v-col>
     </v-row>
   </v-container>
 </template>
 <script>
+import PostCard from '../shared/PostCard'
 export default {
+  components: { PostCard },
   props: {
     relations: { type: Array, required: true }
-  },
-  computed: {
-    cardSize () {
-      switch (this.$vuetify.breakpoint.name) {
-        case 'xs':
-          return '12'
-        case 'sm':
-          return '6'
-        case 'md':
-          return '6'
-        default:
-          return '4'
-      }
-    }
   },
   mounted () {
     for (let i = 0; i < this.relations.length; i++) {
