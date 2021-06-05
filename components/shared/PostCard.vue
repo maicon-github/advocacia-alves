@@ -1,11 +1,10 @@
 <template>
   <v-card
-    height="350"
+    height="100%"
     :href="`/blog/${post.uid}`"
-    class="pa-4 d-flex flex-column img-parent"
+    class="pa-4 img-parent"
     hover
     outlined
-    :light="true"
   >
     <SeoImage :image="post.data.image" height="154px" css-class="img-cover" />
     <v-card-subtitle class="pa-0" style="font-size: 0.750rem;">

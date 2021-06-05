@@ -1,9 +1,15 @@
 <template>
   <div>
     <v-row>
-      <v-col v-for="(w, i) in items" :key="i+10" :md="w.wsize" :cols="w.wsize*2" :class="`text-center pa-3 ${bgPosition(i)}`">
-        <div v-if="!!w.wcaption">
-          <div class="mx-auto text-center" style="width:200px;">
+      <v-col
+        v-for="(w, i) in items"
+        :key="i+10"
+        :md="w.wsize"
+        :cols="w.wsize*2"
+        :class="`text-center pa-3 ${bgPosition(i)}`"
+      >
+        <div v-if="w.wcaption">
+          <div class="mx-auto text-center pcaption">
             <CenteredCaption :text="w.wcaption" />
           </div>
           <h2 class="swtitle mx-auto py-12">
@@ -13,8 +19,8 @@
             {{ w.wsubtitle }}
           </p>
         </div>
-        <v-card v-if="!!w.wimage.url" class="mx-auto rounded-xl text-left" min-height="539">
-          <img width="100%" :src="w.wimage.url" :alt="w.wimage.alt" class="pa-4">
+        <v-card v-if="w.wimage.url" class="mx-auto rounded-xl text-left img-parent" height="100%">
+          <SeoImage :image="w.wimage" class="img-contain ma-auto d-block" height="180px" />
           <v-card-text>
             <p class="waytitle">
               {{ w.wtitle }}
@@ -37,9 +43,10 @@
   </div>
 </template>
 <script>
+import SeoImage from '../shared/SeoImage'
 import CenteredCaption from '../shared/CenteredCaption'
 export default {
-  components: { CenteredCaption },
+  components: { CenteredCaption, SeoImage },
   props: {
     items: { type: Array, required: true }
   },
@@ -55,6 +62,9 @@ export default {
 }
 </script>
 <style scoped>
+.pcaption {
+  width:200px;
+}
 .swtitle {
   width: 253px;
   color: #3D3D3D;
@@ -72,6 +82,7 @@ export default {
   color: #3D3D3D;
   font-size: 16px;
   line-height: 19px;
+  margin: 0;
 }
 .waytitle {
   color: #3D3D3D;
@@ -79,6 +90,7 @@ export default {
   font-weight: 700;
   letter-spacing: 0.45px;
   line-height: 44px;
+  margin: 0;
 }
 .wtitle3 {
   color: #3D3D3D;
