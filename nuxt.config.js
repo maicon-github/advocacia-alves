@@ -51,7 +51,8 @@ export default {
   */
   plugins: [
     '@/plugins/mask.js',
-    '~/plugins/category-description.js'
+    '~/plugins/category-description.js',
+    '~/plugins/size.js'
   ],
   /*
   ** Nuxt.js dev-modules

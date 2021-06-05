@@ -20,7 +20,7 @@
             />
           </div>
         </v-col>
-        <v-col cols="12" md="6" class="pb-0 d-flex">
+        <v-col cols="12" md="6" class="pb-0 d-flex img-parent">
           <div class="hidden-sm-and-down mt-16" />
           <!-- <img
             :src="fimage.url"
