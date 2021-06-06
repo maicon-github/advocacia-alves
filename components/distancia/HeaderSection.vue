@@ -21,17 +21,18 @@
           {{ btnText }}
         </v-btn>
       </v-col>
-      <v-col md="7" sm="12" class="d-flex">
-        <img :src="image.url" :alt="image.alt" class="my-auto pa-4" width="100%">
+      <v-col md="7" sm="12" class="d-flex img-parent">
+        <SeoImage :image="image" css-class="ma-auto d-block img-contain pa-4"/>
       </v-col>
     </v-row>
   </v-container>
 </template>
 <script>
+import SeoImage from '../shared/SeoImage'
 import Caption from '../shared/Caption'
 import Breadcrumb from '../shared/Breadcrumb'
 export default {
-  components: { Caption, Breadcrumb },
+  components: { Caption, Breadcrumb, SeoImage },
   props: {
     caption: { type: String, required: true },
     image: { type: Object, required: true },

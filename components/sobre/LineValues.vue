@@ -2,7 +2,7 @@
   <div>
     <v-row v-for="(value, i) in items" :key="i" justify="center" align="center">
       <v-col v-if="value.type == 'left'" md="6" cols="12" class="hidden-sm-and-down img-parent">
-        <SeoImage :image="value.value_image" class="mx-auto pa-4 d-block img-contain"/>
+        <SeoImage :image="value.value_image" css-class="mx-auto pa-4 d-block img-contain" />
       </v-col>
       <v-col md="6" cols="12">
         <p class="sicaption1 text-md-left text-center">
