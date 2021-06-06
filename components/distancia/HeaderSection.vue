@@ -22,7 +22,7 @@
         </v-btn>
       </v-col>
       <v-col md="7" sm="12" class="d-flex img-parent">
-        <SeoImage :image="image" css-class="ma-auto d-block img-contain pa-4"/>
+        <SeoImage :image="image" css-class="ma-auto d-block img-contain pa-8" />
       </v-col>
     </v-row>
   </v-container>

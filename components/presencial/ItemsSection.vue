@@ -1,13 +1,13 @@
 <template>
   <v-container>
     <v-row>
-      <v-col v-if="$vuetify.breakpoint.mdAndUp" cols="12" class="mt-6 mb-16 pb-16 d-flex">
-        <img src="/gray-line.svg" width="300px" class="ma-auto">
+      <v-col cols="12" class="mt-6 pb-16">
+        <img src="/gray-line.svg" width="300px" height="23px" class="ma-auto d-block">
       </v-col>
     </v-row>
     <v-row v-for="(item, i) in items" :key="i" class="mt-10">
-      <v-col v-if="!item.position && !$vuetify.breakpoint.smAndDown" md="6" cols="12" class="px-8 d-flex">
-        <img :src="item.image.url" :alt="item.image.alt" class="my-auto" width="100%">
+      <v-col v-if="!item.position" md="6" cols="12" class="px-8 hidden-sm-and-down img-parent">
+        <SeoImage :image="item.image" css-class="pa-8 ma-auto mx-auto img-contain d-block" />
       </v-col>
       <v-col md="6" sm="12">
         <h2 :class="`scaption ${centerText}`">
@@ -17,17 +17,23 @@
           <prismic-rich-text :field="item.text" class="sitext" />
         </div>
       </v-col>
-      <v-col v-if="item.position || $vuetify.breakpoint.smAndDown" md="6" cols="12" class="px-8 d-flex">
-        <img :src="item.image.url" :alt="item.image.alt" class="my-auto" width="100%">
+      <v-col v-if="item.position" md="6" cols="12" class="px-8 hidden-sm-and-down img-parent">
+        <!-- <img :src="item.image.url" :alt="item.image.alt" class="my-auto" width="100%"> -->
+        <SeoImage :image="item.image" css-class="pa-8 ma-auto mx-auto img-contain d-block" />
       </v-col>
-      <v-col v-if="$vuetify.breakpoint.mdAndUp" cols="12" class="my-8 py-16">
+      <v-col md="6" cols="12" class="hidden-md-and-up img-parent">
+        <SeoImage :image="item.image" css-class="pa-8 ma-auto mx-auto img-contain d-block" />
+      </v-col>
+      <v-col cols="12" class="my-8 py-16 hidden-sm-and-down">
         &nbsp;
       </v-col>
     </v-row>
   </v-container>
 </template>
 <script>
+import SeoImage from '../shared/SeoImage'
 export default {
+  components: { SeoImage },
   props: {
     items: { type: Array, required: true }
   },
