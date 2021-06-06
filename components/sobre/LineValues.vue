@@ -25,7 +25,7 @@
         <SeoImage :image="value.value_image" css-class="pa-8 ma-auto mx-auto img-contain d-block" />
       </v-col>
       <v-col cols="12" class="pa-0 d-flex">
-        <img v-if="(i === 0 || i === 1)" :src="`/GrayLine-${value.type}.svg`" max-width="55%" class="hidden-sm-and-down mx-auto">
+        <img v-if="(i === 0 || i === 1)" :src="`/GrayLine-${value.type}.svg`" width="634px" height="185px" class="hidden-sm-and-down mx-auto">
       </v-col>
     </v-row>
   </div>
