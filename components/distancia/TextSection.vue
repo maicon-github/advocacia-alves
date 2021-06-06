@@ -1,6 +1,6 @@
 <template>
   <v-container class="mb-16 pb-16 px-md-16">
-    <v-row :class="styleMargins">
+    <v-row class="px-md-16">
       <v-col cols="12" class="mt-6 d-flex">
         <img src="/gray-line.svg" width="300px" height="23px" class="ma-auto px-md-16">
       </v-col>
