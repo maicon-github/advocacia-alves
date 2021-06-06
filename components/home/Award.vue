@@ -11,7 +11,7 @@
         </div>
       </v-col>
       <v-col cols="12" md="7" class="bg-image">
-        <v-container :class="`${negativeMargin} hidden-xs-only`">
+        <v-container class="mt-md-n16 hidden-xs-only">
           <v-row>
             <v-col v-for="(item, i) in awards" :key="i" cols="6">
               <AwardCard :item="item" />
@@ -48,11 +48,6 @@ export default {
     caption2: { type: String, required: true },
     text: { type: Array, required: true },
     awards: { type: Array, required: true }
-  },
-  computed: {
-    negativeMargin () {
-      return this.$vuetify.breakpoint.mdAndUp ? 'mt-n90' : ''
-    }
   }
 }
 </script>

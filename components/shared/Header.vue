@@ -15,9 +15,9 @@
             Sobre
           </v-btn>
           <v-btn
+            v-if="showBlogTemp"
             href="/blog"
             class="my-auto"
-            :style="tempBlogStyle"
             small
             text
           >
@@ -35,7 +35,7 @@
           </v-btn>
         </div>
       </div>
-      <v-btn icon :style="tempSearchStyle" class="my-auto">
+      <v-btn v-if="showSearchTemp" icon class="my-auto">
         <v-icon>
           mdi-magnify
         </v-icon>
@@ -56,12 +56,6 @@ export default {
     }
   },
   computed: {
-    tempBlogStyle () {
-      return this.showBlogTemp ? '' : 'display:none;'
-    },
-    tempSearchStyle () {
-      return this.showSearchTemp ? '' : 'display:none;'
-    },
     data () {
       return { showTemp: true }
     }

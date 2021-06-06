@@ -6,11 +6,13 @@
           Postagens de profissionais capacitados
         </h1>
         <br>
-        <span class="subtitle-2 grey--text" style="font-weight: normal;">
+        <span class="subtitle-2 grey--text fweight-normal">
           Aproveite todo esse conteúdo disponível gratuitamente.
         </span>
       </v-col>
     </v-row>
   </v-container>
 </template>
-<script>
+<style scoped>
+.fweight-normal { font-weight: normal; }
+</style>

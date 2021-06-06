@@ -5,10 +5,10 @@
         <SeoImage :image="item.image" css-class="ma-auto d-block img-contain" />
       </v-col>
       <v-col md="6" cols="12">
-        <h2 :class="`scaption ${centerText}`">
+        <h2 class="scaption text-center text-md-left">
           {{ item.caption }}
         </h2>
-        <div :class="`stext mt-8 ${centerText}`">
+        <div class="stext mt-8 text-center text-md-left">
           <prismic-rich-text :field="item.text" class="sitext" />
         </div>
       </v-col>
@@ -30,11 +30,6 @@ export default {
   components: { SeoImage },
   props: {
     items: { type: Array, required: true }
-  },
-  computed: {
-    centerText () {
-      return this.$vuetify.breakpoint.smAndDown ? 'text-center' : ''
-    }
   }
 }
 </script>

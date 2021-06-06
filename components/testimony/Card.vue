@@ -1,5 +1,5 @@
 <template>
-  <v-card class="pa-4 d-flex flex-column" min-height="450" outlined light>
+  <v-card class="pa-4 d-flex flex-column" height="100%" min-height="430" outlined light>
     <v-icon color="blue accent-1" x-large>
       mdi-format-quote-open
     </v-icon>
@@ -23,8 +23,6 @@
 </template>
 <script>
 export default {
-  props: {
-    item: { type: Object, required: true }
-  }
+  props: { item: { type: Object, required: true } }
 }
 </script>

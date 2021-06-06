@@ -36,13 +36,6 @@ export default {
   components: { SeoImage },
   props: {
     items: { type: Array, required: true }
-  },
-  methods: {
-    grayLineImg (i) {
-      if (i === 0) { return '/GrayLineUpDown.svg' }
-
-      return '/GrayLineDownUp.svg'
-    }
   }
 }
 </script>

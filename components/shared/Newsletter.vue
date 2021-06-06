@@ -28,9 +28,6 @@
     </v-container>
   </div>
 </template>
-<script>
-export default { }
-</script>
 <style scoped>
 .bg-color {
   background-color: #D6D6D6;

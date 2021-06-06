@@ -5,6 +5,7 @@
     class="pa-4 img-parent"
     hover
     outlined
+    light
   >
     <SeoImage :image="post.data.image" height="154px" css-class="img-cover" />
     <v-card-subtitle class="pa-0 card-subtitle">
@@ -19,9 +20,7 @@
 import SeoImage from '../shared/SeoImage'
 export default {
   components: { SeoImage },
-  props: {
-    post: { type: Object, required: true }
-  }
+  props: { post: { type: Object, required: true } }
 }
 </script>
 <style scoped>

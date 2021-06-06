@@ -2,7 +2,6 @@
   <div>
     <v-row>
       <v-col md="5" cols="12" class="px-8 d-flex img-parent">
-        <!-- <img :src="picture.url" :alt="picture.alt" width="100%" class="my-auto"> -->
         <SeoImage :image="picture" css-class="my-auto img-contain d-block" />
       </v-col>
       <v-col md="7" cols="12" class="pb-0">

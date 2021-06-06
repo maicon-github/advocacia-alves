@@ -2,11 +2,11 @@
   <section>
     <SectionHeader :caption1="caption1" :caption2="caption2" :caption3="caption3" />
 
-    <v-container :class="centerText">
+    <v-container class="text-center text-md-left">
       <v-row class="px-5">
         <v-col cols="12" md="3">
           <v-row v-for="(item, i) in items.slice(0, 2)" :key="i">
-            <div :class="`rounded-circle blue darken-2 pa-4 ${centerIcon}`">
+            <div class="rounded-circle blue darken-2 pa-4 mx-auto mx-md-0">
               <v-icon color="white">
                 {{ `mdi-${item.icon}` }}
               </v-icon>
@@ -22,7 +22,7 @@
         </v-col>
         <v-col sm="12" md="3">
           <v-row v-for="(item, i) in items.slice(2)" :key="i">
-            <div :class="`rounded-circle blue darken-2 pa-4 ${centerIcon}`">
+            <div class="rounded-circle blue darken-2 pa-4 mx-auto mx-md-0">
               <v-icon color="white">
                 {{ `mdi-${item.icon}` }}
               </v-icon>
@@ -48,14 +48,6 @@ export default {
     caption3: { type: String, required: true },
     items: { type: Array, required: true },
     image: { type: Object, required: true }
-  },
-  computed: {
-    centerText () {
-      return this.$vuetify.breakpoint.smAndDown ? 'text-center' : ''
-    },
-    centerIcon () {
-      return this.$vuetify.breakpoint.smAndDown ? 'mx-auto' : ''
-    }
   }
 }
 </script>
