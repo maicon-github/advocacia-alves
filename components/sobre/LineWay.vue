@@ -20,7 +20,7 @@
           </p>
         </div>
         <v-card v-if="w.wimage.url" class="mx-auto rounded-xl text-left img-parent" height="100%">
-          <SeoImage :image="w.wimage" class="img-contain ma-auto d-block" height="180px" />
+          <SeoImage :image="w.wimage" css-class="img-contain ma-auto d-block" height="180px" />
           <v-card-text>
             <p class="waytitle">
               {{ w.wtitle }}

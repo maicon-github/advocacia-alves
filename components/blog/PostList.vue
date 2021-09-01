@@ -11,7 +11,7 @@
           Nenhuma postagem encontrada!
         </p>
       </v-col>
-      <v-col v-for="(post, i) in posts" :key="i" md="4" cols="12">
+      <v-col v-for="(post, i) in posts" :key="i" sm="6" md="4" cols="12">
         <PostCard :post="post" />
       </v-col>
     </v-row>

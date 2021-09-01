@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-row v-for="(value, i) in items" :key="i" justify="center" align="center">
-      <v-col v-if="value.type == 'left'" md="6" cols="12" class="hidden-sm-and-down">
-        <img :src="value.value_image.url" width="100%" class="mx-auto pa-4 d-block">
+      <v-col v-if="value.type == 'left'" md="6" cols="12" class="hidden-sm-and-down img-parent">
+        <SeoImage :image="value.value_image" css-class="mx-auto pa-4 d-block img-contain" />
       </v-col>
       <v-col md="6" cols="12">
         <p class="sicaption1 text-md-left text-center">
@@ -25,7 +25,7 @@
         <SeoImage :image="value.value_image" css-class="pa-8 ma-auto mx-auto img-contain d-block" />
       </v-col>
       <v-col cols="12" class="pa-0 d-flex">
-        <img v-if="(i === 0 || i === 1)" :src="`/GrayLine-${value.type}.svg`" max-width="55%" class="hidden-sm-and-down mx-auto">
+        <img v-if="(i === 0 || i === 1)" :src="`/GrayLine-${value.type}.svg`" width="634px" height="185px" class="hidden-sm-and-down mx-auto">
       </v-col>
     </v-row>
   </div>
@@ -36,13 +36,6 @@ export default {
   components: { SeoImage },
   props: {
     items: { type: Array, required: true }
-  },
-  methods: {
-    grayLineImg (i) {
-      if (i === 0) { return '/GrayLineUpDown.svg' }
-
-      return '/GrayLineDownUp.svg'
-    }
   }
 }
 </script>

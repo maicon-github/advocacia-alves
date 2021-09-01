@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row class="d-flex align-center">
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="6" class="px-sm-8">
         <div class="flex subtitle-2 font-weight-medium mb-5">
           EM DESTAQUE
         </div>
@@ -11,21 +11,18 @@
           </a>
         </div>
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="6" class="img-parent">
         <a :href="`/blog/${id}`">
-          <img
-            :src="image.url"
-            width="100%"
-            class="ma-auto"
-            max-height="266px"
-          >
+          <SeoImage :image="image" css-class="ma-auto d-block img-contain px-sm-8" />
         </a>
       </v-col>
     </v-row>
   </v-container>
 </template>
 <script>
+import SeoImage from '../shared/SeoImage'
 export default {
+  components: { SeoImage },
   props: {
     title: { type: String, required: true },
     image: { type: Object, required: true },
@@ -34,7 +31,7 @@ export default {
 }
 </script>
 <style scoped>
-  a {
+  a, a:visited {
     text-decoration: none;
     color: inherit;
   }

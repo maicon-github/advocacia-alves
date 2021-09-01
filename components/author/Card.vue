@@ -2,16 +2,14 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <v-card :class="`pa-4 d-flex ${cardDirection}`">
-          <v-avatar size="150" class="ma-auto">
-            <img :src="data.image.url" :alt="data.image.alt" :width="data.image.dimensions.width" :height="data.image.dimensions.height">
-          </v-avatar>
+        <v-card class="pa-4 d-xs-flex flex-xs-column d-md-flex flex-md-row">
+          <img :src="data.image.url" :alt="data.image.alt" width="150px" height="150px" class="d-block ma-auto">
           <div class="px-4 pt-4">
-            <h5 :class="`aname ${textCenter}`" sm="12">
+            <h5 class="aname text-center text-md-left" sm="12">
               {{ data.name }}
             </h5>
-            <div :class="`line my-2 ${mxAuto}`" />
-            <div :class="`atitle text-uppercase mb-0 atitle ${textCenter}`">
+            <div class="line my-2 mx-auto mx-md-0 d-block" />
+            <div class="atitle text-uppercase mb-0 atitle text-center text-md-left">
               Sócio-fundador
             </div>
             <div class="adegree mt-4">
@@ -25,20 +23,7 @@
 </template>
 <script>
 export default {
-  props: {
-    data: { type: Object, required: true }
-  },
-  computed: {
-    cardDirection () {
-      return this.$vuetify.breakpoint.smAndDown ? 'flex-column' : 'flex-row'
-    },
-    textCenter () {
-      return this.$vuetify.breakpoint.smAndDown ? 'text-center' : ''
-    },
-    mxAuto () {
-      return this.$vuetify.breakpoint.smAndDown ? 'mx-auto' : ''
-    }
-  }
+  props: { data: { type: Object, required: true } }
 }
 </script>
 <style scoped>

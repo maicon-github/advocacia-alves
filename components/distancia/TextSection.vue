@@ -1,8 +1,8 @@
 <template>
-  <v-container :class="`mb-16 pb-16 ${styleMargins}`">
-    <v-row :class="styleMargins">
+  <v-container class="mb-16 pb-16 px-md-16">
+    <v-row class="px-md-16">
       <v-col cols="12" class="mt-6 d-flex">
-        <img src="/gray-line.svg" width="300px" class="ma-auto">
+        <img src="/gray-line.svg" width="300px" height="23px" class="ma-auto px-md-16">
       </v-col>
       <v-col cols="12" class="d-flex">
         <v-avatar color="primary" size="60" class="mx-auto">
@@ -28,11 +28,6 @@ export default {
     icon: { type: String, required: true },
     text: { type: Array, required: true },
     caption: { type: String, required: true }
-  },
-  computed: {
-    styleMargins () {
-      return this.$vuetify.breakpoint.mdAndUp ? 'px-16' : ''
-    }
   }
 }
 </script>

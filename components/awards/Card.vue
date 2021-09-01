@@ -2,9 +2,9 @@
   <v-card
     elevation="6"
     class="rounded-xl img-parent"
-    min-height="460"
+    height="100%"
     outlined
-    :light="true"
+    light
   >
     <SeoImage :image="item.data.image" height="144px" css-class="mx-8 mt-8 mx-auto d-block" />
     <v-card-title class="aicaption">
