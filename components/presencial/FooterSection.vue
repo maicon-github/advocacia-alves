@@ -20,7 +20,7 @@
       <v-btn
         color="#f88d4f"
         class="white--text mx-auto mt-16"
-        href="https://api.whatsapp.com/send?l=pt_BR&phone=5548999565060"
+        href="https://api.whatsapp.com/send?l=pt_BR&phone=5548920026917"
         target="_blank"
       >
         AGENDE A VISITA

@@ -6,7 +6,7 @@
           <h4 class="text-center mb-5">
             Converse com um especialista sem compromisso
           </h4>
-          <v-btn color="success" href="https://api.whatsapp.com/send?l=pt_BR&phone=5547988802222" target="_blank" rel="noreferrer">
+          <v-btn color="success" href="https://api.whatsapp.com/send?l=pt_BR&phone=5548920026917" target="_blank" rel="noreferrer">
             <v-icon left>
               mdi-whatsapp
             </v-icon>
@@ -136,8 +136,8 @@ export default {
         {
           title: 'Eventos',
           items: [
-            { label: 'Palestras', link: 'https://api.whatsapp.com/send?l=pt_BR&phone=5548999565060', target: '_blank', rel: 'noreferrer' },
-            { label: 'Cursos', link: 'https://api.whatsapp.com/send?l=pt_BR&phone=5548999565060', target: '_blank', rel: 'noreferrer' }
+            { label: 'Palestras', link: 'https://api.whatsapp.com/send?l=pt_BR&phone=5548920026917', target: '_blank', rel: 'noreferrer' },
+            { label: 'Cursos', link: 'https://api.whatsapp.com/send?l=pt_BR&phone=5548920026917', target: '_blank', rel: 'noreferrer' }
           ]
         }
       ]
