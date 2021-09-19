@@ -4,14 +4,6 @@
     }
 }
 
-@font-face {
-    font-family: 'Roboto';
-    src: local('Roboto Thin Italic'),
-            url(https://fonts.gstatic.com/s/roboto/v19/KFOiCnqEu92Fr1Mu51QrEz0dL-vwnYh2eg.woff2)
-            format('woff2');
-    font-display: swap;
-}
-
 .img-contain {
     object-fit: contain;
 }
