@@ -120,8 +120,15 @@ export default {
         }
         return allRoutes
       }
+      
+      const routes = [
+        '/servico/consultas-e-calculos',
+        '/servico/planejamento-previdenciario',
+        '/servico/revisoes',
+        '/servico/planejamento-previdenciario-servidor-publico'
+      ]
 
-      return await fetchRoutes()
+      return await fetchRoutes(1, routes)
     }
   },
   prismic: {
