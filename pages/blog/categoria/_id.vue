@@ -1,8 +1,15 @@
 <template>
-  <div class="mt-12">
+  <div>
+    <v-container>
+      <v-row>
+        <v-col cols="12">
+          <Breadcrumb :items="breadCrumbItems" class="mx-auto px-0" />
+        </v-col>
+      </v-row>
+    </v-container>
     <PageTitle />
     <FeaturedPost v-if="featured != null" :id="featured.uid" :title="featured.data.title" :image="featured.data.image" />
-    <PostList :posts="posts" :title="`Postagens da categoria '${$categoryDescription(categoryId)}'`" />
+    <PostList :posts="posts" :title="`Postagens da categoria '${categoryName}'`" />
     <Pagination v-show="posts.length > 0" :total="total" :loading="loading" @change="loadPosts" />
     <Newsletter />
   </div>
@@ -14,11 +21,12 @@ import PageTitle from '../../../components/blog/PageTitle'
 import FeaturedPost from '../../../components/blog/FeaturedPost'
 import Newsletter from '../../../components/shared/Newsletter'
 import Pagination from '../../../components/shared/Pagination'
-
+import Breadcrumb from '../../../components/shared/Breadcrumb'
 export default {
-  components: { PostList, PageTitle, FeaturedPost, Newsletter, Pagination },
-  async asyncData ({ $prismic, error, params }) {
+  components: { PostList, PageTitle, FeaturedPost, Newsletter, Pagination, Breadcrumb },
+  async asyncData ({ $prismic, error, params, $categoryDescription }) {
     try {
+      const categoryName = $categoryDescription(params.id)
       const featuredPost = (await $prismic.api.query(
         [
           $prismic.predicates.at('document.type', 'blogpost'),
@@ -37,9 +45,14 @@ export default {
       return {
         loading: false,
         posts: posts.results,
-        categoryId: params.id,
+        categoryName,
         total: posts.total_pages,
-        featured: featuredPost.results[0] || null
+        featured: featuredPost.results[0] || null,
+        breadCrumbItems: [
+          { text: 'Inicio', disabled: false, href: '/' },
+          { text: 'Blog', disabled: false, href: '/blog' },
+          { text: categoryName, disabled: true, href: `/blog/categoria/${params.id}` }
+        ]
       }
     } catch (e) {
       error({ statusCode: 500, title: 'Internal Server Error' })

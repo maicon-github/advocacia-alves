@@ -1,5 +1,12 @@
 <template>
-  <div class="mt-12">
+  <div>
+    <v-container>
+      <v-row>
+        <v-col cols="12">
+          <Breadcrumb :items="breadCrumbItems" class="mx-auto px-0" />
+        </v-col>
+      </v-row>
+    </v-container>
     <PageTitle />
     <FeaturedPost :id="uid" :title="title" :image="image" />
     <PostList :posts="posts" :title="postListTitle" />
@@ -14,9 +21,9 @@ import PageTitle from '../../components/blog/PageTitle'
 import FeaturedPost from '../../components/blog/FeaturedPost'
 import Newsletter from '../../components/shared/Newsletter'
 import Pagination from '../../components/shared/Pagination'
-
+import Breadcrumb from '../../components/shared/Breadcrumb'
 export default {
-  components: { PostList, PageTitle, FeaturedPost, Newsletter, Pagination },
+  components: { PostList, PageTitle, FeaturedPost, Newsletter, Pagination, Breadcrumb },
   async asyncData ({ $prismic, error, query }) {
     try {
       const featuredPost = (await $prismic.api.query(
@@ -37,6 +44,14 @@ export default {
       }
     } catch (e) {
       error({ statusCode: 500, title: 'Internal Server Error' })
+    }
+  },
+  computed: {
+    breadCrumbItems () {
+      return [
+        { text: 'Inicio', disabled: false, href: '/' },
+        { text: 'Blog', disabled: true, href: '/blog' }
+      ]
     }
   },
   watch: {
