@@ -9,7 +9,7 @@
           {{ value.value_title }}
         </p>
         <h2 class="sicaption2 mb-4 text-md-left text-center">
-          <v-icon colr="success" class="mb-1">
+          <v-icon color="success" class="mb-1">
             mdi-check-circle-outline
           </v-icon>
           {{ value.value_subtitle }}
