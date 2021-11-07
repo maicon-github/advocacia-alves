@@ -26,7 +26,7 @@
         <v-list-item-title>BPC - LOAS</v-list-item-title>
       </v-list-item>
       <v-list-item key="4" href="/blog/categoria/dica">
-        <v-list-item-title>Dica</v-list-item-title>
+        <v-list-item-title>Dicas</v-list-item-title>
       </v-list-item>
       <v-list-item key="5" href="/blog/categoria/revisao">
         <v-list-item-title>Revisão</v-list-item-title>

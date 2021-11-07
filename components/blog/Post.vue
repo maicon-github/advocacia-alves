@@ -12,27 +12,26 @@
         </div>
       </v-col>
       <v-col cols="12" class="pa-0">
-        <div class="maxcontent mx-auto white px-4 d-flex img-parent">
-          <SeoImage :image="post.image" class="ma-auto d-block img-contain px-sm-16" />
+        <div class="maxcontent mx-auto white px-4 d-flex">
+          <nuxt-img :src="post.image.url" sizes="sm:320 md:730" class="ma-auto d-block img-contain" />
         </div>
       </v-col>
       <v-col v-for="(slice,i) in post.body" :key="i" cols="12" class="pa-0">
         <div v-if="slice.slice_type == 'texto'" class="maxcontent mx-auto white px-4">
           <prismic-rich-text :field="slice.primary.content" />
         </div>
-        <div v-if="slice.slice_type == 'image'" class="maxcontent mx-auto white px-4 img-parent d-flex">
-          <SeoImage :image="slice.primary.img" class="ma-auto d-block img-contain" />
+        <div v-if="slice.slice_type == 'image'" class="maxcontent mx-auto white px-4 d-flex">
+          <nuxt-img :src="slice.primary.img.url" sizes="sm:320 md:730" class="ma-auto d-block img-contain"/>
         </div>
       </v-col>
     </v-row>
   </v-container>
 </template>
 <script>
-import SeoImage from '../shared/SeoImage'
 import Breadcrumb from '../shared/Breadcrumb'
 import PostInfo from './PostInfo'
 export default {
-  components: { PostInfo, Breadcrumb, SeoImage },
+  components: { PostInfo, Breadcrumb },
   props: {
     post: { type: Object, required: true },
     author: { type: Object, required: true }

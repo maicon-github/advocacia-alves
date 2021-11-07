@@ -31,7 +31,7 @@
             <v-list-item-title>&nbsp;&nbsp;&nbsp;&nbsp;BPC - LOAS</v-list-item-title>
           </v-list-item>
           <v-list-item to="/blog/categoria/dica">
-            <v-list-item-title>&nbsp;&nbsp;&nbsp;&nbsp;Dica</v-list-item-title>
+            <v-list-item-title>&nbsp;&nbsp;&nbsp;&nbsp;Dicas</v-list-item-title>
           </v-list-item>
           <v-list-item to="/blog/categoria/revisao">
             <v-list-item-title>&nbsp;&nbsp;&nbsp;&nbsp;Revisão</v-list-item-title>

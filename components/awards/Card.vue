@@ -6,7 +6,7 @@
     outlined
     light
   >
-    <SeoImage :image="item.data.image" height="144px" css-class="mx-8 mt-8 mx-auto d-block" />
+    <nuxt-img :src="item.data.image.url" height="144" width="215" class="mx-8 mt-8 mx-auto d-block" fit="inside"/>
     <v-card-title class="aicaption">
       {{ item.data.caption }}
     </v-card-title>
@@ -16,9 +16,7 @@
   </v-card>
 </template>
 <script>
-import SeoImage from '../shared/SeoImage'
 export default {
-  components: { SeoImage },
   props: {
     item: { type: Object, required: true }
   }

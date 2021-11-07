@@ -36,6 +36,17 @@ export default {
       { rel: 'dns-prefetch', href: 'https://www.gstatic.com' }
     ]
   },
+  image: {
+    provider: "prismic",
+    prismic: {
+      screens: {
+        "xs": 600,
+        "sm": 960,
+        "md": 1264,
+        "lg": 1904
+      }
+    }
+  },
   /*
   ** Customize the progress-bar color
   */
@@ -61,7 +72,8 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxt/image',
   ],
   /*
   ** Nuxt.js modules

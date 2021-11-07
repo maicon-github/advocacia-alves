@@ -41,14 +41,18 @@ export default {
     }
   },
   head () {
+    const preloads = [
+      { rel: 'preload', as: 'image', href: this.post.image.url }
+    ]
+    for (const i in this.post.body) {
+      if (this.post.body[i].slice_type === 'image') {
+        preloads.push({ rel: 'preload', as: 'image', href: this.post.body[i].primary.img.url })
+      }
+    }
     return {
+      link: preloads,
       title: this.post.title,
-      meta: [
-        { hid: 'description', name: 'description', content: this.post.meta_description }
-      ],
-      link: [
-        { rel: 'preload', as: 'image', href: this.post.image.url }
-      ]
+      meta: [{ hid: 'description', name: 'description', content: this.post.meta_description }]
     }
   }
 }

@@ -6,8 +6,8 @@
         <v-col cols="12" class="px-0">
           <v-container class="hidden-sm-and-down">
             <v-row>
-              <v-col v-for="(item, i) in posts" :key="i" md="4">
-                <PostCard :post="item" class="ma-1" />
+              <v-col v-for="(item, i) in posts" :key="i" sm="12" md="4">
+                <PostCard :post="item" />
               </v-col>
             </v-row>
           </v-container>
@@ -17,12 +17,13 @@
             show-arrows
             cycle
             interval="10000"
+            height="350"
           >
             <v-carousel-item v-for="(item, i) in posts" :key="i">
               <v-container>
                 <v-row>
-                  <v-col md="4">
-                    <PostCard :post="item" class="mx-8" />
+                  <v-col xs="12" md="4">
+                    <PostCard :post="item" />
                   </v-col>
                 </v-row>
               </v-container>

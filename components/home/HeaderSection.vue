@@ -20,9 +20,9 @@
             />
           </div>
         </v-col>
-        <v-col cols="12" md="6" class="pb-0 d-flex img-parent">
+        <v-col cols="12" md="6" class="pb-0 d-flex">
           <div class="hidden-sm-and-down mt-16" />
-          <SeoImage :image="fimage" css-class="ma-auto d-block px-4 img-contain" />
+          <nuxt-img :src="fimage.url" class="ma-auto d-block" sizes="sm:295 md:550" />
         </v-col>
       </v-row>
       <v-row class="hidden-md-and-up mt-10" align="center" justify="center">
@@ -39,9 +39,8 @@
 <script>
 import Caption from '../shared/Caption'
 import GoogleRate from '../shared/GoogleRate'
-import SeoImage from '../shared/SeoImage'
 export default {
-  components: { Caption, GoogleRate, SeoImage },
+  components: { Caption, GoogleRate },
   props: {
     caption1: { type: String, required: true },
     caption2: { type: String, required: true },

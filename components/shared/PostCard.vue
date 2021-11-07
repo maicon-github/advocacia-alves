@@ -1,13 +1,14 @@
 <template>
   <v-card
+    max-width="395"
     height="100%"
     :href="`/blog/${post.uid}`"
-    class="pa-4 img-parent"
+    class="pa-4 mx-auto d-block"
     hover
     outlined
     light
   >
-    <SeoImage :image="post.data.image" height="154px" css-class="img-cover" />
+    <nuxt-img :src="post.data.image.url" sizes="sm:200 md:200 lg: 300" class="mx-auto d-block img-cover" />
     <v-card-subtitle class="pa-0 card-subtitle">
       {{ $categoryDescription(post.data.type) }}
     </v-card-subtitle>
@@ -17,9 +18,7 @@
   </v-card>
 </template>
 <script>
-import SeoImage from '../shared/SeoImage'
 export default {
-  components: { SeoImage },
   props: { post: { type: Object, required: true } }
 }
 </script>
