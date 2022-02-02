@@ -9,7 +9,7 @@
     light
   >
     <nuxt-img :src="material.data.content_image.url" sizes="sm:200 md:200 lg: 300" class="mx-auto d-block img-cover" />
-    <v-card-subtitle class="pa-0 card-subtitle">
+    <v-card-subtitle class="pa-0 card-subtitle primary--text text-uppercase">
       {{ material.data.categoria }}
     </v-card-subtitle>
     <v-card-title class="pa-0 card-title">

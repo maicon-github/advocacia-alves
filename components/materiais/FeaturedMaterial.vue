@@ -2,7 +2,7 @@
   <v-container>
     <v-row class="d-flex align-center">
       <v-col cols="12" md="6" class="px-sm-8">
-        <div class="flex subtitle-2 font-weight-medium mb-5">
+        <div class="flex subtitle-2 font-weight-medium mb-5 primary--text ">
           EM DESTAQUE
         </div>
         <div class="flex display-1 font-weight-regular">

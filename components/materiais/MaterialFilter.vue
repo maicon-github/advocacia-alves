@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row class="d-flex justify-center mt-6">
+    <v-row class="d-flex justify-center">
       <v-col cols="12" md="5" class="px-sm-8">
         <v-select
           v-model="formatoSelecionado"
@@ -9,6 +9,7 @@
           chips
           label="Formato"
           multiple
+          hide-details
           @change="$emit('changeFormato', formatoSelecionado)"
         ></v-select>
       </v-col>
@@ -20,6 +21,7 @@
           chips
           label="Categoria"
           multiple
+          hide-details
           @change="$emit('changeCategoria', categoriaSelecionado)"
         ></v-select>
       </v-col>

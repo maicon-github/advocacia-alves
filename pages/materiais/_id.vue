@@ -26,7 +26,7 @@
           {{ subtitulo_formulario }}
         </p>
         <prismic-rich-text :field="header_text_description" />
-        <v-form ref="ebookForm" v-model="form.valid" lazy-validation>
+        <v-form ref="ebookForm" v-model="form.valid" lazy-validation class="mt-12">
           <v-text-field
             v-model="form.name"
             label="Nome"
