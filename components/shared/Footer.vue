@@ -109,7 +109,8 @@ export default {
             { label: 'Newsletter', link: '/newsletter' },
             // { label: 'Podcasts', link: 'javascript:;' },
             { label: 'Vídeos', link: 'https://www.youtube.com/channel/UCpAjHLxtknsC0CICqXSwSqA', target: '_blank', rel: 'noreferrer' },
-            { label: 'Artigos', link: '/blog' }
+            { label: 'Artigos', link: '/blog' },
+            { label: 'Materiais', link: '/materiais' }
             // { label: 'Telegram', link: 'javascript:;' },
             // { label: 'E-books', link: 'javascript:;' }
           ]
