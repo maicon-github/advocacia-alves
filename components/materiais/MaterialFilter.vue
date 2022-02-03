@@ -12,7 +12,6 @@
           hide-details
           deletable-chips
           :menu-props="{
-            closeOnClick: true,
             closeOnContentClick: true
           }"
           @change="$emit('changeFormato', formatoSelecionado)"
@@ -29,7 +28,6 @@
           hide-details
           deletable-chips
           :menu-props="{
-            closeOnClick: true,
             closeOnContentClick: true
           }"
           @change="$emit('changeCategoria', categoriaSelecionado)"
