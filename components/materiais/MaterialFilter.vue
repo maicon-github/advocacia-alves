@@ -10,6 +10,11 @@
           label="Formato"
           multiple
           hide-details
+          deletable-chips
+          :menu-props="{
+            closeOnClick: true,
+            closeOnContentClick: true
+          }"
           @change="$emit('changeFormato', formatoSelecionado)"
         ></v-select>
       </v-col>
@@ -22,6 +27,11 @@
           label="Categoria"
           multiple
           hide-details
+          deletable-chips
+          :menu-props="{
+            closeOnClick: true,
+            closeOnContentClick: true
+          }"
           @change="$emit('changeCategoria', categoriaSelecionado)"
         ></v-select>
       </v-col>
