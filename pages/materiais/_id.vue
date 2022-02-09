@@ -251,6 +251,7 @@ export default {
 .maxcontent {
   max-width: 830px;
 }
+
 .categoria {
   width: fit-content;
   font-size: 14px;
