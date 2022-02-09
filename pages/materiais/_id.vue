@@ -64,11 +64,14 @@
             filled
             dense
             multiple
+            :menu-props="{
+              closeOnContentClick: true
+            }"
           ></v-select>
           <prismic-rich-text :field="footer_text_description" />
           <recaptcha @error="onError" @success="onSuccess" @expired="onExpired" />
           <div class="text-center pt-10">
-            <v-btn class="primary" :loading="form.submitting" @click="submit">
+            <v-btn color="#044486" :loading="form.submitting" @click="submit">
               <span class="white--text text-uppercase">Enviar</span>
             </v-btn>
           </div>
@@ -253,7 +256,7 @@ export default {
   font-size: 14px;
   font-weight: 700;
   line-height: 17px;
-  border-bottom: 3px solid #D6550A;
-  color: #01408D;
+  border-bottom: 3px solid #044486;
+  color: #000000;
 }
 </style>
