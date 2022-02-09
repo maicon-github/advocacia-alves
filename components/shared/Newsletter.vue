@@ -20,7 +20,7 @@
           <div class="text2 mx-auto pt-5">
             Cadastre-se na newsletter Novo Rumo. Os seus netos vão te agradecer eternamente por essa decisão!
           </div>
-          <v-btn color="#f88d4f" class="white--text text-capitalize mt-6" href="/newsletter">
+          <v-btn color="#044486" class="white--text text-capitalize mt-6" href="/newsletter">
             Cadastre-se agora
           </v-btn>
         </v-col>
@@ -50,7 +50,7 @@
 }
 .border {
   width: 120px;
-  border-bottom: 2px solid #D6550A;
+  border-bottom: 2px solid #044486;
 }
 .byma {
   color: #3D3D3D;

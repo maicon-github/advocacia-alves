@@ -2,7 +2,9 @@
   <v-container>
     <v-row class="mb-8">
       <div class="mx-auto text-center">
-        <CenteredCaption text="MATERIAIS" />
+        <div class="caption1 py-1">
+          MATERIAIS
+        </div>
       </div>
     </v-row>
     <v-row class="text-center mb-6">
@@ -20,9 +22,16 @@
 </template>
 
 <script>
-import CenteredCaption from '../shared/CenteredCaption'
-
 export default {
-  components: { CenteredCaption }
 }
 </script>
+
+<style scoped>
+.caption1 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  border-bottom: 3px solid #044486;
+  color: #000000;
+}
+</style>

@@ -2,11 +2,11 @@
   <v-container>
     <v-row class="d-flex align-center">
       <v-col cols="12" md="6" class="px-sm-8">
-        <div class="flex subtitle-2 font-weight-medium mb-5 primary--text ">
+        <div class="flex subtitle-2 font-weight-medium mb-5 destaque">
           EM DESTAQUE
         </div>
         <div class="flex display-1 font-weight-regular">
-          <a :href="`/blog/${id}`" class="text-decoration-none">
+          <a :href="`/materiais/${id}`" class="text-decoration-none">
             {{ title }}
           </a>
         </div>
@@ -37,5 +37,8 @@ export default {
   a, a:visited {
     text-decoration: none;
     color: inherit;
+  }
+  .destaque {
+    color: #044486;
   }
 </style>

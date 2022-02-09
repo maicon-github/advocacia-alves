@@ -12,7 +12,7 @@
     <MaterialFilter @changeFormato="changeFormato" @changeCategoria="changeCategoria" />
     <MaterialList :materiais="materiais" :loading="loading" />
     <Pagination v-show="materiais.length > 0" :total="total" :loading="loading" @change="loadMateriais" />
-    <br/>
+    <Newsletter />
   </div>
 </template>
 
@@ -23,9 +23,10 @@ import FeaturedMaterial from '../../components/materiais/FeaturedMaterial'
 import MaterialList from '../../components/materiais/MaterialList'
 import Pagination from '../../components/shared/Pagination'
 import MaterialFilter from '../../components/materiais/MaterialFilter'
+import Newsletter from '../../components/shared/Newsletter'
 
 export default {
-  components: { Breadcrumb, PageTitle, FeaturedMaterial, MaterialList, Pagination, MaterialFilter },
+  components: { Breadcrumb, PageTitle, FeaturedMaterial, MaterialList, Pagination, MaterialFilter, Newsletter },
 
   data () {
     return {
