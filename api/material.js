@@ -27,6 +27,11 @@ export default (req, res) => {
                 headers: { authorization: `Zoho-oauthtoken ${auth.data.access_token}` },
                 url: `https://campaigns.zoho.com/api/json/listsubscribe?scope=CampaignsAPI&resfmt=JSON&authtoken=${config.auth_token}&listkey=${interesse}&contactinfo={"First Name":"${name}","Contact Email":"${email}","Phone":"${phone.replace(/\D/g, '')}"}`,
                 data: {}
+              }).then(function() {
+                return { success: true }
+              })
+              .catch( _ => {
+                return { success: false }
               })
             })
 
