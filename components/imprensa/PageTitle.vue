@@ -10,7 +10,7 @@
     <v-row class="text-center mb-2">
       <v-col cols="12">
         <h1 class="display-2 font-weight-bold">
-          <prismic-rich-text :field="imprensa.header_title" />
+          {{ imprensa.header_title }}
         </h1>
         <br>
         <span class="subtitle-1 grey--text">

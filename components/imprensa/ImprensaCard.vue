@@ -4,17 +4,18 @@
     hover
     outlined
     light
+    @click="open"
   >
     <v-card-subtitle class="pa-0 card-subtitle categoria text-uppercase">
       {{ pauta.data.release_type }}
     </v-card-subtitle>
     <prismic-rich-text class="mt-4" :field="pauta.data.titulo_do_release" />
     <div class="mt-4 text--disabled subtitle-1">
-      {{ pauta.data.publication_date }}
+      {{ new Date(pauta.data.publication_date).toLocaleDateString() }}
     </div>
     <v-spacer></v-spacer>
-    <v-card-actions class="justify-end">
-      <v-btn color="#044486" class="white--text" @click="open">Baixar</v-btn>
+    <v-card-actions class="justify-center">
+      <v-btn color="#044486" class="white--text">Abrir</v-btn>
     </v-card-actions>
   </v-card>
 </template>
