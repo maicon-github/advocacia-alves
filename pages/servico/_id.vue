@@ -10,28 +10,46 @@
         <v-col cols="12">
           <v-row>
             <div class="mx-auto text-center">
-              <CenteredCaption :text="hcaption1" />
+              <div class="caption1 py-1">
+                SERVIÇOS
+              </div>
             </div>
           </v-row>
           <v-row>
             <v-col cols="12" class="mb-8">
               <h1 class="stitle mb-6 text-center">
-                {{ hcaption2 }}
+                {{ title }}
               </h1>
               <p class="ssubtitle text-center">
-                {{ hcaption3 }}
+                {{ subtitle }}
               </p>
             </v-col>
           </v-row>
         </v-col>
       </v-row>
       <v-row>
-        <v-col v-for="(item, i) in benefits" :key="i" cols="4">
-          <v-icon color="success">
-            mdi-check-circle-outline
+        <v-col cols="4">
+          <v-icon :color="color_icon_1">
+            mdi-{{ icon_1 }}
           </v-icon>
           <font class="benefit">
-            {{ item.benefit }}
+            {{ hcaption1 }}
+          </font>
+        </v-col>
+        <v-col cols="4">
+          <v-icon :color="color_icon_2">
+            mdi-{{ icon_2 }}
+          </v-icon>
+          <font class="benefit">
+            {{ hcaption2 }}
+          </font>
+        </v-col>
+        <v-col cols="4">
+          <v-icon :color="color_icon_3">
+            mdi-{{ icon_3 }}
+          </v-icon>
+          <font class="benefit">
+            {{ hcaption3 }}
           </font>
         </v-col>
       </v-row>
@@ -44,35 +62,72 @@
             light
           >
             <h2 class="text-center servicename">
-              {{ plan.primary.title }}
+              {{ plan.typeservice }}
             </h2>
             <h3 class="text-center py-8 servicealias">
-              {{ plan.primary.name }}
+              {{ plan.service_name }}
             </h3>
             <p class="servicedesc">
-              {{ plan.primary.description }}
+              <prismic-rich-text :field="plan.description_service" />
             </p>
             <p class="text-center serviceprice py-4">
-              {{ plan.primary.price }}
+              {{ plan.price_option}}
             </p>
-            <div v-for="(item, j) in plan.items" :key="`a-${j}`" class="d-flex">
+            <div v-for="(feature, f) in plan.features" :key="`f-${f}`" class="d-flex">
               <p class="d-inline">
-                <v-icon color="success">
-                  mdi-check-circle-outline
-                </v-icon>&nbsp;&nbsp;
-                {{ item.ititle }}
+                <v-icon :color="plan.color_icon">
+                  mdi-{{ plan.positive_icon }}
+                </v-icon>
+                 {{ feature.text }}
               </p>
-              <prismic-rich-text :field="item.idescription" />
+            </div>
+            <div v-for="(negative_feature, nf) in plan.negative_features" :key="`nf-${nf}`" class="d-flex">
+              <p class="d-inline text-decoration-line-through text--secondary">
+                <v-icon :color="plan.denial_icon_color">
+                  mdi-{{ plan.denial_icon }}
+                </v-icon>
+                {{ negative_feature.text }}
+              </p>
             </div>
             <v-spacer />
-            <v-btn class="mx-auto" href="https://advocaciaalves.com.br/" target="_blank" width="150px" color="success">
-              PAGAR
+            <v-btn class="mx-auto" color="#044486" width="150px" @click="open(plan)">
+              <span class="white--text text-uppercase">{{ plan.call_to_action }}</span>
             </v-btn>
           </v-card>
         </v-col>
       </v-row>
+      <v-col cols="12" class="mt-6">
+        <v-row>
+          <div class="mx-auto text-center">
+            <div class="caption1 py-1 text-uppercase">
+              {{ videoHighlights.eyebrow_headline }}
+            </div>
+          </div>
+        </v-row>
+        <v-row>
+          <v-col cols="12" class="mb-8">
+            <h1 class="stitle mb-6 text-center">
+              {{ videoHighlights.title_video }}
+            </h1>
+            <p class="ssubtitle text-center">
+              <prismic-rich-text :field="videoHighlights.description" />
+            </p>
+          </v-col>
+        </v-row>
+        <v-row>
+          <iframe
+            class="mx-auto"
+            width="560"
+            height="315"
+            :src="videoHighlights.video_source.url"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </v-row>
+      </v-col>
     </v-container>
-    <div class="grey lighten-3 pb-12">
+    <div class="grey lighten-3 pb-12" v-show="faqs.length > 0">
       <Faq :data="faqs" />
     </div>
   </div>
@@ -80,26 +135,32 @@
 <script>
 import Faq from '../../components/shared/Faq'
 import Breadcrumb from '../../components/shared/Breadcrumb'
-import CenteredCaption from '../../components/shared/CenteredCaption'
 export default {
-  components: { Breadcrumb, CenteredCaption, Faq },
+  components: { Breadcrumb, Faq },
   async asyncData ({ $prismic, error, params, $serviceDescription }) {
     try {
-      const service = (await $prismic.api.getSingle('service'))
+      const service = await $prismic.api.getByUID('service', params.id)
+
+      const serviceName = service.data.meta_description
+      const plans = service.data.body.find(plan => plan.slice_type === 'pricing_table')
+      const videoHighlights = service.data.body.find(plan => plan.slice_type === 'video_highlights')
+
       const faqs = (await $prismic.api.query(
         [
           $prismic.predicates.at('document.type', 'faq'),
           $prismic.predicates.at('my.faq.type', params.id)
         ]
       ))
-      const serviceName = $serviceDescription(params.id)
-      const plans = service.data.body.filter(plan => plan.primary.type === params.id)
+
       return {
         ...service.data,
-        plans,
+        plans: plans.items,
+        serviceName,
+        videoHighlights: videoHighlights?.primary,
         faqs: faqs.results || [],
         breadCrumbItems: [
           { text: 'Inicio', disabled: false, href: '/' },
+
           { text: 'Serviço', disabled: true, href: '/servico' },
           { text: serviceName, disabled: true, href: `/servico/${params.id}` }
         ]
@@ -113,6 +174,11 @@ export default {
       meta: [
         { hid: 'description', name: 'description', content: this.meta_description }
       ]
+    }
+  },
+  methods: {
+    open (plan) {
+      window.open(plan.link_direcionamento.url, '_blank').focus()
     }
   }
 }
@@ -162,5 +228,12 @@ export default {
   letter-spacing: 0.15px;
   line-height: 19px;
   vertical-align: middle;
+}
+.caption1 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  border-bottom: 3px solid #044486;
+  color: #000000;
 }
 </style>
