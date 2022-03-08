@@ -23,5 +23,6 @@ export default {
   font-size: 14px;
   font-weight: 700;
   line-height: 17px;
+  border-bottom: 3px solid #044486;
 }
 </style>
