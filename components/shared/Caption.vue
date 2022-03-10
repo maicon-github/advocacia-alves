@@ -16,7 +16,7 @@ export default {
   box-sizing: border-box;
   height: 3px;
   width: 138px;
-  background-color: #D6550A;
+  background-color: #044486;
 }
 .caption1 {
   color: #0257C0;
