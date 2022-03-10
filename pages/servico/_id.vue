@@ -82,7 +82,7 @@
               </p>
             </div>
             <div v-for="(negative_feature, nf) in plan.negative_features" :key="`nf-${nf}`" class="d-flex">
-              <p class="d-inline text-decoration-line-through text--secondary">
+              <p class="d-inline text--secondary">
                 <v-icon :color="plan.denial_icon_color">
                   mdi-{{ plan.denial_icon }}
                 </v-icon>
