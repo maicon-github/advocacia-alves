@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container class="pb-16 mb-16">
+    <v-container class="pb-6 mb-6">
       <v-row>
         <v-col cols="12">
           <Breadcrumb :items="breadCrumbItems" class="mx-auto px-0 red--text" />
@@ -53,8 +53,8 @@
           </font>
         </v-col>
       </v-row>
-      <v-row class="mt-16">
-        <v-col v-for="(plan, i) in plans" :key="i" cols="6">
+      <v-row class="mt-16" justify="center">
+        <v-col v-for="(plan, i) in plans" :key="i" cols="12" md="6">
           <v-card
             height="100%"
             class="pa-12 d-flex flex-column"
@@ -96,7 +96,7 @@
           </v-card>
         </v-col>
       </v-row>
-      <v-col cols="12" class="mt-6">
+      <v-col cols="12" class="mt-6" v-if="videoHighlights">
         <v-row>
           <div class="mx-auto text-center">
             <div class="caption1 py-1 text-uppercase">
@@ -114,16 +114,18 @@
             </p>
           </v-col>
         </v-row>
-        <v-row>
-          <iframe
-            class="mx-auto"
-            width="560"
-            height="315"
-            :src="videoHighlights.video_source.url"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+        <v-row justify="center">
+          <v-responsive :aspect-ratio="16/9">
+            <iframe
+              class="mx-auto"
+              width="100%"
+              height="100%"
+              :src="videoHighlights.video_source.url"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </v-responsive>
         </v-row>
       </v-col>
     </v-container>
