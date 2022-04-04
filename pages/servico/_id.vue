@@ -27,8 +27,8 @@
           </v-row>
         </v-col>
       </v-row>
-      <v-row>
-        <v-col cols="4">
+      <v-row class="mx-auto">
+        <v-col cols="12" sm="4">
           <v-icon :color="color_icon_1">
             mdi-{{ icon_1 }}
           </v-icon>
@@ -36,7 +36,7 @@
             {{ hcaption1 }}
           </font>
         </v-col>
-        <v-col cols="4">
+        <v-col cols="12" sm="4">
           <v-icon :color="color_icon_2">
             mdi-{{ icon_2 }}
           </v-icon>
@@ -44,7 +44,7 @@
             {{ hcaption2 }}
           </font>
         </v-col>
-        <v-col cols="4">
+        <v-col cols="12" sm="4">
           <v-icon :color="color_icon_3">
             mdi-{{ icon_3 }}
           </v-icon>
