@@ -154,6 +154,11 @@ export default {
   async asyncData ({ $prismic, error, params }) {
     try {
       const material = (await $prismic.api.getByUID('landing_page', params.id))
+
+      if (material.uid !== params.id) {
+        error({ statusCode: 404, title: 'Page not found' })
+      }
+
       return {
         uid: material.uid,
         ...material.data
