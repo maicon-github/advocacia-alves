@@ -18,7 +18,7 @@
           <h4 class="text-center mb-5">
             Consulta online
           </h4>
-          <v-btn color="#e57100" class="white--text">
+          <v-btn color="#4085c6" class="white--text">
             Agendar agora
           </v-btn>
         </v-col>
@@ -46,7 +46,7 @@
 
         <v-col cols="12" class="text-center">
           <span>
-            Atendimento de segunda a sexta das 09:00 as 12:00 e das 13:00 as 21:00
+            Atendimento de segunda a sexta das 09:00 as 12:00 e das 13:00 as 17:00
           </span>
         </v-col>
       </v-row>
@@ -80,10 +80,10 @@
       </v-row>
       <v-row>
         <v-col cols="12" md="6">
-          <p>Empresa Registrada Na OAB/SC sob o número 5856.</p>
+          <p>Empresa registrada na OAB/SC sob o número 5856.</p>
         </v-col>
         <v-col cols="12" md="6">
-          2020 Advocacia Alves - Todos os direitos reservados
+          2022 Advocacia Alves® - Todos os direitos reservados
         </v-col>
       </v-row>
     </v-container>
@@ -97,7 +97,7 @@ export default {
         title: 'Acompanhê-nos nas redes sociais',
         items: [
           { icon: 'mdi-instagram', label: 'Instagram', link: 'https://www.instagram.com/Advocacia_Alves/' },
-          { icon: 'mdi-facebook', label: 'Facebook', link: 'https://business.facebook.com/advcalves' },
+          { icon: 'mdi-facebook', label: 'Facebook', link: 'https://facebook.com/advcalves' },
           { icon: 'mdi-linkedin', label: 'Linkedin', link: 'https://www.linkedin.com/company/advocacia-alves/' },
           { icon: 'mdi-youtube', label: 'Youtube', link: 'https://www.youtube.com/channel/UCpAjHLxtknsC0CICqXSwSqA' }
         ]
