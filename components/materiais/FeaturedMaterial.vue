@@ -39,6 +39,6 @@ export default {
     color: inherit;
   }
   .destaque {
-    color: #044486;
+    color: #4085c6;
   }
 </style>
