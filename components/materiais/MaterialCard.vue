@@ -30,6 +30,6 @@ export default {
 
 <style scoped>
   .categoria {
-    color: #044486 !important;
+    color: #4085c6 !important;
   }
 </style>
