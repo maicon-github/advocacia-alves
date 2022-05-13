@@ -19,7 +19,7 @@ export default {
   background-color: #044486;
 }
 .caption1 {
-  color: #0257C0;
+  color: #3d3d3d;
   font-size: 14px;
   font-weight: 700;
   line-height: 17px;
