@@ -8,7 +8,7 @@
       </v-row>
       <v-row>
         <div class="mx-auto text-center">
-          <CenteredCaption text="CENTAL DE AJUDA" />
+          <CenteredCaption text="CENTRAL DE AJUDA" />
         </div>
       </v-row>
       <v-row>
