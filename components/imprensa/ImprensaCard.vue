@@ -15,7 +15,7 @@
     </div>
     <v-spacer></v-spacer>
     <v-card-actions class="justify-center">
-      <v-btn color="#044486" class="white--text">Abrir</v-btn>
+      <v-btn color="#4085c6" class="white--text">Abrir</v-btn>
     </v-card-actions>
   </v-card>
 </template>
