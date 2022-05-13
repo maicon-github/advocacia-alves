@@ -20,7 +20,7 @@
           <div class="text2 mx-auto pt-5">
             Cadastre-se na newsletter Novo Rumo. Os seus netos vão te agradecer eternamente por essa decisão!
           </div>
-          <v-btn color="#044486" class="white--text text-capitalize mt-6" href="/newsletter">
+          <v-btn color="#4085C6" class="white--text text-capitalize mt-6" href="/newsletter">
             Cadastre-se agora
           </v-btn>
         </v-col>
