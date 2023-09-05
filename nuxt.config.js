@@ -116,9 +116,9 @@ export default {
     */
     extend (config, ctx) {
     },
-    buildDir: 'dist',
   },
   generate: {
+    dir: 'dist'
     async routes () {
       const client = Prismic.client(process.env.PRISMIC_ENDPOINT)
 
