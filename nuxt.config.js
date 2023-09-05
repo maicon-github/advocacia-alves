@@ -118,7 +118,6 @@ export default {
     },
   },
   generate: {
-    dir: 'dist'
     async routes () {
       const client = Prismic.client(process.env.PRISMIC_ENDPOINT)
 
