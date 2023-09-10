@@ -4,6 +4,9 @@
   "description": "Escritório de advocacia previdenciário. Planejamento previdenciário, revisões, aposentadorias, processo, INSS, consulta advogado.",
   "author": "Daniel Alves",
   "private": true,
+  "engines" : {
+    "node" : "<17.0.0"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt generate",
