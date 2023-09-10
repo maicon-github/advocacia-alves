@@ -5,7 +5,7 @@
   "author": "Daniel Alves",
   "private": true,
   "engines" : {
-    "node" : "<17.0.0"
+    "node" : "16.x"
   },
   "scripts": {
     "dev": "nuxt",
