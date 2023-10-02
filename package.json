@@ -5,7 +5,7 @@
   "author": "Daniel Alves",
   "private": true,
   "engines" : {
-    "node" : "16.x"
+    "node" : "18.x"
   },
   "scripts": {
     "dev": "nuxt",
@@ -29,7 +29,7 @@
     "nuxt-precompress": "^0.4.9",
     "nuxt-webfontloader": "^1.1.0",
     "prismic-dom": "^2.2.4",
-    "prismic-javascript": "^3.0.2",
+    "prismic-javascript": "^2.7.1",
     "prismic-vue": "^2.0.1",
     "vee-validate": "^3.4.5",
     "vue-the-mask": "^0.11.1"
