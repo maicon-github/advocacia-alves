@@ -84,7 +84,7 @@
           <p>Empresa registrada na OAB/SC sob o número 5856.</p>
         </v-col>
         <v-col cols="12" md="6">
-          2022 Advocacia Alves® - Todos os direitos reservados
+          2024 Advocacia Alves® - Todos os direitos reservados
         </v-col>
       </v-row>
     </v-container>
