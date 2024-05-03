@@ -19,6 +19,9 @@
           href="https://api.whatsapp.com/send?l=pt_BR&phone=554831973113"
           target="_blank"
         >
+          <v-icon left>
+              mdi-whatsapp
+            </v-icon>  
           AGENDE A VISITA
         </v-btn>
       </v-col>
