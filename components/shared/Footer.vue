@@ -75,6 +75,7 @@
           </div>
           <div>
             Rua Paschoal Apóstolo Ptsica, 4860, Bairro Agronômica, Florianópolis/SC - CEP: 88025-255
+            Rua Praça Nereu Ramos, n.2, sala 3, Centro, Tijucas/SC - CEP 88200-000
           </div>
         </v-col>
       </v-row>
