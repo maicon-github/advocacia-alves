@@ -74,8 +74,8 @@
             Alves Advocacia - CNPJ: 39.993.814/0001-00
           </div>
           <div>
-            Rua Paschoal Apóstolo Ptsica, 4860, Bairro Agronômica, Florianópolis/SC - CEP: 88025-255 <br>
-            Rua Praça Nereu Ramos, n.2, sala 3, Centro, Tijucas/SC - CEP 88200-000
+            <p>Rua Paschoal Apóstolo Ptsica, 4860, Bairro Agronômica, Florianópolis/SC - CEP: 88025-255</p>
+            <p>Rua Praça Nereu Ramos, n.2, sala 3, Centro, Tijucas/SC - CEP 88200-000</p>
           </div>
         </v-col>
       </v-row>
