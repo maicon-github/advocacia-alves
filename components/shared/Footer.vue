@@ -71,7 +71,7 @@
         </v-col>
         <v-col cols="12">
           <div>
-            Advocacia Alves - CNPJ: 39.993.814/0001-00
+            Alves Advocacia - CNPJ: 39.993.814/0001-00
           </div>
           <div>
             Rua Paschoal Apóstolo Ptsica, 4860, Bairro Agronômica, Florianópolis/SC - CEP: 88025-255
@@ -84,7 +84,7 @@
           <p>Empresa registrada na OAB/SC sob o número 5856.</p>
         </v-col>
         <v-col cols="12" md="6">
-          2024 Advocacia Alves® - Todos os direitos reservados
+          2024 Alves Advocacia® - Todos os direitos reservados
         </v-col>
       </v-row>
     </v-container>
