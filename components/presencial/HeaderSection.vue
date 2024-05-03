@@ -14,7 +14,7 @@
           <prismic-rich-text :field="text" />
         </div>
         <v-btn
-          color="#4085c6"
+          color="success"
           class="white--text mx-auto my-10"
           href="https://api.whatsapp.com/send?l=pt_BR&phone=554831973113"
           target="_blank"
