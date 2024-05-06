@@ -18,7 +18,7 @@
           <h4 class="text-center mb-5">
             Consulta online
           </h4>
-          <v-btn color="#4085c6" class="white--text" href="https://api.whatsapp.com/send?l=pt_BR&phone=5548920026917" target="_blank rel="noreferrer">
+          <v-btn color="#4085c6" class="white--text" href="https://api.whatsapp.com/send?l=pt_BR&phone=5548920026917" target="_blank" rel="noreferrer">
             Agendar agora
           </v-btn>
         </v-col>
