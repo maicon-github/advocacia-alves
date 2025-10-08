@@ -15,7 +15,7 @@
         <v-btn
           color="#4085c6"
           class="white--text mx-auto my-10"
-          href="https://api.whatsapp.com/send?l=pt_BR&phone=5548920026917"
+          href="https://api.whatsapp.com/send?l=pt_BR&phone=554831973113"
           target="_blank"
         >
           {{ btnText }}
