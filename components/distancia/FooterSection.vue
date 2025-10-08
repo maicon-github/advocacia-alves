@@ -20,7 +20,7 @@
       <v-btn
         color="#f88d4f"
         class="white--text mx-auto mt-16"
-        href="https://api.whatsapp.com/send?l=pt_BR&phone=5548920026917"
+        href="https://api.whatsapp.com/send?l=pt_BR&phone=554831973113"
         target="_blank"
       >
         Quero atendimento à distância
